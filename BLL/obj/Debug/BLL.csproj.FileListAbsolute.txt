@@ -1,0 +1,10 @@
+E:\DOAN_1CHI\QuanLy_CH_VLXD\BLL\bin\Debug\BLL.dll
+E:\DOAN_1CHI\QuanLy_CH_VLXD\BLL\bin\Debug\BLL.pdb
+E:\DOAN_1CHI\QuanLy_CH_VLXD\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+E:\DOAN_1CHI\QuanLy_CH_VLXD\BLL\obj\Debug\BLL.dll
+E:\DOAN_1CHI\QuanLy_CH_VLXD\BLL\obj\Debug\BLL.pdb
+E:\DOAN_1CHI\QuanLy_CH_VLXD\BLL\bin\Debug\DAL.dll
+E:\DOAN_1CHI\QuanLy_CH_VLXD\BLL\bin\Debug\DAL.pdb
+E:\DOAN_1CHI\QuanLy_CH_VLXD\BLL\bin\Debug\DAL.dll.config
+E:\DOAN_1CHI\QuanLy_CH_VLXD\BLL\obj\Debug\BLL.csproj.CopyComplete
+E:\DOAN_1CHI\QuanLy_CH_VLXD\BLL\obj\Debug\BLL.csprojAssemblyReference.cache

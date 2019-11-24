@@ -1,0 +1,7 @@
+E:\DOAN_1CHI\QuanLy_CH_VLXD\DAL\bin\Debug\DAL.dll
+E:\DOAN_1CHI\QuanLy_CH_VLXD\DAL\bin\Debug\DAL.pdb
+E:\DOAN_1CHI\QuanLy_CH_VLXD\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\DOAN_1CHI\QuanLy_CH_VLXD\DAL\obj\Debug\DAL.dll
+E:\DOAN_1CHI\QuanLy_CH_VLXD\DAL\obj\Debug\DAL.pdb
+E:\DOAN_1CHI\QuanLy_CH_VLXD\DAL\bin\Debug\DAL.dll.config
+E:\DOAN_1CHI\QuanLy_CH_VLXD\DAL\obj\Debug\DAL.csprojAssemblyReference.cache

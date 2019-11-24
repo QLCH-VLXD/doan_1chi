@@ -1,0 +1,38 @@
+-Nhập hàng
+- bán hàng
+- thống kê hàng tồn: + hàng bán chạy
+			+ hàng không bán chạy
+(thông kê để biết cần nhập hàng hay không)
+-ql nhân viên
+- phân quyền
+
+pass: @P7tfP@66tWs7@B
+
+
+
+
+
+link:http://tayninhit.info/phan-mem-quan-ly-ban-hang-vat-lieu-xay-dung-cong-trinh-179.html
+link:https://phanmemtotnhat.vn/phan-mem-ban-hang-vat-lieu-xay-dung
+link:http://vaidianguyenduc.com/vat-lieu-xay-dung-gom-nhung-gi.htm
+link:http://www.tindoanhnghiep.net/chi-tiet-tin/nhung-hieu-biet-co-ban-ve-vat-lieu-xay-dung-81/
+link:https://hptoancau.com/danh-sach-nhung-san-pham-vat-lieu-xay-dung-phai-chung-nhan-va-cong-bo-hop-quy/
+
+
+
+
+
+======lấy trên mạng: link:https://text.xemtailieu.com/tai-lieu/xay-dung-chuong-trinh-quan-ly-cua-hang-ban-vat-lieu-xay-dung-34649.html
+Mô tả công việc:
+Kiểm tra tình trạng vật tư
+Lập danh sách những vật tư đã hết
+Kiểm tra vật tư theo yêu cầu khách hàng
+Lập phiếu đề nghị mua hàng
+Lập đơn đặt hàng
+Xem xét, đặt hàng
+Lập phiếu nhập
+Kiểm tra nhận hàng và nhập hàng vào kho
+Thống kê nhập hàng
+Lập hóa đơn bán hàng
+Xuất hàng
+Thống kê xuất hàng, doanh thu

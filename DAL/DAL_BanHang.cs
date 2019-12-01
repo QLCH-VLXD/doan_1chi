@@ -71,13 +71,11 @@ namespace DAL
             return dulieu.ToList<NHASANXUAT>();
         }
 
-        public List<HOADONBAN1> LoadDL()
+        public List<BangGhep_HoaDonBan> LoadDL()
         {
             var hoadonban = from s in dal_data.HOADONBANs
-                            from q in dal_data.KHACHHANGs
-                          //  from nv in dal_data.NHANVIENs
-                            where s.MAKH == q.MAKH 
-                            //&& s.MANV==nv.MANV
+                            join q in dal_data.KHACHHANGs on s.MAKH equals( q.MAKH)
+
                             select new
                             {
                                 s.MAHDB,
@@ -88,32 +86,25 @@ namespace DAL
                                 s.TONGSLSANPHAM,
                                 s.TONGTIEN
                             };
-            var kq = hoadonban.ToList().ConvertAll(t => new HOADONBAN1()
+            var kq = hoadonban.ToList().ConvertAll(t => new BangGhep_HoaDonBan()
             {
-                MAHDB = t.MAHDB,
-                MANV = t.MANV,
-                Sdt = t.SDT,
-                TenKH = t.HOTENKH,
-                NGAYLAP = t.NGAYLAP,
-                TONGSLSANPHAM = t.TONGSLSANPHAM,
-                TONGTIEN = t.TONGTIEN
+                MAHDB1 = t.MAHDB,
+                MANV1 = t.MANV,
+                SDT1 = t.SDT,
+                HOTENKH1 = t.HOTENKH,
+                NGAYLAP1 =Convert.ToString( t.NGAYLAP),
+                TONGSLSANPHAM1 =Convert.ToString (t.TONGSLSANPHAM),
+                TONGTIEN1 =Convert.ToString( t.TONGTIEN)
             });
-
-
-            kq.ToList<HOADONBAN1>();
-
-            return kq;
-
+           return kq.ToList<BangGhep_HoaDonBan>();
         }
 
-        public List<CHITIETHOADONBAN> LoadDL_CTHoaDonBan()
+        public List<CHITIET_HOADON> LoadDL_CTHoaDonBan()
         {
             var CT_hoadonban = from s in dal_data.CHITIETHOADONBANs
                                 from q in dal_data.MATHANGs
                                 from dg in dal_data.DONGIAs
-                                //  from nv in dal_data.NHANVIENs
                             where s.MAMATHANG == q.MAMATHANG && dg.MAMATHANG==q.MAMATHANG
-                            //&& s.MANV==nv.MANV
                             select new
                             {
                                 s.MACTHDB,
@@ -123,21 +114,50 @@ namespace DAL
                                 s.THANHTIEN
                                 
                             };
-            var kq = CT_hoadonban.ToList().ConvertAll(t => new CHITIETHOADONBAN()
+            var kq = CT_hoadonban.ToList().ConvertAll(t => new CHITIET_HOADON()
             {
-                MACTHDB = t.MACTHDB,
-                Tenmathang = t.TENMATHANG,
-                SOLUONGBAN = t.SOLUONGBAN,
-                Gia =Convert.ToDecimal( t.GIA),
-                THANHTIEN = t.THANHTIEN
+                MACTHDB1 = t.MACTHDB,
+                TENMATHANG1 = t.TENMATHANG,
+                SOLUONGBAN1 =  Convert.ToString(t.SOLUONGBAN),
+                GIA1 =Convert.ToString( t.GIA),
+                THANHTIEN1 =Convert.ToString( t.THANHTIEN)
                 
             });
 
 
-            return kq.ToList<CHITIETHOADONBAN>();
+            return kq.ToList<CHITIET_HOADON>();
         }
 
-        public bool them(HOADONBAN1 hdb)
+        public List<CHITIET_HOADON> LoadDL_CTHoaDonBan1(String j)
+        {
+            var CT_hoadonban = from s in dal_data.CHITIETHOADONBANs
+                               from q in dal_data.MATHANGs
+                               from dg in dal_data.DONGIAs
+                               where s.MAMATHANG == q.MAMATHANG && dg.MAMATHANG == q.MAMATHANG && s.MAHDB==j
+                              
+                               select new
+                               {
+                                   s.MACTHDB,
+                                   q.TENMATHANG,
+                                   s.SOLUONGBAN,
+                                   dg.GIA,
+                                   s.THANHTIEN
+
+                               };
+            var kq = CT_hoadonban.ToList().ConvertAll(t => new CHITIET_HOADON()
+            {
+                MACTHDB1 = t.MACTHDB,
+                TENMATHANG1 = t.TENMATHANG,
+                SOLUONGBAN1 = Convert.ToString(t.SOLUONGBAN),
+                GIA1 = Convert.ToString(t.GIA),
+                THANHTIEN1 = Convert.ToString(t.THANHTIEN)
+            });
+
+
+            return kq.ToList<CHITIET_HOADON>();
+        }
+
+        public bool them_HoaDonBan(HOADONBAN hdb)
         {
             try
             {
@@ -145,15 +165,15 @@ namespace DAL
                 dal_data.SubmitChanges();
                 return true;
             }
-            catch
+            catch(Exception ex)
             {
                 return false;
             }
         }
 
-        public bool ktkc(HOADONBAN1 hdb)
+        public bool ktkc(HOADONBAN hdb)
         {
-            int r =dal_data.HOADONBANs.Count(t => t.MAHDB == hdb.MAHDB.ToString());
+            int r = dal_data.HOADONBANs.Count(t => t.MAHDB == hdb.MAHDB.ToString());
             try
             {
                 if (r == 0)
@@ -167,16 +187,46 @@ namespace DAL
                 return false;
             }
         }
-
-        public bool sua(CHITIETHOADONBAN hdb)
+        /// CT hoa don ban
+        public bool them_CTHoaDonBan(CHITIETHOADONBAN cthdb)
         {
             try
             {
-                CHITIETHOADONBAN mh = dal_data.CHITIETHOADONBANs.Where(t => t.MACTHDB == hdb.MACTHDB.ToString()).FirstOrDefault();
-                mh.Tenmathang = hdb.Tenmathang;
-                mh.SOLUONGBAN = hdb.SOLUONGBAN;
-                mh.Gia = hdb.Gia;
-                mh.THANHTIEN = hdb.THANHTIEN;
+                
+                dal_data.CHITIETHOADONBANs.InsertOnSubmit(cthdb);
+                dal_data.SubmitChanges();
+                dal_data.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, cthdb);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool ktkc_cthdb(CHITIETHOADONBAN cthdb)
+        {
+            int r = dal_data.CHITIETHOADONBANs.Count(t => t.MACTHDB == cthdb.MACTHDB.ToString());
+            try
+            {
+                if (r == 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool sua_CTHDB(CHITIETHOADONBAN mh)
+        {
+            try
+            {
+               var aa = dal_data.CHITIETHOADONBANs.Where(t => t.MACTHDB == mh.MACTHDB.ToString()).FirstOrDefault();
+                aa.MAMATHANG = mh.MAMATHANG;
+                aa.SOLUONGBAN = mh.SOLUONGBAN;
                 dal_data.SubmitChanges();
                 return true;
             }
@@ -186,19 +236,49 @@ namespace DAL
             }
         }
 
-        //public bool xoa(MonHoc pmh)
-        //{
-        //    try
-        //    {
-        //        MonHoc mh = DL.MonHocs.Where(t => t.MaMonHoc == pmh.MaMonHoc.ToString()).FirstOrDefault();
-        //        DL.MonHocs.DeleteOnSubmit(mh);
-        //        DL.SubmitChanges(); ;
-        //        return true;
-        //    }
-        //    catch
-        //    {
-        //        return false;
-        //    }
-        //}
+        public bool sua_HDB(HOADONBAN mh)
+        {
+            try
+            {
+                var aa = dal_data.HOADONBANs.Where(t => t.MAHDB == mh.MAHDB.ToString()).FirstOrDefault();
+                dal_data.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, aa);
+                String s = aa.ToString();
+                aa.TONGSLSANPHAM = mh.TONGSLSANPHAM;
+                aa.TONGTIEN = mh.TONGTIEN;
+                dal_data.SubmitChanges();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool xoa_CTHDB(CHITIETHOADONBAN pmh)
+        {
+            try
+            {
+                var mh = dal_data.CHITIETHOADONBANs.Where(t => t.MACTHDB == pmh.MACTHDB.ToString()).FirstOrDefault();
+                var mh2=( from s in dal_data.CHITIETHOADONBANs where s.MACTHDB==pmh.MACTHDB select s.MAMATHANG).FirstOrDefault();
+                var mh3 = (from s in dal_data.CHITIETHOADONBANs where s.MACTHDB == pmh.MACTHDB select s.MAHDB).FirstOrDefault();
+                mh.MAHDB = mh3.ToString();
+                mh.MAMATHANG = mh2.ToString();
+                mh.SOLUONGBAN = pmh.SOLUONGBAN;
+                mh.THANHTIEN = pmh.THANHTIEN;
+                dal_data.CHITIETHOADONBANs.DeleteOnSubmit(mh);
+                dal_data.SubmitChanges(); ;
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+        }
+        public String layma(String sdt)
+        {
+            var lm =( from k in dal_data.KHACHHANGs where k.SDT == sdt select k.MAKH).FirstOrDefault();
+            String s = lm.ToString();
+            return lm.ToString();
+        }
     }
 }

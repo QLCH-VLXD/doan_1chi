@@ -6,22 +6,20 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public partial class CHITIETHOADONBAN
+    public  class CHITIET_HOADON
+
     {
-        private String tenmathang;
-        private Decimal gia;
+        String MACTHDB;
+        String TENMATHANG;
+        String SOLUONGBAN;
+        String GIA;
+        String THANHTIEN;
 
-        public String Tenmathang
-        {
-            get { return tenmathang; }
-            set { tenmathang = value; }
-        }
-
-        public Decimal Gia
-        {
-            get { return gia; }
-            set { gia = value; }
-        }
+        public string MACTHDB1 { get => MACTHDB; set => MACTHDB = value; }
+        public string TENMATHANG1 { get => TENMATHANG; set => TENMATHANG = value; }
+        public string SOLUONGBAN1 { get => SOLUONGBAN; set => SOLUONGBAN = value; }
+        public string GIA1 { get => GIA; set => GIA = value; }
+        public string THANHTIEN1 { get => THANHTIEN; set => THANHTIEN = value; }
 
     }
 }

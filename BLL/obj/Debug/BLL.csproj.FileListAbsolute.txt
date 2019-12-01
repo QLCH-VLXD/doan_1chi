@@ -8,3 +8,13 @@ E:\DOAN_1CHI\QuanLy_CH_VLXD\BLL\bin\Debug\DAL.pdb
 E:\DOAN_1CHI\QuanLy_CH_VLXD\BLL\bin\Debug\DAL.dll.config
 E:\DOAN_1CHI\QuanLy_CH_VLXD\BLL\obj\Debug\BLL.csproj.CopyComplete
 E:\DOAN_1CHI\QuanLy_CH_VLXD\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\BLL\bin\Debug\BLL.dll
+C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\BLL\bin\Debug\BLL.pdb
+C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\BLL\bin\Debug\DAL.dll
+C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\BLL\bin\Debug\DAL.pdb
+C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\BLL\bin\Debug\DAL.dll.config
+C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\BLL\obj\Debug\BLL.dll
+C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\BLL\obj\Debug\BLL.pdb

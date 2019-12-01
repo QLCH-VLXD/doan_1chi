@@ -7,164 +7,72 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DAL;
+using BLL;
 
 namespace QuanLy_CH_VLXD
 {
     public partial class frm_NhapHang : UserControl
     {
+        BLL_NhapHang bLL_NhapHang = new BLL_NhapHang();
+
+        private String lay_dl;
+        private String s;
+
         public frm_NhapHang()
         {
             InitializeComponent();
         }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox_TTCTSanPham_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gridControl1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void frm_NhapHang_Load(object sender, EventArgs e)
         {
+            txt_PhieuNhap.Text = "PH" + bLL_NhapHang.Sinh_MaNhapHang_dal();
+            cbo_LoaiMH.DataSource = bLL_NhapHang.load_loaiMatHang();
+            cbo_LoaiMH.ValueMember = "MALOAIMATHANG";
+            cbo_LoaiMH.DisplayMember = "TENLOAIMATHANG";
+            cbo_maPNNSX.DataSource = bLL_NhapHang.load_maPNHNSX();
+            cbo_maPNNSX.DisplayMember = "MAPDHNSX";
 
+
+            lbl_manv.Text = Lay_DL;
+        }
+
+        private void cbo_LoaiMH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbo_LoaiMH.SelectedValue.ToString() != String.Empty)
+            {
+                cbo_TenMH.DataSource = bLL_NhapHang.load_MatHang(cbo_LoaiMH.SelectedValue.ToString());
+                cbo_TenMH.ValueMember = "MAMATHANG";
+                cbo_TenMH.DisplayMember = "TENMATHANG";
+            }
+        }
+
+        private void cbo_TenMH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbo_TenMH.Text.ToString() != String.Empty)
+            {
+                txt_DonGiaNhap.Text = bLL_NhapHang.Load_dongia(cbo_TenMH.SelectedValue.ToString());
+                txt_DonViTinh.Text = bLL_NhapHang.Load_donvitinh(cbo_TenMH.SelectedValue.ToString());
+                cbo_NSX.DataSource = bLL_NhapHang.load_NSX(cbo_TenMH.SelectedValue.ToString());
+                cbo_NSX.ValueMember = "MANSX";
+                cbo_NSX.DisplayMember = "TENNSX";
+                
+
+            }
+        }
+
+
+        /////// lấy dữ liệu 
+        public string Lay_DL
+        {
+            get { return lay_dl; }
+            set { lay_dl = value; }
+        }
+
+        private void txt_SoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

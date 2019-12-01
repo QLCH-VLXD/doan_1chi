@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QL_CH_VATLIEUXAYDUNG" Class="linQDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-CKJCBOM\SQLEXPRESS;Initial Catalog=QL_CH_VATLIEUXAYDUNG;User ID=sa" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="QL_CH_VATLIEUXAYDUNGConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-CKJCBOM\SQLEXPRESS;Initial Catalog=QL_CH_VATLIEUXAYDUNG;Integrated Security=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="QL_CH_VATLIEUXAYDUNGConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.CHITIETGIAOHANG" Member="CHITIETGIAOHANGs">
     <Type Name="CHITIETGIAOHANG">
       <Column Name="MACTGIAOHNAG" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -7,8 +7,8 @@
       <Column Name="MACTHDB" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="SOLUONGMH" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="THANHTIEN" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Association Name="CHITIETHOADONBAN_CHITIETGIAOHANG" Member="CHITIETHOADONBAN" ThisKey="MACTHDB" OtherKey="MACTHDB" Type="CHITIETHOADONBAN" IsForeignKey="true" />
       <Association Name="GIAOHANG_CHITIETGIAOHANG" Member="GIAOHANG" ThisKey="MAGIAOHANG" OtherKey="MAGIAOHANG" Type="GIAOHANG" IsForeignKey="true" />
+      <Association Name="CHITIETHOADONBAN_CHITIETGIAOHANG" Member="CHITIETHOADONBAN" ThisKey="MACTHDB" OtherKey="MACTHDB" Type="CHITIETHOADONBAN" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TAIKHOAN" Member="TAIKHOANs">
@@ -17,18 +17,6 @@
       <Column Name="MATKHAU" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="HOATDONG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="NHANVIEN_TAIKHOAN" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.CHITIETHOADONBAN" Member="CHITIETHOADONBANs">
-    <Type Name="CHITIETHOADONBAN">
-      <Column Name="MACTHDB" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MAHDB" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="MAMATHANG" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="SOLUONGBAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="THANHTIEN" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Association Name="CHITIETHOADONBAN_CHITIETGIAOHANG" Member="CHITIETGIAOHANGs" ThisKey="MACTHDB" OtherKey="MACTHDB" Type="CHITIETGIAOHANG" />
-      <Association Name="HOADONBAN_CHITIETHOADONBAN" Member="HOADONBAN" ThisKey="MAHDB" OtherKey="MAHDB" Type="HOADONBAN" IsForeignKey="true" />
-      <Association Name="MATHANG_CHITIETHOADONBAN" Member="MATHANG" ThisKey="MAMATHANG" OtherKey="MAMATHANG" Type="MATHANG" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.CHITIETMATHANG" Member="CHITIETMATHANGs">
@@ -110,20 +98,6 @@
       <Association Name="NHANVIEN_GIAOHANG" Member="NHANVIEN" ThisKey="MANVGIAOHANG" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.HOADONBAN" Member="HOADONBANs">
-    <Type Name="HOADONBAN">
-      <Column Name="MAHDB" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MANV" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="MAKH" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="NGAYLAP" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="TONGSLSANPHAM" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TONGTIEN" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="TINHTRANG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="HOADONBAN_CHITIETHOADONBAN" Member="CHITIETHOADONBANs" ThisKey="MAHDB" OtherKey="MAHDB" Type="CHITIETHOADONBAN" />
-      <Association Name="KHACHHANG_HOADONBAN" Member="KHACHHANG" ThisKey="MAKH" OtherKey="MAKH" Type="KHACHHANG" IsForeignKey="true" />
-      <Association Name="NHANVIEN_HOADONBAN" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.KHACHHANG" Member="KHACHHANGs">
     <Type Name="KHACHHANG">
       <Column Name="MAKH" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -166,11 +140,11 @@
       <Column Name="SOLUONG" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TINHTRANG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="GHICHU" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="MATHANG_CHITIETHOADONBAN" Member="CHITIETHOADONBANs" ThisKey="MAMATHANG" OtherKey="MAMATHANG" Type="CHITIETHOADONBAN" />
       <Association Name="MATHANG_CHITIETMATHANG" Member="CHITIETMATHANGs" ThisKey="MAMATHANG" OtherKey="MAMATHANG" Type="CHITIETMATHANG" />
       <Association Name="MATHANG_CHITIETNHASANXUAT" Member="CHITIETNHASANXUATs" ThisKey="MAMATHANG" OtherKey="MAMATHANG" Type="CHITIETNHASANXUAT" />
       <Association Name="MATHANG_CTPHIEUDATHANGNSX" Member="CTPHIEUDATHANGNSXes" ThisKey="MAMATHANG" OtherKey="MAMATHANG" Type="CTPHIEUDATHANGNSX" />
       <Association Name="MATHANG_DONGIA" Member="DONGIAs" ThisKey="MAMATHANG" OtherKey="MAMATHANG" Type="DONGIA" />
+      <Association Name="MATHANG_CHITIETHOADONBAN" Member="CHITIETHOADONBANs" ThisKey="MAMATHANG" OtherKey="MAMATHANG" Type="CHITIETHOADONBAN" />
       <Association Name="DONVITINH_MATHANG" Member="DONVITINH" ThisKey="MADVT" OtherKey="MADVT" Type="DONVITINH" IsForeignKey="true" />
       <Association Name="LOAIMATHANG_MATHANG" Member="LOAIMATHANG" ThisKey="MALOAIMATHANG" OtherKey="MALOAIMATHANG" Type="LOAIMATHANG" IsForeignKey="true" />
       <Association Name="NHASANXUAT_MATHANG" Member="NHASANXUAT" ThisKey="MANSX" OtherKey="MANSX" Type="NHASANXUAT" IsForeignKey="true" />
@@ -200,10 +174,10 @@
       <Column Name="NGAYVAOLAM" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Association Name="NHANVIEN_TAIKHOAN" Member="TAIKHOAN" ThisKey="MANV" OtherKey="MANV" Type="TAIKHOAN" Cardinality="One" />
       <Association Name="NHANVIEN_GIAOHANG" Member="GIAOHANGs" ThisKey="MANV" OtherKey="MANVGIAOHANG" Type="GIAOHANG" />
-      <Association Name="NHANVIEN_HOADONBAN" Member="HOADONBANs" ThisKey="MANV" OtherKey="MANV" Type="HOADONBAN" />
       <Association Name="NHANVIEN_NGUOIDUNGNHOMNGUOIDUNG" Member="NGUOIDUNGNHOMNGUOIDUNGs" ThisKey="MANV" OtherKey="MANV" Type="NGUOIDUNGNHOMNGUOIDUNG" />
       <Association Name="NHANVIEN_PHIEUDATHANGNSX" Member="PHIEUDATHANGNSXes" ThisKey="MANV" OtherKey="MANV" Type="PHIEUDATHANGNSX" />
       <Association Name="NHANVIEN_PHIEUNHAPHANG" Member="PHIEUNHAPHANGs" ThisKey="MANV" OtherKey="MANV" Type="PHIEUNHAPHANG" />
+      <Association Name="NHANVIEN_HOADONBAN" Member="HOADONBANs" ThisKey="MANV" OtherKey="MANV" Type="HOADONBAN" />
       <Association Name="CHUCVU_NHANVIEN" Member="CHUCVU" ThisKey="MACHUCVU" OtherKey="MACHUCVU" Type="CHUCVU" IsForeignKey="true" />
     </Type>
   </Table>
@@ -267,6 +241,32 @@
       <Association Name="NHANVIEN_PHIEUNHAPHANG" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.HOADONBAN" Member="HOADONBANs">
+    <Type Name="HOADONBAN">
+      <Column Name="MAHDB" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MANV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MAKH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NGAYLAP" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TONGSLSANPHAM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TONGTIEN" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="TINHTRANG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="HOADONBAN_CHITIETHOADONBAN" Member="CHITIETHOADONBANs" ThisKey="MAHDB" OtherKey="MAHDB" Type="CHITIETHOADONBAN" />
+      <Association Name="KHACHHANG_HOADONBAN" Member="KHACHHANG" ThisKey="MAKH" OtherKey="MAKH" Type="KHACHHANG" IsForeignKey="true" />
+      <Association Name="NHANVIEN_HOADONBAN" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CHITIETHOADONBAN" Member="CHITIETHOADONBANs">
+    <Type Name="CHITIETHOADONBAN">
+      <Column Name="MACTHDB" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MAHDB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MAMATHANG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SOLUONGBAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="THANHTIEN" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="CHITIETHOADONBAN_CHITIETGIAOHANG" Member="CHITIETGIAOHANGs" ThisKey="MACTHDB" OtherKey="MACTHDB" Type="CHITIETGIAOHANG" />
+      <Association Name="HOADONBAN_CHITIETHOADONBAN" Member="HOADONBAN" ThisKey="MAHDB" OtherKey="MAHDB" Type="HOADONBAN" IsForeignKey="true" />
+      <Association Name="MATHANG_CHITIETHOADONBAN" Member="MATHANG" ThisKey="MAMATHANG" OtherKey="MAMATHANG" Type="MATHANG" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.XEMTEN_MH" Method="XEMTEN_MH" IsComposable="true">
     <Parameter Name="MMH" Parameter="mMH" Type="System.String" DbType="NVarChar(10)" />
     <ElementType Name="XEMTEN_MHResult">
@@ -280,11 +280,11 @@
       <Column Name="GHICHU" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.SINHMA_HDN" Method="SINHMA_HDN" IsComposable="true">
-    <Return Type="System.String" />
-  </Function>
   <Function Name="dbo.XEM_TENKH" Method="XEM_TENKH" IsComposable="true">
     <Parameter Name="MKH" Parameter="mKH" Type="System.String" DbType="NVarChar(10)" />
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.SINHMA_HDN" Method="SINHMA_HDN" IsComposable="true">
     <Return Type="System.String" />
   </Function>
 </Database>

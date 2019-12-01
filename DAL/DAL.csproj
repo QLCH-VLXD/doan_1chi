@@ -42,9 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BangGhep_DatHangNSX.cs" />
+    <Compile Include="BangGhep_HoaDonBan.cs" />
+    <Compile Include="CHITIET_DATHANGNSX.cs" />
     <Compile Include="CHITIET_HOADON.cs" />
     <Compile Include="DAL_BanHang.cs" />
-    <Compile Include="HOADONBAN1.cs" />
+    <Compile Include="DAL_DatHangNSX.cs" />
+    <Compile Include="DAL_GiaoHang.cs" />
+    <Compile Include="DAL_NhapHang.cs" />
+    <Compile Include="HOADONBAN.cs" />
     <Compile Include="linQ.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -56,6 +62,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="themdulieu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

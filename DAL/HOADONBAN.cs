@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-  public partial class HOADONBAN1
+  public partial class HOADONBAN
     {
+        public object bll_BanHang;
         private String tenkhachhang;
         private String sdt;
         // private String tennhanvien;

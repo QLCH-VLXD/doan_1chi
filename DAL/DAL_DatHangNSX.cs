@@ -86,7 +86,7 @@ namespace DAL
                 TENNSX1 = t.TENNSX,
                 NGAYLAP1 = Convert.ToString(t.NGAYLAP),
                 TONGTIENHANGDAT1 = Convert.ToString(t.TONGTIENHANGDAT),
-                SOTIENTRATRUOC1 = Convert.ToString(t.TONGTIENHANGDAT),
+                SOTIENTRATRUOC1 = Convert.ToString(t.SOTIENTRATRUOC),
             });
             return kq.ToList<BangGhep_DatHangNSX>();
         }

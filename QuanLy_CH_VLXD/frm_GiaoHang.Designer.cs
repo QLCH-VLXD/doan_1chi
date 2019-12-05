@@ -51,7 +51,7 @@
             this.txt_SDT = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_MaGiaoHang = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_Manv = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox_TTCTSanPham.SuspendLayout();
@@ -278,14 +278,14 @@
             this.txt_MaGiaoHang.Size = new System.Drawing.Size(230, 27);
             this.txt_MaGiaoHang.TabIndex = 51;
             // 
-            // label2
+            // lbl_Manv
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 13);
-            this.label2.TabIndex = 54;
-            this.label2.Text = "Mã nhân viên";
+            this.lbl_Manv.AutoSize = true;
+            this.lbl_Manv.Location = new System.Drawing.Point(42, 14);
+            this.lbl_Manv.Name = "lbl_Manv";
+            this.lbl_Manv.Size = new System.Drawing.Size(72, 13);
+            this.lbl_Manv.TabIndex = 54;
+            this.lbl_Manv.Text = "Mã nhân viên";
             // 
             // frm_GiaoHang
             // 
@@ -293,7 +293,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox_TTCTSanPham);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbl_Manv);
             this.Name = "frm_GiaoHang";
             this.Size = new System.Drawing.Size(1419, 753);
             this.Load += new System.EventHandler(this.frm_GiaoHang_Load);
@@ -319,7 +319,7 @@
         private System.Windows.Forms.TextBox txt_TenKH;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_SDT;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_Manv;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_MaGiaoHang;
         private System.Windows.Forms.Label label4;

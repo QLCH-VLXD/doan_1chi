@@ -48,6 +48,9 @@
     <Compile Include="BLL_DatHangNSX.cs" />
     <Compile Include="BLL_GiaoHang.cs" />
     <Compile Include="BLL_NhapHang.cs" />
+    <Compile Include="BLL_TTKhachHang.cs" />
+    <Compile Include="BLL_TTNhanVien.cs" />
+    <Compile Include="BLL_TTNSX.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -32,7 +32,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_Login = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.txtnameDN = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,7 +45,6 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.btn_Cancel);
             this.panel1.Controls.Add(this.btn_Login);
-            this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.txtMatKhau);
             this.panel1.Controls.Add(this.txtnameDN);
             this.panel1.Controls.Add(this.label2);
@@ -88,17 +86,6 @@
             this.btn_Login.Text = "Login";
             this.btn_Login.UseVisualStyleBackColor = true;
             this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(46, 174);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(140, 23);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Lưu lại mật khẩu ?";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // txtMatKhau
             // 
@@ -162,7 +149,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_Login;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox txtMatKhau;
         private System.Windows.Forms.TextBox txtnameDN;
         private System.Windows.Forms.Label label3;

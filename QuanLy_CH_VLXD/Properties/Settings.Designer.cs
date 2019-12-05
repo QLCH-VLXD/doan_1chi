@@ -23,17 +23,6 @@ namespace QuanLy_CH_VLXD.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-CKJCBOM\\SQLEXPRESS;Initial Catalog=QL_CH_VATLIEUXAYDUNG;Integ" +
-            "rated Security=True")]
-        public string QL_CH_VATLIEUXAYDUNGConnectionString {
-            get {
-                return ((string)(this["QL_CH_VATLIEUXAYDUNGConnectionString"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
@@ -55,6 +44,17 @@ namespace QuanLy_CH_VLXD.Properties {
             }
             set {
                 this["pass"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-CKJCBOM\\SQLEXPRESS;Initial Catalog=QL_CH_VATLIEUXAYDUNG;Integ" +
+            "rated Security=True")]
+        public string QL_CH_VATLIEUXAYDUNGConnectionString {
+            get {
+                return ((string)(this["QL_CH_VATLIEUXAYDUNGConnectionString"]));
             }
         }
     }

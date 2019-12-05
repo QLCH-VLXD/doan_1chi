@@ -203,6 +203,7 @@
             this.btn_themKH.TabIndex = 89;
             this.btn_themKH.Text = "Thêm khách hàng";
             this.btn_themKH.UseVisualStyleBackColor = true;
+            this.btn_themKH.Click += new System.EventHandler(this.btn_themKH_Click);
             // 
             // lbl_Tongtien
             // 

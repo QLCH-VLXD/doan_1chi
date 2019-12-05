@@ -28,6 +28,7 @@ namespace QuanLy_CH_VLXD
         {
             InitializeComponent();
         }
+
         List<BangGhep_HoaDonBan> lst;
         List<CHITIET_HOADON> lsb;
         private void frm_BanHang_Load(object sender, EventArgs e)
@@ -40,7 +41,7 @@ namespace QuanLy_CH_VLXD
             lsb = bll_BanHang.load_CTHDB();
             dataGridView_HDB.DataSource= bll_BanHang.load_HDB();
             dataGridView_CTHoaDonBan.DataSource = bll_BanHang.load_CTHDB(); 
-            lbl_Manv.Text = Lay_DL;
+            lbl_Manv.Text = Properties.Settings.Default.user;
             k = 0;
         }
         
@@ -228,7 +229,8 @@ namespace QuanLy_CH_VLXD
 
         private void dataGridView_HDB_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+            s = dataGridView_HDB.CurrentRow.Cells[0].Value.ToString();
+            dataGridView_HDB.DataSource = bll_BanHang.load_CTHDB1(s);
         }
 
         private void dataGridView_HDB_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -285,25 +287,18 @@ namespace QuanLy_CH_VLXD
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
             CHITIETHOADONBAN ct = new CHITIETHOADONBAN();
-            //if (MessageBox.Show("Ban muon xoa khong?", "Thong bao", MessageBoxButtons.YesNo) == DialogResult.No)
-            //    return;
+            if (MessageBox.Show("Ban muon xoa khong?", "Thong bao", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
             ct.MACTHDB = dataGridView_CTHoaDonBan.CurrentRow.Cells[0].Value.ToString();
             //ct.MAMATHANG = dataGridView_CTHoaDonBan.CurrentRow.Cells[1].Value.ToString();
              ct.SOLUONGBAN = Convert.ToInt32(dataGridView_CTHoaDonBan.CurrentRow.Cells[2].Value.ToString());
              ct.THANHTIEN = Convert.ToDecimal(dataGridView_CTHoaDonBan.CurrentRow.Cells[4].Value.ToString());
             if (bll_BanHang.Xoa_CTHDB(ct) == true)
             {
-                // if (bll_BanHang.KTKC_cthdb(ct) ==true )
-                // {
-                dataGridView_CTHoaDonBan.DataSource = bll_BanHang.load_CTHDB1(dataGridView_HDB.CurrentRow.Cells[0].Value.ToString());
                 MessageBox.Show("thanh cong");
-                dataGridView_CTHoaDonBan.DataSource = bll_BanHang.load_CTHDB();
-                //}
-                //else
-                //{
-                //    MessageBox.Show("that bai");
-                //    return;
-                //}
+                dataGridView_CTHoaDonBan.DataSource = bll_BanHang.load_CTHDB1(dataGridView_HDB.CurrentRow.Cells[0].Value.ToString());
+               
+               
             }
             else
             {
@@ -311,6 +306,11 @@ namespace QuanLy_CH_VLXD
                 return;
             }
             
+        }
+
+        private void btn_themKH_Click(object sender, EventArgs e)
+        {
+            frm_TTKhachHang frm = new frm_TTKhachHang();
         }
 
         private void txt_SoLuong_KeyPress(object sender, KeyPressEventArgs e)

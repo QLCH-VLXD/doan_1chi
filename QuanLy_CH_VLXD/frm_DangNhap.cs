@@ -59,12 +59,10 @@ namespace QuanLy_CH_VLXD
                                 ProcessConfig();
                             }
 
-                            //luu tai khoan mat khau
-                            //if (chkGhiNhoTK.Checked)
-                            //{
-                            //    Properties.Settings.Default.user = txtnameDN.Text;
-                            //    Properties.Settings.Default.pass = txtMatKhau.Text;
-                            //}
+
+                            Properties.Settings.Default.user = txtnameDN.Text;
+                            Properties.Settings.Default.pass = txtMatKhau.Text;
+
                         }
 
                     }

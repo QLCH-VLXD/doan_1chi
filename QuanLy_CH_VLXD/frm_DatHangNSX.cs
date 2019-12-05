@@ -47,6 +47,7 @@ namespace QuanLy_CH_VLXD
 
             dataGridView_DatHangNSX.DataSource = bLL_DatHangNSX.load_dathangnsx();
             dataGridView_CTDatHangNSX.DataSource = bLL_DatHangNSX.load_CTDHNSX1();
+            lbl_MaNV.Text = Properties.Settings.Default.user;
         }
 
         private void cbo_LoaiMH_SelectedValueChanged(object sender, EventArgs e)
@@ -104,7 +105,8 @@ namespace QuanLy_CH_VLXD
             mh.MANV = "NV01";
             mh.MANSX = bLL_DatHangNSX.LAYMA(cbo_NhaSanXuat.Text.ToString());
             mh.NGAYLAP = Convert.ToDateTime(dateTimePicker2.Text);
-            mh.TONGTIENHANGDAT= Convert.ToDecimal(tt);
+            mh.TONGTIENHANGDAT = Convert.ToDecimal(tt);
+            //chay ik
             mh.SOTIENTRATRUOC = 0;
             if (bLL_DatHangNSX.KTKC(mh) == true)
             {
@@ -129,7 +131,7 @@ namespace QuanLy_CH_VLXD
                 ct.SOLUONG = Convert.ToInt32(txt_SoLuong.Text);
                 ct.THANHTIEN = Convert.ToDecimal(Convert.ToInt32(txt_SoLuong.Text) * Convert.ToDecimal(txt_DonGia.Text));
 
-                sum += Convert.ToDouble(Convert.ToInt32(txt_SoLuong.Text) * Convert.ToDouble(txt_DonGia.Text));
+                sum =Convert.ToDouble(dataGridView_DatHangNSX.CurrentRow.Cells[4].Value.ToString())+ Convert.ToDouble(Convert.ToInt32(txt_SoLuong.Text) * Convert.ToDouble(txt_DonGia.Text));
                 if (bLL_DatHangNSX.KTKC_ctCTPDHNSX(ct) == true)
                 {
                     if (bLL_DatHangNSX.them_CTDHNSX(ct) == true)
@@ -226,6 +228,31 @@ namespace QuanLy_CH_VLXD
             cbo_MaMH.Text = dataGridView_CTDatHangNSX.CurrentRow.Cells[1].Value.ToString();
             txt_SoLuong.Text = dataGridView_CTDatHangNSX.CurrentRow.Cells[2].Value.ToString();
             txt_DonGia.Text = dataGridView_CTDatHangNSX.CurrentRow.Cells[3].Value.ToString();
+        }
+
+        private void btn_Xoa_Click(object sender, EventArgs e)
+        {
+            CTPHIEUDATHANGNSX ct = new CTPHIEUDATHANGNSX();
+            if (MessageBox.Show("Ban muon xoa khong?", "Thong bao", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
+            ct.MACTPHIEUDATHANG = dataGridView_CTDatHangNSX.CurrentRow.Cells[0].Value.ToString();
+            //ct.MAMATHANG = dataGridView_CTDatHangNSX.CurrentRow.Cells[1].Value.ToString();
+            ct.SOLUONG = Convert.ToInt32(dataGridView_CTDatHangNSX.CurrentRow.Cells[2].Value.ToString());
+            ct.GIA = Convert.ToDecimal(dataGridView_CTDatHangNSX.CurrentRow.Cells[3].Value.ToString());
+            ct.THANHTIEN = Convert.ToDecimal(dataGridView_CTDatHangNSX.CurrentRow.Cells[4].Value.ToString());
+            if (bLL_DatHangNSX.Xoa_CTDHNSX(ct) == true)
+            {
+                MessageBox.Show("thanh cong");
+                dataGridView_CTDatHangNSX.DataSource = bLL_DatHangNSX.load_CTDHNSX(dataGridView_DatHangNSX.CurrentRow.Cells[0].Value.ToString());
+                
+                //dataGridView_CTDatHangNSX.DataSource = bLL_DatHangNSX.load_CTDHNSX1();
+               
+            }
+            else
+            {
+                MessageBox.Show("that bai");
+                return;
+            }
         }
     }
 }

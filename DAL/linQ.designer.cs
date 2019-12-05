@@ -343,6 +343,18 @@ namespace DAL
 		{
 			return ((string)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod()))).ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SINHMA_DG", IsComposable=true)]
+		public string SINHMA_DG()
+		{
+			return ((string)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod()))).ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.XEM_TENNV", IsComposable=true)]
+		public string XEM_TENNV([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MNV", DbType="NVarChar(10)")] string mNV)
+		{
+			return ((string)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mNV).ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CHITIETGIAOHANG")]

@@ -16,14 +16,21 @@ namespace BLL
             return dAL_NhapHang.SinhMaNhapHang();
         }
 
-        public List<LOAIMATHANG> load_loaiMatHang()
+        public string load_loaiMatHang(String mact)
         {
-            return dAL_NhapHang.Loaddata_LoaiMatHang();
+            return dAL_NhapHang.Loaddata_LoaiMatHang(mact);
         }
-
-        public List<MATHANG> load_MatHang(String maLoaimathang)
+      public string load_tenloaiMatHang(String mact)
         {
-            return dAL_NhapHang.Load_MatHang(maLoaimathang);
+            return dAL_NhapHang.Loaddata_TenLoaiMatHang(mact);
+        }
+        public string load_SoLuong (string mact)
+        {
+            return dAL_NhapHang.Load_SoLuong(mact);
+        }
+        public String load_MatHang(string mact)
+        {
+            return dAL_NhapHang.Load_MatHang(mact);
         }
 
         public String Load_dongia(string mamathang)
@@ -38,7 +45,7 @@ namespace BLL
             return dAL_NhapHang.Load_DonViTinh(mamathang);
         }
 
-        public List<NHASANXUAT> load_NSX(String maLoaimathang)
+        public string load_NSX(String maLoaimathang)
         {
             return dAL_NhapHang.Load_NSX(maLoaimathang);
         }
@@ -46,6 +53,47 @@ namespace BLL
         public List<PHIEUDATHANGNSX> load_maPNHNSX()
         {
             return dAL_NhapHang.Load_MaPDHNSX();
+        }
+        public List<CTPHIEUDATHANGNSX>load_ChiTietPDNSX(string mact)
+        {
+            return dAL_NhapHang.Load_ChiTietPDNSX(mact);
+        }
+        public List<Bangghep_NhapHang> load_nhaphang()
+        {
+            return dAL_NhapHang.LoadDL_nhaphang();
+        }
+        public List<CT_NhapHang> load_CTnhaphang()
+        {
+            return dAL_NhapHang.LoadDL_CTnhaphang();
+        }
+
+        public List<CT_NhapHang> load_CTnhaphang1(string a)
+        {
+            return dAL_NhapHang.LoadDL_CTnhaphang1(a);
+        }
+
+        public bool them_PNH(PHIEUNHAPHANG hdb)
+        {
+            return dAL_NhapHang.them_PhieuNhapHang(hdb);
+        }
+
+        public bool KTKC(PHIEUNHAPHANG hdb)
+        {
+            return dAL_NhapHang.ktkc(hdb);
+        }
+       
+
+        public bool them_CTPNH(CHITIETPHIEUNHAPHANG cthdb)
+        {
+            return dAL_NhapHang.them_CTPNhapHang(cthdb);
+        }
+        public bool KTKC_CTPNH(CHITIETPHIEUNHAPHANG cthdb)
+        {
+            return dAL_NhapHang.ktkc_ctpnh(cthdb);
+        }
+        public string LAYten(string sdt)
+        {
+            return dAL_NhapHang.layten(sdt);
         }
     }
 }

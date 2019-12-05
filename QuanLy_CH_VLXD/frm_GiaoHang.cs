@@ -26,6 +26,7 @@ namespace QuanLy_CH_VLXD
         private void frm_GiaoHang_Load(object sender, EventArgs e)
         {
             txt_MaGiaoHang.Text = "GH" + bLL_GiaoHang.Sinh_MaHoaDon_dal();
+            lbl_Manv.Text = Properties.Settings.Default.user;
         }
 
         private void txt_SDT_KeyPress(object sender, KeyEventArgs e)

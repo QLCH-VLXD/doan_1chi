@@ -287,4 +287,11 @@
   <Function Name="dbo.SINHMA_HDN" Method="SINHMA_HDN" IsComposable="true">
     <Return Type="System.String" />
   </Function>
+  <Function Name="dbo.SINHMA_DG" Method="SINHMA_DG" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.XEM_TENNV" Method="XEM_TENNV" IsComposable="true">
+    <Parameter Name="MNV" Parameter="mNV" Type="System.String" DbType="NVarChar(10)" />
+    <Return Type="System.String" />
+  </Function>
 </Database>

@@ -115,7 +115,11 @@ namespace QuanLy_CH_VLXD
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-           
+           if(txt_TinhTrang.Text.Equals("hết hàng"))
+            {
+                MessageBox.Show("sản phậm hiên hết hàng hoặc ngừng kinh doanh");
+                return;
+            }
             HOADONBAN mh = new HOADONBAN();
             mh.MAHDB = txt_MaHDB.Text;
             mh.MANV = lbl_Manv.Text;

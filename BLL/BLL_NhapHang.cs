@@ -32,6 +32,10 @@ namespace BLL
         {
             return dAL_NhapHang.Load_MatHang(mact);
         }
+        public String lay_mathang(string mact)
+        {
+            return dAL_NhapHang.LAY_Mathang(mact);
+        }
 
         public String Load_dongia(string mamathang)
         {
@@ -94,6 +98,16 @@ namespace BLL
         public string LAYten(string sdt)
         {
             return dAL_NhapHang.layten(sdt);
+        }
+
+        public bool Sua_PNH(PHIEUNHAPHANG hdb)
+        {
+            return dAL_NhapHang.sua_PNH(hdb);
+        }
+        
+        public int laysoluong(string maphieudat)
+        {
+            return dAL_NhapHang.laysomathangdat(maphieudat);
         }
     }
 }

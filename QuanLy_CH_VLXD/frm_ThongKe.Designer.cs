@@ -34,8 +34,11 @@
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
+            this.dataGrid_TKNhaphang = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
+            this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_TKNhaphang)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -55,9 +58,11 @@
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.dataGrid_TKNhaphang);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(1364, 721);
             this.xtraTabPage1.Text = "Thống kê nhập hàng";
+            this.xtraTabPage1.Paint += new System.Windows.Forms.PaintEventHandler(this.xtraTabPage1_Paint);
             // 
             // xtraTabPage2
             // 
@@ -83,17 +88,26 @@
             this.xtraTabPage5.Size = new System.Drawing.Size(1364, 721);
             this.xtraTabPage5.Text = "Thống kê danh mục sản phẩm";
             // 
+            // dataGrid_TKNhaphang
+            // 
+            this.dataGrid_TKNhaphang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid_TKNhaphang.Location = new System.Drawing.Point(38, 139);
+            this.dataGrid_TKNhaphang.Name = "dataGrid_TKNhaphang";
+            this.dataGrid_TKNhaphang.Size = new System.Drawing.Size(833, 254);
+            this.dataGrid_TKNhaphang.TabIndex = 0;
+            // 
             // frm_ThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.xtraTabControl1);
             this.Name = "frm_ThongKe";
-            this.Text = "frm_ThongKe";
+            this.Size = new System.Drawing.Size(1370, 749);
             this.Load += new System.EventHandler(this.frm_ThongKe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
+            this.xtraTabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_TKNhaphang)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -106,5 +120,6 @@
         private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage4;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage5;
+        private System.Windows.Forms.DataGridView dataGrid_TKNhaphang;
     }
 }

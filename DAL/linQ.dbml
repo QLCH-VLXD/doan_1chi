@@ -1,16 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QL_CH_VATLIEUXAYDUNG" Class="linQDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-CKJCBOM\SQLEXPRESS;Initial Catalog=QL_CH_VATLIEUXAYDUNG;Integrated Security=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="QL_CH_VATLIEUXAYDUNGConnectionString1" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.CHITIETGIAOHANG" Member="CHITIETGIAOHANGs">
-    <Type Name="CHITIETGIAOHANG">
-      <Column Name="MACTGIAOHNAG" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MAGIAOHANG" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="MACTHDB" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="SOLUONGMH" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="THANHTIEN" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Association Name="GIAOHANG_CHITIETGIAOHANG" Member="GIAOHANG" ThisKey="MAGIAOHANG" OtherKey="MAGIAOHANG" Type="GIAOHANG" IsForeignKey="true" />
-      <Association Name="CHITIETHOADONBAN_CHITIETGIAOHANG" Member="CHITIETHOADONBAN" ThisKey="MACTHDB" OtherKey="MACTHDB" Type="CHITIETHOADONBAN" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.TAIKHOAN" Member="TAIKHOANs">
     <Type Name="TAIKHOAN">
       <Column Name="MANV" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -265,6 +254,17 @@
       <Association Name="CHITIETHOADONBAN_CHITIETGIAOHANG" Member="CHITIETGIAOHANGs" ThisKey="MACTHDB" OtherKey="MACTHDB" Type="CHITIETGIAOHANG" />
       <Association Name="HOADONBAN_CHITIETHOADONBAN" Member="HOADONBAN" ThisKey="MAHDB" OtherKey="MAHDB" Type="HOADONBAN" IsForeignKey="true" />
       <Association Name="MATHANG_CHITIETHOADONBAN" Member="MATHANG" ThisKey="MAMATHANG" OtherKey="MAMATHANG" Type="MATHANG" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CHITIETGIAOHANG" Member="CHITIETGIAOHANGs">
+    <Type Name="CHITIETGIAOHANG">
+      <Column Name="MACTGIAOHNAG" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MAGIAOHANG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MACTHDB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SOLUONGMH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="THANHTIEN" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="CHITIETHOADONBAN_CHITIETGIAOHANG" Member="CHITIETHOADONBAN" ThisKey="MACTHDB" OtherKey="MACTHDB" Type="CHITIETHOADONBAN" IsForeignKey="true" />
+      <Association Name="GIAOHANG_CHITIETGIAOHANG" Member="GIAOHANG" ThisKey="MAGIAOHANG" OtherKey="MAGIAOHANG" Type="GIAOHANG" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.XEMTEN_MH" Method="XEMTEN_MH" IsComposable="true">

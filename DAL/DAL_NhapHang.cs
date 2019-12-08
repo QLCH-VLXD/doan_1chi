@@ -47,6 +47,16 @@ namespace DAL
                           select ss.TENMATHANG).FirstOrDefault();
             return dulieu.ToString();
         }
+        public String LAY_Mathang(string mamathang)
+        {
+
+
+            var dulieu = (from s in dal_data.CTPHIEUDATHANGNSXes
+                          from ss in dal_data.MATHANGs
+                          where s.MAMATHANG == ss.MAMATHANG
+                          select ss.MAMATHANG).FirstOrDefault();
+            return dulieu.ToString();
+        }
         public String Load_DonGia(string mamathang)
         {
             if (dal_data.CTPHIEUDATHANGNSXes.Where(t => t.MACTPHIEUDATHANG == mamathang).FirstOrDefault() != null)
@@ -123,24 +133,29 @@ namespace DAL
             return kq.ToList<Bangghep_NhapHang>();
         }
 
+       
+
+
+
         public List<CT_NhapHang> LoadDL_CTnhaphang()
         {
             var CTnhaphang = from s in dal_data.CHITIETPHIEUNHAPHANGs
-                           join q in dal_data.CTPHIEUDATHANGNSXes on s.MACTPHIEUDATHANG equals (q.MACTPHIEUDATHANG)
-                            join Qq in dal_data.MATHANGs on q.MAMATHANG equals (Qq.MAMATHANG)
-                           select new
-                           {
-                               s.MACTPN,
-                               s.MACTPHIEUDATHANG,
-                               Qq.TENMATHANG,
-                               s.SOLUONGMH,
-                               s.THANHTIENCTPNH
-                           };
+                                 //join q in dal_data.CTPHIEUDATHANGNSXes on s.MACTPHIEUDATHANG equals (q.MACTPHIEUDATHANG)
+                                 // join Qq in dal_data.MATHANGs on q.MAMATHANG equals (Qq.MAMATHANG)
+                             select new
+                             {
+                                 s.MACTPN,
+                                 s.MAPN,
+                                 s.MACTPHIEUDATHANG,
+
+                                 s.SOLUONGMH,
+                                 s.THANHTIENCTPNH
+                             };
             var kq = CTnhaphang.ToList().ConvertAll(t => new CT_NhapHang()
             {
                 MACTPN1 = t.MACTPN,
+                MAPN1 = t.MAPN,
                 MACTPHIEUDATHANG1 = t.MACTPHIEUDATHANG,
-                TENMATHANG1 = t.TENMATHANG,
                 SOLUONGMH1 = Convert.ToString(t.SOLUONGMH),
                 THANHTIENCTPNH1 = Convert.ToString(t.THANHTIENCTPNH)
             });
@@ -149,29 +164,30 @@ namespace DAL
 
         public List<CT_NhapHang> LoadDL_CTnhaphang1(string a)
         {
-            var CTnhaphang = from s in dal_data.CHITIETPHIEUNHAPHANGs where s.MAPN==a
+            var CTnhaphang = from s in dal_data.CHITIETPHIEUNHAPHANGs
+                             where s.MAPN == a
                              join q in dal_data.CTPHIEUDATHANGNSXes on s.MACTPHIEUDATHANG equals (q.MACTPHIEUDATHANG)
                              join Qq in dal_data.MATHANGs on q.MAMATHANG equals (Qq.MAMATHANG)
-                             
+
                              select new
                              {
                                  s.MACTPN,
+                                 s.MAPN,
                                  s.MACTPHIEUDATHANG,
-                                 Qq.TENMATHANG,
+
                                  s.SOLUONGMH,
                                  s.THANHTIENCTPNH
                              };
             var kq = CTnhaphang.ToList().ConvertAll(t => new CT_NhapHang()
             {
                 MACTPN1 = t.MACTPN,
+                MAPN1 = t.MAPN,
                 MACTPHIEUDATHANG1 = t.MACTPHIEUDATHANG,
-                TENMATHANG1 = t.TENMATHANG,
                 SOLUONGMH1 = Convert.ToString(t.SOLUONGMH),
                 THANHTIENCTPNH1 = Convert.ToString(t.THANHTIENCTPNH)
             });
             return kq.ToList<CT_NhapHang>();
         }
-
         public bool them_PhieuNhapHang(PHIEUNHAPHANG hdb)
         {
             try
@@ -238,10 +254,36 @@ namespace DAL
 
         public String layten(String sdt)
         {
-            var lm = (from k in dal_data.NHASANXUATs where k.MANSX == sdt select k.TENNSX).FirstOrDefault();
+            var lm = (from k in dal_data.NHASANXUATs where k.MANSX == sdt select k.MANSX).FirstOrDefault();
             String s = lm.ToString();
             return lm.ToString();
         }
 
+        public bool sua_PNH(PHIEUNHAPHANG mh)
+        {
+            try
+            {
+                var aa = dal_data.PHIEUNHAPHANGs.Where(t => t.MAPN == mh.MAPN.ToString()).FirstOrDefault();
+                dal_data.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, aa);
+                String s = aa.ToString();
+                aa.SOLUONGMATHANG = mh.SOLUONGMATHANG;
+                aa.TONGTIENHANGNHAP = mh.TONGTIENHANGNHAP;
+                dal_data.SubmitChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        
+        public int laysomathangdat(String s)
+        {
+            var dulieu = (from f in dal_data.CTPHIEUDATHANGNSXes
+                          from d in dal_data.CHITIETPHIEUNHAPHANGs
+                          where d.MACTPN == s.ToString() && f.MACTPHIEUDATHANG==d.MACTPHIEUDATHANG
+                          select f.SOLUONG).FirstOrDefault();
+            return Convert.ToInt32(dulieu.ToString());
+        }
     }
 }

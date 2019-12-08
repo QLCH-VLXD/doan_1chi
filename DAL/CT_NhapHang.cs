@@ -9,14 +9,15 @@ namespace DAL
    public class CT_NhapHang
     {
         String MACTPN;
+        String MAPN;
         String MACTPHIEUDATHANG;
-        String TENMATHANG;
         String SOLUONGMH;
         String THANHTIENCTPNH;
 
         public string MACTPN1 { get => MACTPN; set => MACTPN = value; }
+        public string MAPN1 { get => MAPN; set => MAPN = value; }
         public string MACTPHIEUDATHANG1 { get => MACTPHIEUDATHANG; set => MACTPHIEUDATHANG = value; }
-        public string TENMATHANG1 { get => TENMATHANG; set => TENMATHANG = value; }
+        
         public string SOLUONGMH1 { get => SOLUONGMH; set => SOLUONGMH = value; }
         public string THANHTIENCTPNH1 { get => THANHTIENCTPNH; set => THANHTIENCTPNH = value; }
     }

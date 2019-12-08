@@ -21,6 +21,7 @@ namespace QuanLy_CH_VLXD
         private void frm_Main_Load(object sender, EventArgs e)
         {
             s = Lay_DL;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
 
         }
 
@@ -117,6 +118,11 @@ namespace QuanLy_CH_VLXD
             frmDangNhap frmDN = new frmDangNhap();
             frmDN.Show();
             this.Hide();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         // lấy dữ liệu 

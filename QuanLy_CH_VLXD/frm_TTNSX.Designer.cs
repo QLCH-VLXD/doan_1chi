@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_LamMoi = new System.Windows.Forms.Button();
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnSua = new System.Windows.Forms.Button();
@@ -51,6 +52,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btn_LamMoi);
             this.groupBox2.Controls.Add(this.txtSDT);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.btnSua);
@@ -67,10 +69,20 @@
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(25, 22);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(804, 207);
+            this.groupBox2.Size = new System.Drawing.Size(903, 207);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin khách hàng";
+            // 
+            // btn_LamMoi
+            // 
+            this.btn_LamMoi.Location = new System.Drawing.Point(768, 135);
+            this.btn_LamMoi.Name = "btn_LamMoi";
+            this.btn_LamMoi.Size = new System.Drawing.Size(99, 35);
+            this.btn_LamMoi.TabIndex = 36;
+            this.btn_LamMoi.Text = "Làm mới";
+            this.btn_LamMoi.UseVisualStyleBackColor = true;
+            this.btn_LamMoi.Click += new System.EventHandler(this.btn_LamMoi_Click);
             // 
             // txtSDT
             // 
@@ -91,12 +103,13 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(551, 136);
+            this.btnSua.Location = new System.Drawing.Point(533, 136);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(99, 35);
             this.btnSua.TabIndex = 33;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // txtEmail
             // 
@@ -108,12 +121,13 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(686, 136);
+            this.btnXoa.Location = new System.Drawing.Point(650, 135);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(99, 35);
             this.btnXoa.TabIndex = 32;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
@@ -123,6 +137,7 @@
             this.btnThem.TabIndex = 31;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // label6
             // 
@@ -239,5 +254,6 @@
         private System.Windows.Forms.TextBox txtTenNSX;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btn_LamMoi;
     }
 }

@@ -65,6 +65,8 @@
             this.txtChucVu = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_LamMoiCV = new System.Windows.Forms.Button();
+            this.btn_LamMoi = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -74,6 +76,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btn_LamMoi);
             this.groupBox2.Controls.Add(this.btnSua);
             this.groupBox2.Controls.Add(this.dateTimePicker_NgayVaoLam);
             this.groupBox2.Controls.Add(this.label12);
@@ -109,7 +112,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(551, 280);
+            this.btnSua.Location = new System.Drawing.Point(478, 269);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(99, 35);
             this.btnSua.TabIndex = 33;
@@ -135,7 +138,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(686, 280);
+            this.btnXoa.Location = new System.Drawing.Point(583, 269);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(99, 35);
             this.btnXoa.TabIndex = 32;
@@ -162,7 +165,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(416, 280);
+            this.btnThem.Location = new System.Drawing.Point(373, 269);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(99, 35);
             this.btnThem.TabIndex = 31;
@@ -290,6 +293,7 @@
             // 
             // txtMaNV
             // 
+            this.txtMaNV.Enabled = false;
             this.txtMaNV.Location = new System.Drawing.Point(127, 36);
             this.txtMaNV.Multiline = true;
             this.txtMaNV.Name = "txtMaNV";
@@ -334,7 +338,7 @@
             // 
             // btnSua_ChucVu
             // 
-            this.btnSua_ChucVu.Location = new System.Drawing.Point(175, 140);
+            this.btnSua_ChucVu.Location = new System.Drawing.Point(126, 136);
             this.btnSua_ChucVu.Name = "btnSua_ChucVu";
             this.btnSua_ChucVu.Size = new System.Drawing.Size(99, 35);
             this.btnSua_ChucVu.TabIndex = 30;
@@ -344,7 +348,7 @@
             // 
             // btnXoa_ChucVu
             // 
-            this.btnXoa_ChucVu.Location = new System.Drawing.Point(308, 140);
+            this.btnXoa_ChucVu.Location = new System.Drawing.Point(243, 136);
             this.btnXoa_ChucVu.Name = "btnXoa_ChucVu";
             this.btnXoa_ChucVu.Size = new System.Drawing.Size(99, 35);
             this.btnXoa_ChucVu.TabIndex = 29;
@@ -354,7 +358,7 @@
             // 
             // btnThem_ChucVu
             // 
-            this.btnThem_ChucVu.Location = new System.Drawing.Point(38, 140);
+            this.btnThem_ChucVu.Location = new System.Drawing.Point(10, 136);
             this.btnThem_ChucVu.Name = "btnThem_ChucVu";
             this.btnThem_ChucVu.Size = new System.Drawing.Size(99, 35);
             this.btnThem_ChucVu.TabIndex = 28;
@@ -364,6 +368,7 @@
             // 
             // txtMaChucVu
             // 
+            this.txtMaChucVu.Enabled = false;
             this.txtMaChucVu.Location = new System.Drawing.Point(154, 38);
             this.txtMaChucVu.Multiline = true;
             this.txtMaChucVu.Name = "txtMaChucVu";
@@ -390,6 +395,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_LamMoiCV);
             this.groupBox1.Controls.Add(this.dataGridView2);
             this.groupBox1.Controls.Add(this.btnSua_ChucVu);
             this.groupBox1.Controls.Add(this.btnXoa_ChucVu);
@@ -433,6 +439,26 @@
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Danh sách nhân viên";
+            // 
+            // btn_LamMoiCV
+            // 
+            this.btn_LamMoiCV.Location = new System.Drawing.Point(356, 136);
+            this.btn_LamMoiCV.Name = "btn_LamMoiCV";
+            this.btn_LamMoiCV.Size = new System.Drawing.Size(99, 35);
+            this.btn_LamMoiCV.TabIndex = 33;
+            this.btn_LamMoiCV.Text = "Làm mới";
+            this.btn_LamMoiCV.UseVisualStyleBackColor = true;
+            this.btn_LamMoiCV.Click += new System.EventHandler(this.btn_LamMoiCV_Click);
+            // 
+            // btn_LamMoi
+            // 
+            this.btn_LamMoi.Location = new System.Drawing.Point(688, 269);
+            this.btn_LamMoi.Name = "btn_LamMoi";
+            this.btn_LamMoi.Size = new System.Drawing.Size(99, 35);
+            this.btn_LamMoi.TabIndex = 34;
+            this.btn_LamMoi.Text = "Làm mới";
+            this.btn_LamMoi.UseVisualStyleBackColor = true;
+            this.btn_LamMoi.Click += new System.EventHandler(this.btn_LamMoi_Click);
             // 
             // frm_TTNhanVien
             // 
@@ -494,5 +520,7 @@
         private System.Windows.Forms.TextBox txtChucVu;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btn_LamMoi;
+        private System.Windows.Forms.Button btn_LamMoiCV;
     }
 }

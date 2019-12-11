@@ -15,6 +15,8 @@ namespace QuanLy_CH_VLXD
     public partial class frm_TTKhachHang : UserControl
     {
         BLL_TTKhachHang bll_TTKhachHang = new BLL_TTKhachHang();
+        string a;
+        string b;
 
         public frm_TTKhachHang()
         {
@@ -23,148 +25,252 @@ namespace QuanLy_CH_VLXD
 
         private void frm_TTKhachHang_Load(object sender, EventArgs e)
         {
-            dataGridView_LoaiKH.DataSource = bll_TTKhachHang.load_LoaiKhachHang();
-            txtMaLoaiKH.Text = "LKH" + bll_TTKhachHang.Sinh_MaLoaiKH_dal();
+            txtMaLoaiKH.Text ="LKH" + bll_TTKhachHang.Sinh_Makh_dal();
+            txtMaKH.Text ="KH"  + bll_TTKhachHang.Sinh_Makh_dal();
+            a = txtMaLoaiKH.Text;
+            b = txtMaKH.Text;
 
-            txtMaKH.Text = "KH" + bll_TTKhachHang.Sinh_MaLoaiKH_dal();
-            cboLoaiKH.DataSource = bll_TTKhachHang.load_LoaiKhachHang();
-            cboLoaiKH.ValueMember = "MALOAIKH";
-            cboLoaiKH.DisplayMember = "TENLOAIKH";
-
-            datagird_KhachHang.DataSource = bll_TTKhachHang.LoadDL_khachhang();
+            showDataGridView();
         }
-       
 
-        private void dataGridView2_SelectionChanged(object sender, EventArgs e)
+        public void showDataGridView()
         {
-            //if (dataGridView2.SelectedRows != null)
-            //{
-            //    //MessageBox.Show("sdsd");
-            //    txtMaLoaiKH.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
-            //    txtLoaiKH.Text = dataGridView2.CurrentRow.Cells[1].Value.ToString();
+            bll_TTKhachHang = new BLL_TTKhachHang();
+            datagird_KhachHang.DataSource = bll_TTKhachHang.load_TTKhachHang();
+            dataGridView_LoaiKH.DataSource = bll_TTKhachHang.load_LoaiKhachHang();
+        }
 
-            //}
+        private void btn_LamMoiLKH_Click(object sender, EventArgs e)
+        {
+            txtMaLoaiKH.Text = "LKH" + bll_TTKhachHang.Sinh_Makh_dal();
+            txtLoaiKH.Clear();
+        }
+
+        private void btn_LamMoiKH_Click(object sender, EventArgs e)
+        {
+            txtMaKH.Text = "KH" + bll_TTKhachHang.Sinh_Makh_dal();
+            txtTenKH.Clear();
+            txtDiaChi.Clear();
+            txtSDT.Clear();
+        }
+
+        private void txtLoaiKH_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView_LoaiKH_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView_LoaiKH.SelectedRows != null)
+            {
+                //MessageBox.Show("sdsd");
+                txtMaLoaiKH.Text = dataGridView_LoaiKH.CurrentRow.Cells[0].Value.ToString();
+                txtLoaiKH.Text = dataGridView_LoaiKH.CurrentRow.Cells[1].Value.ToString();
+
+            }
         }
 
         private void btnThem_TTKH_Click(object sender, EventArgs e)
         {
-            KHACHHANG mh = new KHACHHANG();
-            mh.MAKH = txtMaKH.Text;
-            mh.MALOAIKH = cboLoaiKH.SelectedValue.ToString();
-            mh.HOTENKH = txtTenKH.Text;
-            mh.SDT = txtSDT.Text;
-            mh.DIACHI = txtDiaChi.Text;
-            if (bll_TTKhachHang.KTKC_kh(mh) == true)
+            Them();
+        }
+        public void Them()
+        {
+            if (txtMaKH.Text.Length > 0 && txtTenKH.Text.Length > 0 && txtMaLoaiKH.Text.Length > 0 && txtSDT.Text.Length > 0 && txtDiaChi.Text.Length > 0)
             {
-                bll_TTKhachHang.them_kh(mh);
-                MessageBox.Show("thanh cong");
-                datagird_KhachHang.DataSource = bll_TTKhachHang.LoadDL_khachhang();
+                BLL_TTKhachHang service = new BLL_TTKhachHang();
+                KHACHHANG kh = new KHACHHANG();
+
+                kh.MAKH = b;
+                kh.HOTENKH = txtTenKH.Text;
+                kh.MALOAIKH = cboLoaiKH.Text;
+                kh.SDT = txtSDT.Text;
+                kh.DIACHI = txtDiaChi.Text;
+
+
+                int result = 0;
+                result = service.them_dal(kh);
+                if (result == 2)
+                {
+                    MessageBox.Show("đã tồn tại", "Thông báo");
+                }
+                else
+                {
+                    MessageBox.Show("thêm thành công", "Thông báo");
+                }
+
+                showDataGridView();
             }
             else
             {
-                MessageBox.Show("that bai");
-                return;
+                MessageBox.Show("vui lòng điền đầy đủ dữ liệu");
+            }
+        }
+        private void btnSua_TTKH_Click(object sender, EventArgs e)
+        {
+            if (txtMaKH.Text.Length > 0 && txtTenKH.Text.Length > 0 && txtMaLoaiKH.Text.Length > 0 && txtSDT.Text.Length > 0 && txtDiaChi.Text.Length > 0)
+            {
+
+                BLL_TTKhachHang service = new BLL_TTKhachHang();
+                KHACHHANG kh = new KHACHHANG();
+
+                kh.MAKH = txtMaKH.Text;
+                kh.HOTENKH = txtTenKH.Text;
+                kh.MALOAIKH = cboLoaiKH.Text;
+                kh.SDT = txtSDT.Text;
+                kh.DIACHI = txtDiaChi.Text;
+                int result = 0;
+
+                result = service.Sua_dal(kh);
+
+                if (result == 1)
+                {
+                    MessageBox.Show("Thành Công", "Thông báo");
+                }
+                else
+                {
+                    MessageBox.Show("sửa thất bại", "Inofity");
+                }
+
+
+
+                showDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("vui lòng điền đầy đủ dữ liệu");
             }
         }
 
-        
-        private void btnSua_Click(object sender, EventArgs e)
+        private void btnXoa_TTKH_Click(object sender, EventArgs e)
         {
-            KHACHHANG mh = new KHACHHANG();
-            mh.MAKH = txtMaKH.Text;
-            mh.MALOAIKH = cboLoaiKH.SelectedValue.ToString();
-            mh.HOTENKH = txtTenKH.Text;
-            mh.SDT = txtSDT.Text;
-            mh.DIACHI = txtDiaChi.Text;
-            if (bll_TTKhachHang.sua_kh(mh) == true)
-            {
-                datagird_KhachHang.DataSource = bll_TTKhachHang.LoadDL_khachhang();
-                MessageBox.Show("thanh cong");
-                
-                
-            }
-            else
-            {
-                MessageBox.Show("that bai");
-            }
-            
+            Xoa();
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
+        public void Xoa()
         {
-            KHACHHANG mh = new KHACHHANG();
-            mh.MAKH = datagird_KhachHang.CurrentRow.Cells[0].Value.ToString();
-            mh.MALOAIKH = datagird_KhachHang.CurrentRow.Cells[1].Value.ToString();
-            mh.HOTENKH = datagird_KhachHang.CurrentRow.Cells[2].Value.ToString();
-            mh.SDT = datagird_KhachHang.CurrentRow.Cells[3].Value.ToString();
-            mh.DIACHI = datagird_KhachHang.CurrentRow.Cells[4].Value.ToString();
-            if (bll_TTKhachHang.KTKC_kh(mh) == false)
+            if (txtMaKH.Text.Length > 0 && txtTenKH.Text.Length > 0 && txtMaLoaiKH.Text.Length > 0 && txtSDT.Text.Length > 0 && txtDiaChi.Text.Length > 0)
             {
-                bll_TTKhachHang.xoa_kh(mh);
-                MessageBox.Show("thanh cong");
-                datagird_KhachHang.DataSource = bll_TTKhachHang.LoadDL_khachhang();
+                BLL_TTKhachHang service = new BLL_TTKhachHang();
+                KHACHHANG kh = new KHACHHANG();
+
+                kh.MAKH = txtMaKH.Text;
+                kh.HOTENKH = txtTenKH.Text;
+                kh.MALOAIKH = cboLoaiKH.Text;
+                kh.SDT = txtSDT.Text;
+                kh.DIACHI = txtDiaChi.Text;
+
+                int result = -1;
+
+                result = service.Xoa_dal(kh);
+
+                if (result == 0)
+                {
+                    MessageBox.Show("Thành Công", "Thông báo");
+                }
+                else if (result == 2)
+                {
+                    MessageBox.Show("Không tìm thấy khoa", "Thông báo");
+                }
+
+
+                showDataGridView();
             }
             else
             {
-                MessageBox.Show("that bai");
-                return;
+                MessageBox.Show("vui lòng điền đầy đủ dữ liệu");
             }
         }
 
         private void btnThem_LoaiKH_Click(object sender, EventArgs e)
         {
-            LOAIKHACHHANG mh = new LOAIKHACHHANG();
-            mh.MALOAIKH = txtMaLoaiKH.Text;
-            mh.TENLOAIKH = txtLoaiKH.Text;
-            if (bll_TTKhachHang.KTKC(mh) == true)
-            {
-                bll_TTKhachHang.them_loaikh(mh);
-                MessageBox.Show("thanh cong");
-                dataGridView_LoaiKH.DataSource = bll_TTKhachHang.load_LoaiKhachHang();
-            }
-            else
-            {
-                MessageBox.Show("that bai");
-                return;
-            }
+            ThemLoaiKH();
         }
-        private void btnSua_LoaiKH_Click(object sender, EventArgs e)
+        public void ThemLoaiKH()
         {
-            LOAIKHACHHANG mh = new LOAIKHACHHANG();
-            mh.MALOAIKH = txtMaLoaiKH.Text;
-            mh.TENLOAIKH = txtLoaiKH.Text;
-            if (bll_TTKhachHang.sua_loaikh(mh) == true)
+            BLL_TTKhachHang service = new BLL_TTKhachHang();
+            LOAIKHACHHANG lkh = new LOAIKHACHHANG();
+
+            lkh.MALOAIKH = a;
+            lkh.TENLOAIKH = txtLoaiKH.Text;
+
+
+            int result = 0;
+            result = service.themloaiKH_dal(lkh);
+            if (result == 2)
             {
-                MessageBox.Show("thanh cong");
-                dataGridView_LoaiKH.DataSource = bll_TTKhachHang.load_LoaiKhachHang();
+                MessageBox.Show("đã tồn tại", "Thông báo");
             }
             else
             {
-                MessageBox.Show("that bai");
+                MessageBox.Show("thêm thành công", "Thông báo");
             }
-        }
-        private void btnXoa_LoaiKH_Click(object sender, EventArgs e)
-        {
-            LOAIKHACHHANG mh = new LOAIKHACHHANG();
-            mh.MALOAIKH = dataGridView_LoaiKH.CurrentRow.Cells[0].Value.ToString();
-            mh.TENLOAIKH = dataGridView_LoaiKH.CurrentRow.Cells[1].Value.ToString();
-            if (bll_TTKhachHang.KTKC(mh) == false)
-            {
-                bll_TTKhachHang.xoa_loaikh(mh);
-                MessageBox.Show("thanh cong");
-                dataGridView_LoaiKH.DataSource = bll_TTKhachHang.load_LoaiKhachHang();
-            }
-            else
-            {
-                MessageBox.Show("that bai");
-                return;
-            }
+
+            showDataGridView();
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnSua_LoaiKH_Click(object sender, EventArgs e)
+        {
+            BLL_TTKhachHang service = new BLL_TTKhachHang();
+            LOAIKHACHHANG lkh = new LOAIKHACHHANG();
+
+
+            lkh.MALOAIKH = txtMaLoaiKH.Text;
+            lkh.TENLOAIKH = txtLoaiKH.Text;
+
+            int result = 0;
+
+            result = service.SualoaiKH_dal(lkh);
+
+            if (result == 1)
+            {
+                MessageBox.Show("Thành Công", "Thông báo");
+            }
+            else
+            {
+                MessageBox.Show("sửa thất bại", "Inofity");
+            }
+
+
+
+            showDataGridView();
+        }
+
+        private void btnXoa_LoaiKH_Click(object sender, EventArgs e)
+        {
+            XoaloaiKH();
+        }
+        public void XoaloaiKH()
+        {
+            BLL_TTKhachHang service = new BLL_TTKhachHang();
+            LOAIKHACHHANG lkh = new LOAIKHACHHANG();
+
+            lkh.MALOAIKH = txtMaLoaiKH.Text;
+            lkh.TENLOAIKH = txtLoaiKH.Text;
+
+            int result = -1;
+
+            result = service.XoaloaiKH_dal(lkh);
+
+            if (result == 0)
+            {
+                MessageBox.Show("Thành Công", "Thông báo");
+            }
+            else if (result == 2)
+            {
+                MessageBox.Show("Không tìm thấy khoa", "Thông báo");
+            }
+
+
+            showDataGridView();
+
+        }
+
+        private void datagird_KhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
+                //MessageBox.Show("sdsd");
                 txtMaKH.Text = datagird_KhachHang.CurrentRow.Cells[0].Value.ToString();
                 cboLoaiKH.Text = datagird_KhachHang.CurrentRow.Cells[1].Value.ToString();
                 txtTenKH.Text = datagird_KhachHang.CurrentRow.Cells[2].Value.ToString();
@@ -172,45 +278,6 @@ namespace QuanLy_CH_VLXD
                 txtDiaChi.Text = datagird_KhachHang.CurrentRow.Cells[4].Value.ToString();
 
             }
-        }
-
-        private void btn_LamMoiLKH_Click(object sender, EventArgs e)
-        {
-            txtMaLoaiKH.Clear();
-            txtLoaiKH.Clear();
-            txtMaLoaiKH.Text = "LKH" + bll_TTKhachHang.Sinh_MaLoaiKH_dal();
-        }
-
-        private void btn_LamMoiKH_Click(object sender, EventArgs e)
-        {
-            txtMaKH.Clear();
-            txtTenKH.Clear();
-            txtSDT.Clear();
-            txtDiaChi.Clear();
-            txtMaKH.Text = "KH" + bll_TTKhachHang.Sinh_MaLoaiKH_dal();
-
-        }
-
-        private void dataGridView_LoaiKH_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            txtMaLoaiKH.Text = dataGridView_LoaiKH.CurrentRow.Cells[0].Value.ToString();
-            txtLoaiKH.Text = dataGridView_LoaiKH.CurrentRow.Cells[1].Value.ToString();
-        }
-
-        private void LoadDL_khachhang_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            txtMaKH.Text = datagird_KhachHang.CurrentRow.Cells[0].Value.ToString();
-            cboLoaiKH.Text = datagird_KhachHang.CurrentRow.Cells[1].Value.ToString();
-            txtTenKH.Text = datagird_KhachHang.CurrentRow.Cells[2].Value.ToString();
-            txtSDT.Text = datagird_KhachHang.CurrentRow.Cells[3].Value.ToString();
-            txtDiaChi.Text = datagird_KhachHang.CurrentRow.Cells[4].Value.ToString();
-            
-        }
-
-        private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
-                e.Handled = true;
         }
     }
 }

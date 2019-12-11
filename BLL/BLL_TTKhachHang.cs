@@ -10,58 +10,56 @@ namespace BLL
     public class BLL_TTKhachHang
     {
         DAL_TTKhachHang dal_TTKhachHang = new DAL_TTKhachHang();
-        
+
+
+        public string Sinh_Makh_dal()
+        {
+            return dal_TTKhachHang.SinhMaHoaDon();
+
+        }
+
+        public List<KHACHHANG> load_TTKhachHang()
+        {
+            return dal_TTKhachHang.Loaddata_TTKhachHang();
+
+        }
+
         public List<LOAIKHACHHANG> load_LoaiKhachHang()
         {
             return dal_TTKhachHang.Loaddata_LoaiKhachHang();
+
         }
 
-        public List<KHACHHANG> load_KhachHang()
+        public int them_dal(KHACHHANG kh)
         {
-            return dal_TTKhachHang.Loaddata_KhachHang();
-        }
-        public List<BangGhep_KHACHHANG> LoadDL_khachhang()
-        {
-            return dal_TTKhachHang.Loaddl_khachhang();
+            return dal_TTKhachHang.them(kh);
         }
 
-        public string Sinh_MaLoaiKH_dal()
+        public int Sua_dal(KHACHHANG kh)
         {
-            return dal_TTKhachHang.SinhMaHoaDon();
-        }
-        public bool them_loaikh(LOAIKHACHHANG hdb)
-        {
-            return dal_TTKhachHang.them_LoaiKH(hdb);
-        }
-        public bool KTKC(LOAIKHACHHANG hdb)
-        {
-            return dal_TTKhachHang.ktkc(hdb);
-        }
-        public bool sua_loaikh(LOAIKHACHHANG hdb)
-        {
-            return dal_TTKhachHang.sua_LoaiKH(hdb);
-        }
-        public bool xoa_loaikh(LOAIKHACHHANG hdb)
-        {
-            return dal_TTKhachHang.xoa_LoaiKH(hdb);
+            return dal_TTKhachHang.Sua(kh);
         }
 
-        //////////////////////////////////////////////////
-        public bool them_kh(KHACHHANG hdb)
+        public int Xoa_dal(KHACHHANG kh)
         {
-            return dal_TTKhachHang.them_KH(hdb);
+            return dal_TTKhachHang.Xoa(kh);
         }
-        public bool KTKC_kh(KHACHHANG hdb)
+
+        public int themloaiKH_dal(LOAIKHACHHANG lkh)
         {
-            return dal_TTKhachHang.ktkc_kh(hdb);
+            return dal_TTKhachHang.themloaiKH(lkh);
         }
-        public bool sua_kh(KHACHHANG hdb)
+
+        public int SualoaiKH_dal(LOAIKHACHHANG lkh)
         {
-            return dal_TTKhachHang.sua_KH(hdb);
+            return dal_TTKhachHang.SualoaiKH(lkh);
         }
-        public bool xoa_kh(KHACHHANG hdb)
+
+        public int XoaloaiKH_dal(LOAIKHACHHANG lkh)
         {
-            return dal_TTKhachHang.xoa_KH(hdb);
+            return dal_TTKhachHang.XoaloaiKH(lkh);
         }
+
+
     }
 }

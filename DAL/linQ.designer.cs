@@ -2142,8 +2142,6 @@ namespace DAL
 		
 		private string _DIACHI;
 		
-		private EntitySet<HOADONBAN> _HOADONBANs;
-		
 		private EntityRef<LOAIKHACHHANG> _LOAIKHACHHANG;
 		
     #region Extensibility Method Definitions
@@ -2164,7 +2162,6 @@ namespace DAL
 		
 		public KHACHHANG()
 		{
-			this._HOADONBANs = new EntitySet<HOADONBAN>(new Action<HOADONBAN>(this.attach_HOADONBANs), new Action<HOADONBAN>(this.detach_HOADONBANs));
 			this._LOAIKHACHHANG = default(EntityRef<LOAIKHACHHANG>);
 			OnCreated();
 		}
@@ -2273,19 +2270,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KHACHHANG_HOADONBAN", Storage="_HOADONBANs", ThisKey="MAKH", OtherKey="MAKH")]
-		public EntitySet<HOADONBAN> HOADONBANs
-		{
-			get
-			{
-				return this._HOADONBANs;
-			}
-			set
-			{
-				this._HOADONBANs.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LOAIKHACHHANG_KHACHHANG", Storage="_LOAIKHACHHANG", ThisKey="MALOAIKH", OtherKey="MALOAIKH", IsForeignKey=true)]
 		public LOAIKHACHHANG LOAIKHACHHANG
 		{
@@ -2338,18 +2322,6 @@ namespace DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_HOADONBANs(HOADONBAN entity)
-		{
-			this.SendPropertyChanging();
-			entity.KHACHHANG = this;
-		}
-		
-		private void detach_HOADONBANs(HOADONBAN entity)
-		{
-			this.SendPropertyChanging();
-			entity.KHACHHANG = null;
 		}
 	}
 	
@@ -2725,8 +2697,6 @@ namespace DAL
 		
 		private EntitySet<DONGIA> _DONGIAs;
 		
-		private EntitySet<CHITIETHOADONBAN> _CHITIETHOADONBANs;
-		
 		private EntityRef<DONVITINH> _DONVITINH;
 		
 		private EntityRef<LOAIMATHANG> _LOAIMATHANG;
@@ -2761,7 +2731,6 @@ namespace DAL
 			this._CHITIETNHASANXUATs = new EntitySet<CHITIETNHASANXUAT>(new Action<CHITIETNHASANXUAT>(this.attach_CHITIETNHASANXUATs), new Action<CHITIETNHASANXUAT>(this.detach_CHITIETNHASANXUATs));
 			this._CTPHIEUDATHANGNSXes = new EntitySet<CTPHIEUDATHANGNSX>(new Action<CTPHIEUDATHANGNSX>(this.attach_CTPHIEUDATHANGNSXes), new Action<CTPHIEUDATHANGNSX>(this.detach_CTPHIEUDATHANGNSXes));
 			this._DONGIAs = new EntitySet<DONGIA>(new Action<DONGIA>(this.attach_DONGIAs), new Action<DONGIA>(this.detach_DONGIAs));
-			this._CHITIETHOADONBANs = new EntitySet<CHITIETHOADONBAN>(new Action<CHITIETHOADONBAN>(this.attach_CHITIETHOADONBANs), new Action<CHITIETHOADONBAN>(this.detach_CHITIETHOADONBANs));
 			this._DONVITINH = default(EntityRef<DONVITINH>);
 			this._LOAIMATHANG = default(EntityRef<LOAIMATHANG>);
 			this._NHASANXUAT = default(EntityRef<NHASANXUAT>);
@@ -2992,19 +2961,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MATHANG_CHITIETHOADONBAN", Storage="_CHITIETHOADONBANs", ThisKey="MAMATHANG", OtherKey="MAMATHANG")]
-		public EntitySet<CHITIETHOADONBAN> CHITIETHOADONBANs
-		{
-			get
-			{
-				return this._CHITIETHOADONBANs;
-			}
-			set
-			{
-				this._CHITIETHOADONBANs.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DONVITINH_MATHANG", Storage="_DONVITINH", ThisKey="MADVT", OtherKey="MADVT", IsForeignKey=true)]
 		public DONVITINH DONVITINH
 		{
@@ -3170,18 +3126,6 @@ namespace DAL
 		}
 		
 		private void detach_DONGIAs(DONGIA entity)
-		{
-			this.SendPropertyChanging();
-			entity.MATHANG = null;
-		}
-		
-		private void attach_CHITIETHOADONBANs(CHITIETHOADONBAN entity)
-		{
-			this.SendPropertyChanging();
-			entity.MATHANG = this;
-		}
-		
-		private void detach_CHITIETHOADONBANs(CHITIETHOADONBAN entity)
 		{
 			this.SendPropertyChanging();
 			entity.MATHANG = null;
@@ -3416,10 +3360,6 @@ namespace DAL
 		
 		private EntitySet<PHIEUDATHANGNSX> _PHIEUDATHANGNSXes;
 		
-		private EntitySet<PHIEUNHAPHANG> _PHIEUNHAPHANGs;
-		
-		private EntitySet<HOADONBAN> _HOADONBANs;
-		
 		private EntityRef<CHUCVU> _CHUCVU;
 		
     #region Extensibility Method Definitions
@@ -3456,8 +3396,6 @@ namespace DAL
 			this._GIAOHANGs = new EntitySet<GIAOHANG>(new Action<GIAOHANG>(this.attach_GIAOHANGs), new Action<GIAOHANG>(this.detach_GIAOHANGs));
 			this._NGUOIDUNGNHOMNGUOIDUNGs = new EntitySet<NGUOIDUNGNHOMNGUOIDUNG>(new Action<NGUOIDUNGNHOMNGUOIDUNG>(this.attach_NGUOIDUNGNHOMNGUOIDUNGs), new Action<NGUOIDUNGNHOMNGUOIDUNG>(this.detach_NGUOIDUNGNHOMNGUOIDUNGs));
 			this._PHIEUDATHANGNSXes = new EntitySet<PHIEUDATHANGNSX>(new Action<PHIEUDATHANGNSX>(this.attach_PHIEUDATHANGNSXes), new Action<PHIEUDATHANGNSX>(this.detach_PHIEUDATHANGNSXes));
-			this._PHIEUNHAPHANGs = new EntitySet<PHIEUNHAPHANG>(new Action<PHIEUNHAPHANG>(this.attach_PHIEUNHAPHANGs), new Action<PHIEUNHAPHANG>(this.detach_PHIEUNHAPHANGs));
-			this._HOADONBANs = new EntitySet<HOADONBAN>(new Action<HOADONBAN>(this.attach_HOADONBANs), new Action<HOADONBAN>(this.detach_HOADONBANs));
 			this._CHUCVU = default(EntityRef<CHUCVU>);
 			OnCreated();
 		}
@@ -3754,32 +3692,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHANVIEN_PHIEUNHAPHANG", Storage="_PHIEUNHAPHANGs", ThisKey="MANV", OtherKey="MANV")]
-		public EntitySet<PHIEUNHAPHANG> PHIEUNHAPHANGs
-		{
-			get
-			{
-				return this._PHIEUNHAPHANGs;
-			}
-			set
-			{
-				this._PHIEUNHAPHANGs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHANVIEN_HOADONBAN", Storage="_HOADONBANs", ThisKey="MANV", OtherKey="MANV")]
-		public EntitySet<HOADONBAN> HOADONBANs
-		{
-			get
-			{
-				return this._HOADONBANs;
-			}
-			set
-			{
-				this._HOADONBANs.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CHUCVU_NHANVIEN", Storage="_CHUCVU", ThisKey="MACHUCVU", OtherKey="MACHUCVU", IsForeignKey=true)]
 		public CHUCVU CHUCVU
 		{
@@ -3869,30 +3781,6 @@ namespace DAL
 			this.SendPropertyChanging();
 			entity.NHANVIEN = null;
 		}
-		
-		private void attach_PHIEUNHAPHANGs(PHIEUNHAPHANG entity)
-		{
-			this.SendPropertyChanging();
-			entity.NHANVIEN = this;
-		}
-		
-		private void detach_PHIEUNHAPHANGs(PHIEUNHAPHANG entity)
-		{
-			this.SendPropertyChanging();
-			entity.NHANVIEN = null;
-		}
-		
-		private void attach_HOADONBANs(HOADONBAN entity)
-		{
-			this.SendPropertyChanging();
-			entity.NHANVIEN = this;
-		}
-		
-		private void detach_HOADONBANs(HOADONBAN entity)
-		{
-			this.SendPropertyChanging();
-			entity.NHANVIEN = null;
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NHASANXUAT")]
@@ -3917,8 +3805,6 @@ namespace DAL
 		
 		private EntitySet<PHIEUDATHANGNSX> _PHIEUDATHANGNSXes;
 		
-		private EntitySet<PHIEUNHAPHANG> _PHIEUNHAPHANGs;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3940,7 +3826,6 @@ namespace DAL
 			this._CHITIETNHASANXUATs = new EntitySet<CHITIETNHASANXUAT>(new Action<CHITIETNHASANXUAT>(this.attach_CHITIETNHASANXUATs), new Action<CHITIETNHASANXUAT>(this.detach_CHITIETNHASANXUATs));
 			this._MATHANGs = new EntitySet<MATHANG>(new Action<MATHANG>(this.attach_MATHANGs), new Action<MATHANG>(this.detach_MATHANGs));
 			this._PHIEUDATHANGNSXes = new EntitySet<PHIEUDATHANGNSX>(new Action<PHIEUDATHANGNSX>(this.attach_PHIEUDATHANGNSXes), new Action<PHIEUDATHANGNSX>(this.detach_PHIEUDATHANGNSXes));
-			this._PHIEUNHAPHANGs = new EntitySet<PHIEUNHAPHANG>(new Action<PHIEUNHAPHANG>(this.attach_PHIEUNHAPHANGs), new Action<PHIEUNHAPHANG>(this.detach_PHIEUNHAPHANGs));
 			OnCreated();
 		}
 		
@@ -4083,19 +3968,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHASANXUAT_PHIEUNHAPHANG", Storage="_PHIEUNHAPHANGs", ThisKey="MANSX", OtherKey="MANSX")]
-		public EntitySet<PHIEUNHAPHANG> PHIEUNHAPHANGs
-		{
-			get
-			{
-				return this._PHIEUNHAPHANGs;
-			}
-			set
-			{
-				this._PHIEUNHAPHANGs.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -4147,18 +4019,6 @@ namespace DAL
 		}
 		
 		private void detach_PHIEUDATHANGNSXes(PHIEUDATHANGNSX entity)
-		{
-			this.SendPropertyChanging();
-			entity.NHASANXUAT = null;
-		}
-		
-		private void attach_PHIEUNHAPHANGs(PHIEUNHAPHANG entity)
-		{
-			this.SendPropertyChanging();
-			entity.NHASANXUAT = this;
-		}
-		
-		private void detach_PHIEUNHAPHANGs(PHIEUNHAPHANG entity)
 		{
 			this.SendPropertyChanging();
 			entity.NHASANXUAT = null;
@@ -4863,10 +4723,6 @@ namespace DAL
 		
 		private EntitySet<CHITIETPHIEUNHAPHANG> _CHITIETPHIEUNHAPHANGs;
 		
-		private EntityRef<NHASANXUAT> _NHASANXUAT;
-		
-		private EntityRef<NHANVIEN> _NHANVIEN;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -4891,8 +4747,6 @@ namespace DAL
 		{
 			this._CHITIETMATHANGs = new EntitySet<CHITIETMATHANG>(new Action<CHITIETMATHANG>(this.attach_CHITIETMATHANGs), new Action<CHITIETMATHANG>(this.detach_CHITIETMATHANGs));
 			this._CHITIETPHIEUNHAPHANGs = new EntitySet<CHITIETPHIEUNHAPHANG>(new Action<CHITIETPHIEUNHAPHANG>(this.attach_CHITIETPHIEUNHAPHANGs), new Action<CHITIETPHIEUNHAPHANG>(this.detach_CHITIETPHIEUNHAPHANGs));
-			this._NHASANXUAT = default(EntityRef<NHASANXUAT>);
-			this._NHANVIEN = default(EntityRef<NHANVIEN>);
 			OnCreated();
 		}
 		
@@ -4927,10 +4781,6 @@ namespace DAL
 			{
 				if ((this._MANV != value))
 				{
-					if (this._NHANVIEN.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnMANVChanging(value);
 					this.SendPropertyChanging();
 					this._MANV = value;
@@ -4951,10 +4801,6 @@ namespace DAL
 			{
 				if ((this._MANSX != value))
 				{
-					if (this._NHASANXUAT.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnMANSXChanging(value);
 					this.SendPropertyChanging();
 					this._MANSX = value;
@@ -5070,74 +4916,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHASANXUAT_PHIEUNHAPHANG", Storage="_NHASANXUAT", ThisKey="MANSX", OtherKey="MANSX", IsForeignKey=true)]
-		public NHASANXUAT NHASANXUAT
-		{
-			get
-			{
-				return this._NHASANXUAT.Entity;
-			}
-			set
-			{
-				NHASANXUAT previousValue = this._NHASANXUAT.Entity;
-				if (((previousValue != value) 
-							|| (this._NHASANXUAT.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._NHASANXUAT.Entity = null;
-						previousValue.PHIEUNHAPHANGs.Remove(this);
-					}
-					this._NHASANXUAT.Entity = value;
-					if ((value != null))
-					{
-						value.PHIEUNHAPHANGs.Add(this);
-						this._MANSX = value.MANSX;
-					}
-					else
-					{
-						this._MANSX = default(string);
-					}
-					this.SendPropertyChanged("NHASANXUAT");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHANVIEN_PHIEUNHAPHANG", Storage="_NHANVIEN", ThisKey="MANV", OtherKey="MANV", IsForeignKey=true)]
-		public NHANVIEN NHANVIEN
-		{
-			get
-			{
-				return this._NHANVIEN.Entity;
-			}
-			set
-			{
-				NHANVIEN previousValue = this._NHANVIEN.Entity;
-				if (((previousValue != value) 
-							|| (this._NHANVIEN.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._NHANVIEN.Entity = null;
-						previousValue.PHIEUNHAPHANGs.Remove(this);
-					}
-					this._NHANVIEN.Entity = value;
-					if ((value != null))
-					{
-						value.PHIEUNHAPHANGs.Add(this);
-						this._MANV = value.MANV;
-					}
-					else
-					{
-						this._MANV = default(string);
-					}
-					this.SendPropertyChanged("NHANVIEN");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -5203,12 +4981,6 @@ namespace DAL
 		
 		private string _TINHTRANG;
 		
-		private EntitySet<CHITIETHOADONBAN> _CHITIETHOADONBANs;
-		
-		private EntityRef<KHACHHANG> _KHACHHANG;
-		
-		private EntityRef<NHANVIEN> _NHANVIEN;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -5231,9 +5003,6 @@ namespace DAL
 		
 		public HOADONBAN()
 		{
-			this._CHITIETHOADONBANs = new EntitySet<CHITIETHOADONBAN>(new Action<CHITIETHOADONBAN>(this.attach_CHITIETHOADONBANs), new Action<CHITIETHOADONBAN>(this.detach_CHITIETHOADONBANs));
-			this._KHACHHANG = default(EntityRef<KHACHHANG>);
-			this._NHANVIEN = default(EntityRef<NHANVIEN>);
 			OnCreated();
 		}
 		
@@ -5268,10 +5037,6 @@ namespace DAL
 			{
 				if ((this._MANV != value))
 				{
-					if (this._NHANVIEN.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnMANVChanging(value);
 					this.SendPropertyChanging();
 					this._MANV = value;
@@ -5292,10 +5057,6 @@ namespace DAL
 			{
 				if ((this._MAKH != value))
 				{
-					if (this._KHACHHANG.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnMAKHChanging(value);
 					this.SendPropertyChanging();
 					this._MAKH = value;
@@ -5385,87 +5146,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HOADONBAN_CHITIETHOADONBAN", Storage="_CHITIETHOADONBANs", ThisKey="MAHDB", OtherKey="MAHDB")]
-		public EntitySet<CHITIETHOADONBAN> CHITIETHOADONBANs
-		{
-			get
-			{
-				return this._CHITIETHOADONBANs;
-			}
-			set
-			{
-				this._CHITIETHOADONBANs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KHACHHANG_HOADONBAN", Storage="_KHACHHANG", ThisKey="MAKH", OtherKey="MAKH", IsForeignKey=true)]
-		public KHACHHANG KHACHHANG
-		{
-			get
-			{
-				return this._KHACHHANG.Entity;
-			}
-			set
-			{
-				KHACHHANG previousValue = this._KHACHHANG.Entity;
-				if (((previousValue != value) 
-							|| (this._KHACHHANG.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._KHACHHANG.Entity = null;
-						previousValue.HOADONBANs.Remove(this);
-					}
-					this._KHACHHANG.Entity = value;
-					if ((value != null))
-					{
-						value.HOADONBANs.Add(this);
-						this._MAKH = value.MAKH;
-					}
-					else
-					{
-						this._MAKH = default(string);
-					}
-					this.SendPropertyChanged("KHACHHANG");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHANVIEN_HOADONBAN", Storage="_NHANVIEN", ThisKey="MANV", OtherKey="MANV", IsForeignKey=true)]
-		public NHANVIEN NHANVIEN
-		{
-			get
-			{
-				return this._NHANVIEN.Entity;
-			}
-			set
-			{
-				NHANVIEN previousValue = this._NHANVIEN.Entity;
-				if (((previousValue != value) 
-							|| (this._NHANVIEN.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._NHANVIEN.Entity = null;
-						previousValue.HOADONBANs.Remove(this);
-					}
-					this._NHANVIEN.Entity = value;
-					if ((value != null))
-					{
-						value.HOADONBANs.Add(this);
-						this._MANV = value.MANV;
-					}
-					else
-					{
-						this._MANV = default(string);
-					}
-					this.SendPropertyChanged("NHANVIEN");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -5484,18 +5164,6 @@ namespace DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_CHITIETHOADONBANs(CHITIETHOADONBAN entity)
-		{
-			this.SendPropertyChanging();
-			entity.HOADONBAN = this;
-		}
-		
-		private void detach_CHITIETHOADONBANs(CHITIETHOADONBAN entity)
-		{
-			this.SendPropertyChanging();
-			entity.HOADONBAN = null;
 		}
 	}
 	
@@ -5517,10 +5185,6 @@ namespace DAL
 		
 		private EntitySet<CHITIETGIAOHANG> _CHITIETGIAOHANGs;
 		
-		private EntityRef<HOADONBAN> _HOADONBAN;
-		
-		private EntityRef<MATHANG> _MATHANG;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -5540,8 +5204,6 @@ namespace DAL
 		public CHITIETHOADONBAN()
 		{
 			this._CHITIETGIAOHANGs = new EntitySet<CHITIETGIAOHANG>(new Action<CHITIETGIAOHANG>(this.attach_CHITIETGIAOHANGs), new Action<CHITIETGIAOHANG>(this.detach_CHITIETGIAOHANGs));
-			this._HOADONBAN = default(EntityRef<HOADONBAN>);
-			this._MATHANG = default(EntityRef<MATHANG>);
 			OnCreated();
 		}
 		
@@ -5576,10 +5238,6 @@ namespace DAL
 			{
 				if ((this._MAHDB != value))
 				{
-					if (this._HOADONBAN.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnMAHDBChanging(value);
 					this.SendPropertyChanging();
 					this._MAHDB = value;
@@ -5600,10 +5258,6 @@ namespace DAL
 			{
 				if ((this._MAMATHANG != value))
 				{
-					if (this._MATHANG.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnMAMATHANGChanging(value);
 					this.SendPropertyChanging();
 					this._MAMATHANG = value;
@@ -5663,74 +5317,6 @@ namespace DAL
 			set
 			{
 				this._CHITIETGIAOHANGs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HOADONBAN_CHITIETHOADONBAN", Storage="_HOADONBAN", ThisKey="MAHDB", OtherKey="MAHDB", IsForeignKey=true)]
-		public HOADONBAN HOADONBAN
-		{
-			get
-			{
-				return this._HOADONBAN.Entity;
-			}
-			set
-			{
-				HOADONBAN previousValue = this._HOADONBAN.Entity;
-				if (((previousValue != value) 
-							|| (this._HOADONBAN.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._HOADONBAN.Entity = null;
-						previousValue.CHITIETHOADONBANs.Remove(this);
-					}
-					this._HOADONBAN.Entity = value;
-					if ((value != null))
-					{
-						value.CHITIETHOADONBANs.Add(this);
-						this._MAHDB = value.MAHDB;
-					}
-					else
-					{
-						this._MAHDB = default(string);
-					}
-					this.SendPropertyChanged("HOADONBAN");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MATHANG_CHITIETHOADONBAN", Storage="_MATHANG", ThisKey="MAMATHANG", OtherKey="MAMATHANG", IsForeignKey=true)]
-		public MATHANG MATHANG
-		{
-			get
-			{
-				return this._MATHANG.Entity;
-			}
-			set
-			{
-				MATHANG previousValue = this._MATHANG.Entity;
-				if (((previousValue != value) 
-							|| (this._MATHANG.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._MATHANG.Entity = null;
-						previousValue.CHITIETHOADONBANs.Remove(this);
-					}
-					this._MATHANG.Entity = value;
-					if ((value != null))
-					{
-						value.CHITIETHOADONBANs.Add(this);
-						this._MAMATHANG = value.MAMATHANG;
-					}
-					else
-					{
-						this._MAMATHANG = default(string);
-					}
-					this.SendPropertyChanged("MATHANG");
-				}
 			}
 		}
 		

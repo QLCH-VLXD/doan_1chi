@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BangGhep_DatHangNSX.cs" />
+    <Compile Include="Bangghep_DMMH.cs" />
     <Compile Include="BangGhep_GiaoHang.cs" />
     <Compile Include="BangGhep_HoaDonBan.cs" />
     <Compile Include="BangGhep_KHACHHANG.cs" />
@@ -52,10 +53,10 @@
     <Compile Include="CT_GiaoHang.cs" />
     <Compile Include="CT_NhapHang.cs" />
     <Compile Include="DAL_BanHang.cs" />
+    <Compile Include="DAL_DanhMucSanPham.cs" />
     <Compile Include="DAL_DatHangNSX.cs" />
     <Compile Include="DAL_GiaoHang.cs" />
     <Compile Include="DAL_NhapHang.cs" />
-    <Compile Include="DAL_ThongKe.cs" />
     <Compile Include="DAL_TTKhachHang.cs" />
     <Compile Include="DAL_TTNhanVien.cs" />
     <Compile Include="DAL_TTNSX.cs" />

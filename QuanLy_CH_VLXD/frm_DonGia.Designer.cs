@@ -34,10 +34,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -49,18 +45,18 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.dateTimePicker3);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button1);
@@ -77,16 +73,16 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(316, 26);
+            this.groupBox1.Location = new System.Drawing.Point(19, 33);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(948, 242);
+            this.groupBox1.Size = new System.Drawing.Size(417, 446);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Đơn giá";
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(819, 106);
+            this.button4.Location = new System.Drawing.Point(152, 377);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(99, 35);
             this.button4.TabIndex = 77;
@@ -95,7 +91,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(819, 170);
+            this.button3.Location = new System.Drawing.Point(285, 377);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(99, 35);
             this.button3.TabIndex = 76;
@@ -104,7 +100,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(819, 40);
+            this.button1.Location = new System.Drawing.Point(20, 377);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(99, 35);
             this.button1.TabIndex = 75;
@@ -114,7 +110,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(433, 48);
+            this.label1.Location = new System.Drawing.Point(26, 233);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 19);
             this.label1.TabIndex = 74;
@@ -122,48 +118,16 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(533, 40);
+            this.textBox1.Location = new System.Drawing.Point(145, 225);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(230, 27);
             this.textBox1.TabIndex = 73;
             // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(437, 95);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(230, 26);
-            this.dateTimePicker2.TabIndex = 72;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(437, 51);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(230, 26);
-            this.dateTimePicker1.TabIndex = 71;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(337, 101);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 19);
-            this.label7.TabIndex = 70;
-            this.label7.Text = "Ngày kết thúc";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(337, 51);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 19);
-            this.label6.TabIndex = 69;
-            this.label6.Text = "Ngày áp dụng";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(433, 94);
+            this.label5.Location = new System.Drawing.Point(26, 279);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 19);
             this.label5.TabIndex = 68;
@@ -171,7 +135,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(533, 86);
+            this.textBox3.Location = new System.Drawing.Point(145, 271);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(230, 27);
@@ -247,42 +211,38 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.gridControl1);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.dateTimePicker2);
+            this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(316, 294);
+            this.groupBox2.Location = new System.Drawing.Point(452, 33);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(948, 342);
+            this.groupBox2.Size = new System.Drawing.Size(898, 446);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Đơn giá";
             // 
-            // gridControl1
+            // dateTimePicker3
             // 
-            this.gridControl1.Location = new System.Drawing.Point(21, 130);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(890, 181);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
+            this.dateTimePicker3.Location = new System.Drawing.Point(145, 316);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(230, 26);
+            this.dateTimePicker3.TabIndex = 78;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(480, 153);
+            this.label2.Location = new System.Drawing.Point(26, 323);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 19);
-            this.label2.TabIndex = 78;
-            this.label2.Text = "Dùng date time .now";
+            this.label2.Size = new System.Drawing.Size(91, 19);
+            this.label2.TabIndex = 79;
+            this.label2.Text = "Ngày bắt đầu";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 25);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(886, 396);
+            this.dataGridView1.TabIndex = 0;
             // 
             // frm_DonGia
             // 
@@ -296,9 +256,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -316,18 +274,14 @@
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

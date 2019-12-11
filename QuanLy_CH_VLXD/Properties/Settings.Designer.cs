@@ -57,5 +57,27 @@ namespace QuanLy_CH_VLXD.Properties {
                 return ((string)(this["QL_CH_VATLIEUXAYDUNGConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-CKJCBOM\\SQLEXPRESS;Initial Catalog=QL_CH_VATLIEUXAYDUNG;Integ" +
+            "rated Security=True")]
+        public string QL_CH_VATLIEUXAYDUNGConnectionString1 {
+            get {
+                return ((string)(this["QL_CH_VATLIEUXAYDUNGConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-CKJCBOM\\SQLEXPRESS;Initial Catalog=QL_CH_VATLIEUXAYDUNG;User " +
+            "ID=sa;Password=sa2012")]
+        public string QL_CH_VATLIEUXAYDUNGConnectionString2 {
+            get {
+                return ((string)(this["QL_CH_VATLIEUXAYDUNGConnectionString2"]));
+            }
+        }
     }
 }

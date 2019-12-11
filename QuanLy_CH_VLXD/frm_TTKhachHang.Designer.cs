@@ -70,8 +70,7 @@
             this.datagird_KhachHang.Name = "datagird_KhachHang";
             this.datagird_KhachHang.Size = new System.Drawing.Size(766, 224);
             this.datagird_KhachHang.TabIndex = 0;
-            this.datagird_KhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.datagird_KhachHang.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.LoadDL_khachhang_CellMouseClick);
+            this.datagird_KhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagird_KhachHang_CellClick);
             // 
             // groupBox3
             // 
@@ -92,7 +91,7 @@
             this.btnSua_TTKH.TabIndex = 33;
             this.btnSua_TTKH.Text = "Sửa";
             this.btnSua_TTKH.UseVisualStyleBackColor = true;
-            this.btnSua_TTKH.Click += new System.EventHandler(this.btnSua_Click);
+            this.btnSua_TTKH.Click += new System.EventHandler(this.btnSua_TTKH_Click);
             // 
             // txtSDT
             // 
@@ -101,7 +100,6 @@
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(240, 27);
             this.txtSDT.TabIndex = 24;
-            this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
             // 
             // label3
             // 
@@ -128,6 +126,7 @@
             this.txtLoaiKH.Name = "txtLoaiKH";
             this.txtLoaiKH.Size = new System.Drawing.Size(240, 27);
             this.txtLoaiKH.TabIndex = 8;
+            this.txtLoaiKH.TextChanged += new System.EventHandler(this.txtLoaiKH_TextChanged);
             // 
             // btnXoa_TTKH
             // 
@@ -137,7 +136,7 @@
             this.btnXoa_TTKH.TabIndex = 32;
             this.btnXoa_TTKH.Text = "Xóa";
             this.btnXoa_TTKH.UseVisualStyleBackColor = true;
-            this.btnXoa_TTKH.Click += new System.EventHandler(this.btnXoa_Click);
+            this.btnXoa_TTKH.Click += new System.EventHandler(this.btnXoa_TTKH_Click);
             // 
             // groupBox2
             // 
@@ -278,8 +277,7 @@
             this.dataGridView_LoaiKH.Name = "dataGridView_LoaiKH";
             this.dataGridView_LoaiKH.Size = new System.Drawing.Size(448, 183);
             this.dataGridView_LoaiKH.TabIndex = 31;
-            this.dataGridView_LoaiKH.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_LoaiKH_CellMouseClick);
-            this.dataGridView_LoaiKH.SelectionChanged += new System.EventHandler(this.dataGridView2_SelectionChanged);
+            this.dataGridView_LoaiKH.SelectionChanged += new System.EventHandler(this.dataGridView_LoaiKH_SelectionChanged);
             // 
             // btnSua_LoaiKH
             // 

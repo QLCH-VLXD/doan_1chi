@@ -14,18 +14,62 @@ namespace QuanLy_CH_VLXD
 {
     public partial class frm_ThongKe : UserControl
     {
-        BLL_ThongKe bLL_ThongKe = new BLL_ThongKe();
+        
         public frm_ThongKe()
         {
             InitializeComponent();
         }
-
+        int i = 0;
         private void frm_ThongKe_Load(object sender, EventArgs e)
         {
-            dataGrid_TKNhaphang.DataSource = bLL_ThongKe.Load_nhapHang();
+            pHIEUNHAPHANGTableAdapter.Fill(dataSet1.PHIEUNHAPHANG);
+            cHITIETPHIEUNHAPHANGTableAdapter.Fill(dataSet1.CHITIETPHIEUNHAPHANG);
+            hOADONBANTableAdapter.Fill(dataSet1.HOADONBAN);
+            cHITIETHOADONBANTableAdapter.Fill(dataSet1.CHITIETHOADONBAN);
+            mATHANGTableAdapter.FillBy(dataSet1.MATHANG);
+            mATHANGTableAdapter.Fill(dataSet1.MATHANG);
+            i = 1;
         }
 
         private void xtraTabPage1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void pHIEUNHAPHANGBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.pHIEUNHAPHANGBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.dataSet1);
+
+        }
+
+        private void mAPNComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {            //if(i==1)
+            //if (mAPNComboBox.SelectedValue != null)
+            //{
+            //        string a = mAPNComboBox.SelectedValue.ToString();
+            //    pHIEUNHAPHANGTableAdapter.FillBy(dataSet1.PHIEUNHAPHANG, a);
+            //}
+
+        }
+
+        private void pHIEUNHAPHANGDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void xtraTabPage2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void hOADONBANDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

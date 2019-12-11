@@ -11,3 +11,4 @@ C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\DAL\bin\Debug\
 C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\DAL\obj\Debug\DAL.dll
 C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\DAL\obj\Debug\DAL.pdb
+C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\DAL\obj\Debug\DAL.csprojAssemblyReference.cache

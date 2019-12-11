@@ -8,164 +8,151 @@ namespace DAL
 {
     public class DAL_TTKhachHang
     {
-        linQDataContext dal_data = new linQDataContext();
+        linQDataContext DAL_data = new linQDataContext();
 
         public string SinhMaHoaDon()
         {
-            return dal_data.SINHMA_HDN();
+            return DAL_data.SINHMA_HDN();
 
         }
+
+        public List<KHACHHANG> Loaddata_TTKhachHang()
+        {
+            return DAL_data.KHACHHANGs.Select(t => t).ToList<KHACHHANG>();
+
+        }
+
         public List<LOAIKHACHHANG> Loaddata_LoaiKhachHang()
         {
-            return dal_data.LOAIKHACHHANGs.Select(t => t).ToList<LOAIKHACHHANG>();
-        }
-        public List<KHACHHANG> Loaddata_KhachHang()
-        {
-            return dal_data.KHACHHANGs.Select(t => t).ToList<KHACHHANG>();
-        }
-        public bool them_LoaiKH(LOAIKHACHHANG hdb)
-        {
-            try
-            {
-                dal_data.LOAIKHACHHANGs.InsertOnSubmit(hdb);
-                dal_data.SubmitChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
+            return DAL_data.LOAIKHACHHANGs.Select(t => t).ToList<LOAIKHACHHANG>();
+
         }
 
-        public bool ktkc(LOAIKHACHHANG hdb)
+        public int them(KHACHHANG kh)
         {
-            int r = dal_data.LOAIKHACHHANGs.Count(t => t.MALOAIKH == hdb.MALOAIKH.ToString());
-            try
+            int result = 0;
+            if (IsExit(kh.MAKH))
             {
-                if (r == 0)
-                {
-                    return true;
-                }
-                return false;
+                result = 2;
             }
-            catch
+            else
             {
-                return false;
+                linQDataContext context = new linQDataContext();
+                context.KHACHHANGs.InsertOnSubmit(kh);
+                context.SubmitChanges();
+
             }
-        }
-        public bool sua_LoaiKH(LOAIKHACHHANG mh)
-        {
-            try
-            {
-                LOAIKHACHHANG aa = dal_data.LOAIKHACHHANGs.Where(t => t.MALOAIKH == mh.MALOAIKH.ToString()).FirstOrDefault();
-                aa.TENLOAIKH = mh.TENLOAIKH;
-                dal_data.SubmitChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-        }
-        public bool xoa_LoaiKH(LOAIKHACHHANG pmh)
-        {
-            try
-            {
-                LOAIKHACHHANG mh = dal_data.LOAIKHACHHANGs.Where(t => t.MALOAIKH == pmh.MALOAIKH.ToString()).FirstOrDefault();
-                dal_data.LOAIKHACHHANGs.DeleteOnSubmit(mh);
-                dal_data.SubmitChanges(); ;
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+
+            return result;
+
         }
 
-        public List<BangGhep_KHACHHANG> Loaddl_khachhang()
+        public bool IsExit(string makh)
         {
-            var khachhang = from s in dal_data.KHACHHANGs
-                            join q in dal_data.LOAIKHACHHANGs on s.MALOAIKH equals (q.MALOAIKH)
+            linQDataContext DAl_data = new linQDataContext();
+            return DAl_data.KHACHHANGs.Any(t => t.MAKH.ToUpper() == makh.ToUpper());
 
-                            select new
-                            {
-                                s.MAKH,
-                                q.TENLOAIKH,
-                                s.HOTENKH,
-                                s.SDT,
-                                s.DIACHI
-                            };
-            var kq = khachhang.ToList().ConvertAll(t => new BangGhep_KHACHHANG()
-            {
-                MAKH1 = t.MAKH,
-                TENLOAIKH1 = t.TENLOAIKH,
-                HOTENKH1 = t.HOTENKH,
-                SDT1 = t.SDT,
-                DIACHI1 = t.DIACHI
-            });
-            return kq.ToList<BangGhep_KHACHHANG>();
         }
 
-        public bool them_KH(KHACHHANG hdb)
+        public int Sua(KHACHHANG kh)
         {
-            try
-            {
-                dal_data.KHACHHANGs.InsertOnSubmit(hdb);
-                dal_data.SubmitChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
+            int result = 0;
+            linQDataContext context = new linQDataContext();
+            KHACHHANG k = context.KHACHHANGs.FirstOrDefault(m => m.MAKH == kh.MAKH);
+
+            k.MAKH = kh.MAKH;
+            k.HOTENKH = kh.HOTENKH;
+            k.MALOAIKH = kh.MALOAIKH;
+            k.SDT = kh.SDT;
+            k.DIACHI = kh.DIACHI;
+            context.SubmitChanges();
+
+            result = 1;
+
+
+            return result;
         }
 
-        public bool ktkc_kh(KHACHHANG hdb)
+        public int Xoa(KHACHHANG kh)
         {
-            int r = dal_data.KHACHHANGs.Count(t => t.MAKH == hdb.MAKH.ToString());
-            try
+            int result = 0;
+
+            KHACHHANG k = DAL_data.KHACHHANGs.FirstOrDefault(m => m.MAKH.ToUpper() == kh.MAKH.ToUpper());
+
+            if (k == null)
             {
-                if (r == 0)
-                {
-                    return true;
-                }
-                return false;
+                result = 2;
             }
-            catch
+            else
             {
-                return false;
+
+                DAL_data.KHACHHANGs.DeleteOnSubmit(k);
+                DAL_data.SubmitChanges();
             }
+
+
+            return result;
         }
-        public bool sua_KH(KHACHHANG mh)
+
+        public int themloaiKH(LOAIKHACHHANG lkh)
         {
-            try
+            int result = 0;
+            if (IsExit(lkh.MALOAIKH))
             {
-                KHACHHANG aa = dal_data.KHACHHANGs.Where(t => t.MAKH == mh.MAKH.ToString()).FirstOrDefault();
-                aa.HOTENKH= mh.HOTENKH;
-                aa.LOAIKHACHHANG = mh.LOAIKHACHHANG;
-                aa.SDT = mh.SDT;
-                aa.DIACHI = mh.DIACHI;
-                dal_data.SubmitChanges();
-                return true;
+                result = 2;
             }
-            catch (Exception ex)
+            else
             {
-                return false;
+                linQDataContext context = new linQDataContext();
+                context.LOAIKHACHHANGs.InsertOnSubmit(lkh);
+                context.SubmitChanges();
+
             }
+
+            return result;
+
         }
-        public bool xoa_KH(KHACHHANG pmh)
+
+        public int SualoaiKH(LOAIKHACHHANG lkh)
         {
-            try
+            int result = 0;
+            linQDataContext context = new linQDataContext();
+            LOAIKHACHHANG k = context.LOAIKHACHHANGs.FirstOrDefault(m => m.MALOAIKH.ToUpper() == lkh.MALOAIKH.ToUpper());
+
+            if (k != null)
             {
-                KHACHHANG mh = dal_data.KHACHHANGs.Where(t => t.MAKH == pmh.MAKH.ToString()).FirstOrDefault();
-                dal_data.KHACHHANGs.DeleteOnSubmit(mh);
-                dal_data.SubmitChanges(); ;
-                return true;
+                k.MALOAIKH = lkh.MALOAIKH;
+                k.TENLOAIKH = lkh.TENLOAIKH;
+
+
+                result = 1;
+
             }
-            catch
+            context.SubmitChanges();
+
+
+            return result;
+        }
+
+        public int XoaloaiKH(LOAIKHACHHANG lkh)
+        {
+            int result = 0;
+
+            LOAIKHACHHANG k = DAL_data.LOAIKHACHHANGs.FirstOrDefault(m => m.MALOAIKH.ToUpper() == lkh.MALOAIKH.ToUpper());
+
+            if (k == null)
             {
-                return false;
+                result = 2;
             }
+            else
+            {
+
+                DAL_data.LOAIKHACHHANGs.DeleteOnSubmit(k);
+                DAL_data.SubmitChanges();
+            }
+
+
+            return result;
         }
 
 

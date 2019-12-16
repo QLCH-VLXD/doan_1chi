@@ -261,6 +261,7 @@ namespace DAL
                 dal_data.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, aa);
                 String s = aa.ToString();
                 aa.TONGTIENHANGDAT = mh.TONGTIENHANGDAT;
+                aa.SOTIENTRATRUOC = mh.SOTIENTRATRUOC;
                 dal_data.SubmitChanges();
                 return true;
             }

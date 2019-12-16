@@ -21,7 +21,7 @@ namespace QuanLy_CH_VLXD
         private String a;
         private int f;
         private Double sum = 0;
-
+        string m;
         public frm_NhapHang()
         {
             InitializeComponent();
@@ -134,6 +134,7 @@ namespace QuanLy_CH_VLXD
                 CHITIETPHIEUNHAPHANG ct = new CHITIETPHIEUNHAPHANG();
                 ct.MACTPN = "CTPN" + bLL_NhapHang.Sinh_MaNhapHang_dal();
                 String ma= "CTPN" + bLL_NhapHang.Sinh_MaNhapHang_dal();
+                m = ma;
                 ct.MAPN = dataGridView_nhaphang.CurrentRow.Cells[0].Value.ToString();
                 ct.MACTPHIEUDATHANG = cbo_chitietPDNSX.SelectedValue.ToString();
                 ct.SOLUONGMH = Convert.ToInt32(txt_SoLuong.Text);
@@ -205,6 +206,25 @@ namespace QuanLy_CH_VLXD
         private void groupBox_TTCTSanPham_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void text_socon_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_SoLuong_TextChanged(object sender, EventArgs e)
+        {
+            if(bLL_NhapHang.laysoluong_ctdathang(cbo_chitietPDNSX.Text.ToString())<Convert.ToInt32(txt_SoLuong.Text.ToString()))
+            {
+
+                MessageBox.Show("Số lượng hàng nhập đã quá số lượng đặt");
+                return;
+            }
+            for(int i=0;i<bLL_NhapHang.Gomnhom_CTPDH().Count;i++)
+            {
+                MessageBox.Show(bLL_NhapHang.Gomnhom_CTPDH().Select(p=>p.mactod1).ToString());
+            }
         }
     }
 }

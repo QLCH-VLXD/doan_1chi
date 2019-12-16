@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_LamMoi = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.dateTimePicker_NgayVaoLam = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
@@ -62,11 +63,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_LamMoiCV = new System.Windows.Forms.Button();
             this.txtChucVu = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btn_LamMoiCV = new System.Windows.Forms.Button();
-            this.btn_LamMoi = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -109,6 +109,16 @@
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin nhân viên";
+            // 
+            // btn_LamMoi
+            // 
+            this.btn_LamMoi.Location = new System.Drawing.Point(688, 269);
+            this.btn_LamMoi.Name = "btn_LamMoi";
+            this.btn_LamMoi.Size = new System.Drawing.Size(99, 35);
+            this.btn_LamMoi.TabIndex = 34;
+            this.btn_LamMoi.Text = "Làm mới";
+            this.btn_LamMoi.UseVisualStyleBackColor = true;
+            this.btn_LamMoi.Click += new System.EventHandler(this.btn_LamMoi_Click);
             // 
             // btnSua
             // 
@@ -329,6 +339,7 @@
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(103, 214);
             this.dataGridView2.Name = "dataGridView2";
@@ -412,6 +423,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chức vụ";
             // 
+            // btn_LamMoiCV
+            // 
+            this.btn_LamMoiCV.Location = new System.Drawing.Point(356, 136);
+            this.btn_LamMoiCV.Name = "btn_LamMoiCV";
+            this.btn_LamMoiCV.Size = new System.Drawing.Size(99, 35);
+            this.btn_LamMoiCV.TabIndex = 33;
+            this.btn_LamMoiCV.Text = "Làm mới";
+            this.btn_LamMoiCV.UseVisualStyleBackColor = true;
+            this.btn_LamMoiCV.Click += new System.EventHandler(this.btn_LamMoiCV_Click);
+            // 
             // txtChucVu
             // 
             this.txtChucVu.Location = new System.Drawing.Point(154, 84);
@@ -439,26 +460,6 @@
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Danh sách nhân viên";
-            // 
-            // btn_LamMoiCV
-            // 
-            this.btn_LamMoiCV.Location = new System.Drawing.Point(356, 136);
-            this.btn_LamMoiCV.Name = "btn_LamMoiCV";
-            this.btn_LamMoiCV.Size = new System.Drawing.Size(99, 35);
-            this.btn_LamMoiCV.TabIndex = 33;
-            this.btn_LamMoiCV.Text = "Làm mới";
-            this.btn_LamMoiCV.UseVisualStyleBackColor = true;
-            this.btn_LamMoiCV.Click += new System.EventHandler(this.btn_LamMoiCV_Click);
-            // 
-            // btn_LamMoi
-            // 
-            this.btn_LamMoi.Location = new System.Drawing.Point(688, 269);
-            this.btn_LamMoi.Name = "btn_LamMoi";
-            this.btn_LamMoi.Size = new System.Drawing.Size(99, 35);
-            this.btn_LamMoi.TabIndex = 34;
-            this.btn_LamMoi.Text = "Làm mới";
-            this.btn_LamMoi.UseVisualStyleBackColor = true;
-            this.btn_LamMoi.Click += new System.EventHandler(this.btn_LamMoi_Click);
             // 
             // frm_TTNhanVien
             // 

@@ -55,11 +55,15 @@
     <Compile Include="DAL_BanHang.cs" />
     <Compile Include="DAL_DanhMucSanPham.cs" />
     <Compile Include="DAL_DatHangNSX.cs" />
+    <Compile Include="DAL_DonGia.cs" />
     <Compile Include="DAL_GiaoHang.cs" />
+    <Compile Include="DAL_LoaiMatHang.cs" />
     <Compile Include="DAL_NhapHang.cs" />
     <Compile Include="DAL_TTKhachHang.cs" />
     <Compile Include="DAL_TTNhanVien.cs" />
     <Compile Include="DAL_TTNSX.cs" />
+    <Compile Include="DG_BangGhep.cs" />
+    <Compile Include="gomnhomctnh.cs" />
     <Compile Include="HOADONBAN.cs" />
     <Compile Include="linQ.designer.cs">
       <AutoGen>True</AutoGen>

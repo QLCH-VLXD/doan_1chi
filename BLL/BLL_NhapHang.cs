@@ -109,5 +109,16 @@ namespace BLL
         {
             return dAL_NhapHang.laysomathangdat(maphieudat);
         }
+
+        public int laysoluong_ctdathang(string maphieudat)
+        {
+            return dAL_NhapHang.laysoluong_ctdathang(maphieudat);
+        }
+
+        public List<gomnhomctnh> Gomnhom_CTPDH()
+        {
+            return dAL_NhapHang.gomnhomctnh();
+        }
+        
     }
 }

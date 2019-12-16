@@ -63,7 +63,6 @@
             this.groupBox_TTCTSanPham = new System.Windows.Forms.GroupBox();
             this.txt_MaPDNSX = new System.Windows.Forms.TextBox();
             this.lbl_TienConLaiSo = new System.Windows.Forms.Label();
-            this.lbl_TienTraTruocSo = new System.Windows.Forms.Label();
             this.lbl_TongtienSo = new System.Windows.Forms.Label();
             this.txt_TinhTrang = new System.Windows.Forms.TextBox();
             this.btn_Xoa = new System.Windows.Forms.Button();
@@ -71,10 +70,11 @@
             this.btn_Them = new System.Windows.Forms.Button();
             this.lbl_VNDDD = new System.Windows.Forms.Label();
             this.lbl_TienConLai = new System.Windows.Forms.Label();
-            this.lbl_VNDD = new System.Windows.Forms.Label();
             this.lbl_VND = new System.Windows.Forms.Label();
             this.lbl_TienTraTruoc = new System.Windows.Forms.Label();
             this.lbl_TongTien = new System.Windows.Forms.Label();
+            this.txt_TienTraTruoc = new System.Windows.Forms.TextBox();
+            this.btn_TraTruoc = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DatHangNSX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_CTDatHangNSX)).BeginInit();
@@ -358,9 +358,10 @@
             // 
             // groupBox_TTCTSanPham
             // 
+            this.groupBox_TTCTSanPham.Controls.Add(this.btn_TraTruoc);
+            this.groupBox_TTCTSanPham.Controls.Add(this.txt_TienTraTruoc);
             this.groupBox_TTCTSanPham.Controls.Add(this.txt_MaPDNSX);
             this.groupBox_TTCTSanPham.Controls.Add(this.lbl_TienConLaiSo);
-            this.groupBox_TTCTSanPham.Controls.Add(this.lbl_TienTraTruocSo);
             this.groupBox_TTCTSanPham.Controls.Add(this.lbl_TongtienSo);
             this.groupBox_TTCTSanPham.Controls.Add(this.txt_TinhTrang);
             this.groupBox_TTCTSanPham.Controls.Add(this.btn_Xoa);
@@ -368,7 +369,6 @@
             this.groupBox_TTCTSanPham.Controls.Add(this.btn_Them);
             this.groupBox_TTCTSanPham.Controls.Add(this.lbl_VNDDD);
             this.groupBox_TTCTSanPham.Controls.Add(this.lbl_TienConLai);
-            this.groupBox_TTCTSanPham.Controls.Add(this.lbl_VNDD);
             this.groupBox_TTCTSanPham.Controls.Add(this.lbl_VND);
             this.groupBox_TTCTSanPham.Controls.Add(this.lbl_TienTraTruoc);
             this.groupBox_TTCTSanPham.Controls.Add(this.lbl_TongTien);
@@ -412,18 +412,9 @@
             this.lbl_TienConLaiSo.AutoSize = true;
             this.lbl_TienConLaiSo.Location = new System.Drawing.Point(1035, 182);
             this.lbl_TienConLaiSo.Name = "lbl_TienConLaiSo";
-            this.lbl_TienConLaiSo.Size = new System.Drawing.Size(153, 19);
+            this.lbl_TienConLaiSo.Size = new System.Drawing.Size(17, 19);
             this.lbl_TienConLaiSo.TabIndex = 46;
-            this.lbl_TienConLaiSo.Text = "100000000000000000";
-            // 
-            // lbl_TienTraTruocSo
-            // 
-            this.lbl_TienTraTruocSo.AutoSize = true;
-            this.lbl_TienTraTruocSo.Location = new System.Drawing.Point(1035, 136);
-            this.lbl_TienTraTruocSo.Name = "lbl_TienTraTruocSo";
-            this.lbl_TienTraTruocSo.Size = new System.Drawing.Size(153, 19);
-            this.lbl_TienTraTruocSo.TabIndex = 45;
-            this.lbl_TienTraTruocSo.Text = "100000000000000000";
+            this.lbl_TienConLaiSo.Text = "0";
             // 
             // lbl_TongtienSo
             // 
@@ -491,15 +482,6 @@
             this.lbl_TienConLai.TabIndex = 38;
             this.lbl_TienConLai.Text = "Tiền còn lại";
             // 
-            // lbl_VNDD
-            // 
-            this.lbl_VNDD.AutoSize = true;
-            this.lbl_VNDD.Location = new System.Drawing.Point(1231, 131);
-            this.lbl_VNDD.Name = "lbl_VNDD";
-            this.lbl_VNDD.Size = new System.Drawing.Size(43, 19);
-            this.lbl_VNDD.TabIndex = 36;
-            this.lbl_VNDD.Text = "VND";
-            // 
             // lbl_VND
             // 
             this.lbl_VND.AutoSize = true;
@@ -526,6 +508,25 @@
             this.lbl_TongTien.Size = new System.Drawing.Size(120, 19);
             this.lbl_TongTien.TabIndex = 32;
             this.lbl_TongTien.Text = "Tổng tiền đạt hàng";
+            // 
+            // txt_TienTraTruoc
+            // 
+            this.txt_TienTraTruoc.Location = new System.Drawing.Point(1039, 126);
+            this.txt_TienTraTruoc.Multiline = true;
+            this.txt_TienTraTruoc.Name = "txt_TienTraTruoc";
+            this.txt_TienTraTruoc.Size = new System.Drawing.Size(181, 27);
+            this.txt_TienTraTruoc.TabIndex = 48;
+            this.txt_TienTraTruoc.TextChanged += new System.EventHandler(this.txt_TienTraTruoc_TextChanged);
+            // 
+            // btn_TraTruoc
+            // 
+            this.btn_TraTruoc.Location = new System.Drawing.Point(1227, 126);
+            this.btn_TraTruoc.Name = "btn_TraTruoc";
+            this.btn_TraTruoc.Size = new System.Drawing.Size(47, 29);
+            this.btn_TraTruoc.TabIndex = 49;
+            this.btn_TraTruoc.Text = "$";
+            this.btn_TraTruoc.UseVisualStyleBackColor = true;
+            this.btn_TraTruoc.Click += new System.EventHandler(this.btn_TraTruoc_Click);
             // 
             // frm_DatHangNSX
             // 
@@ -569,7 +570,6 @@
         private System.Windows.Forms.GroupBox groupBox_TTCTSanPham;
         private System.Windows.Forms.Label lbl_TienTraTruoc;
         private System.Windows.Forms.Label lbl_TongTien;
-        private System.Windows.Forms.Label lbl_VNDD;
         private System.Windows.Forms.Label lbl_VND;
         private System.Windows.Forms.Button btn_Xoa;
         private System.Windows.Forms.Button btn_Sua;
@@ -578,7 +578,6 @@
         private System.Windows.Forms.Label lbl_TienConLai;
         private System.Windows.Forms.TextBox txt_TinhTrang;
         private System.Windows.Forms.Label lbl_TienConLaiSo;
-        private System.Windows.Forms.Label lbl_TienTraTruocSo;
         private System.Windows.Forms.Label lbl_TongtienSo;
         private System.Windows.Forms.DataGridView dataGridView_CTDatHangNSX;
         private System.Windows.Forms.DataGridView dataGridView_DatHangNSX;
@@ -594,5 +593,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.TextBox txt_TienTraTruoc;
+        private System.Windows.Forms.Button btn_TraTruoc;
     }
 }

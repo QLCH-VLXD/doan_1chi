@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox_TTCTSanPham = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.text_socon = new System.Windows.Forms.TextBox();
+            this.lbl_ThanhTien = new System.Windows.Forms.Label();
             this.txt_TenMH = new System.Windows.Forms.TextBox();
             this.txt_TenLoaiMH = new System.Windows.Forms.TextBox();
             this.txt_NSX = new System.Windows.Forms.TextBox();
@@ -55,6 +59,11 @@
             this.lbl_manv = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView_CTnhaphang = new System.Windows.Forms.DataGridView();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView_nhaphang = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,15 +71,6 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbl_ThanhTien = new System.Windows.Forms.Label();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.text_socon = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.groupBox_TTCTSanPham.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_CTnhaphang)).BeginInit();
@@ -114,6 +114,42 @@
             this.groupBox_TTCTSanPham.TabStop = false;
             this.groupBox_TTCTSanPham.Text = "Thông tin mặt hàng";
             this.groupBox_TTCTSanPham.Enter += new System.EventHandler(this.groupBox_TTCTSanPham_Enter);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(1127, 135);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(43, 19);
+            this.label16.TabIndex = 78;
+            this.label16.Text = "VND";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(863, 175);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 19);
+            this.label4.TabIndex = 41;
+            this.label4.Text = "Số hàng nhập";
+            // 
+            // text_socon
+            // 
+            this.text_socon.Location = new System.Drawing.Point(960, 172);
+            this.text_socon.Name = "text_socon";
+            this.text_socon.Size = new System.Drawing.Size(210, 26);
+            this.text_socon.TabIndex = 40;
+            this.text_socon.Text = "50/100";
+            this.text_socon.TextChanged += new System.EventHandler(this.text_socon_TextChanged);
+            // 
+            // lbl_ThanhTien
+            // 
+            this.lbl_ThanhTien.AutoSize = true;
+            this.lbl_ThanhTien.Location = new System.Drawing.Point(936, 135);
+            this.lbl_ThanhTien.Name = "lbl_ThanhTien";
+            this.lbl_ThanhTien.Size = new System.Drawing.Size(66, 19);
+            this.lbl_ThanhTien.TabIndex = 39;
+            this.lbl_ThanhTien.Text = "thành tiền";
             // 
             // txt_TenMH
             // 
@@ -264,6 +300,7 @@
             this.txt_SoLuong.Name = "txt_SoLuong";
             this.txt_SoLuong.Size = new System.Drawing.Size(230, 27);
             this.txt_SoLuong.TabIndex = 14;
+            this.txt_SoLuong.TextChanged += new System.EventHandler(this.txt_SoLuong_TextChanged);
             this.txt_SoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_SoLuong_KeyPress);
             // 
             // dateTimePicker_NhayNhap
@@ -354,6 +391,36 @@
             this.dataGridView_CTnhaphang.Size = new System.Drawing.Size(648, 391);
             this.dataGridView_CTnhaphang.TabIndex = 1;
             // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "MACTPN1";
+            this.Column7.HeaderText = "Mã CTPN";
+            this.Column7.Name = "Column7";
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "MAPN1";
+            this.Column9.HeaderText = "Mã PN";
+            this.Column9.Name = "Column9";
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "MACTPHIEUDATHANG1";
+            this.Column8.HeaderText = "Mã CTDH";
+            this.Column8.Name = "Column8";
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "SOLUONGMH1";
+            this.Column10.HeaderText = "Số lượng";
+            this.Column10.Name = "Column10";
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "THANHTIENCTPNH1";
+            this.Column11.HeaderText = "Thành tiền";
+            this.Column11.Name = "Column11";
+            // 
             // dataGridView_nhaphang
             // 
             this.dataGridView_nhaphang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -407,71 +474,6 @@
             this.Column6.DataPropertyName = "TONGTIENHANGNHAP1";
             this.Column6.HeaderText = "Tổng tiền ";
             this.Column6.Name = "Column6";
-            // 
-            // lbl_ThanhTien
-            // 
-            this.lbl_ThanhTien.AutoSize = true;
-            this.lbl_ThanhTien.Location = new System.Drawing.Point(936, 135);
-            this.lbl_ThanhTien.Name = "lbl_ThanhTien";
-            this.lbl_ThanhTien.Size = new System.Drawing.Size(66, 19);
-            this.lbl_ThanhTien.TabIndex = 39;
-            this.lbl_ThanhTien.Text = "thành tiền";
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "MACTPN1";
-            this.Column7.HeaderText = "Mã CTPN";
-            this.Column7.Name = "Column7";
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "MAPN1";
-            this.Column9.HeaderText = "Mã PN";
-            this.Column9.Name = "Column9";
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "MACTPHIEUDATHANG1";
-            this.Column8.HeaderText = "Mã CTDH";
-            this.Column8.Name = "Column8";
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "SOLUONGMH1";
-            this.Column10.HeaderText = "Số lượng";
-            this.Column10.Name = "Column10";
-            // 
-            // Column11
-            // 
-            this.Column11.DataPropertyName = "THANHTIENCTPNH1";
-            this.Column11.HeaderText = "Thành tiền";
-            this.Column11.Name = "Column11";
-            // 
-            // text_socon
-            // 
-            this.text_socon.Location = new System.Drawing.Point(960, 172);
-            this.text_socon.Name = "text_socon";
-            this.text_socon.Size = new System.Drawing.Size(210, 26);
-            this.text_socon.TabIndex = 40;
-            this.text_socon.Text = "50/100";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(863, 175);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 19);
-            this.label4.TabIndex = 41;
-            this.label4.Text = "Số hàng nhập";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(1127, 135);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(43, 19);
-            this.label16.TabIndex = 78;
-            this.label16.Text = "VND";
             // 
             // frm_NhapHang
             // 

@@ -49,7 +49,7 @@
             this.panel1.Controls.Add(this.txtnameDN);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(276, 169);
+            this.panel1.Location = new System.Drawing.Point(204, 97);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(441, 288);
             this.panel1.TabIndex = 0;
@@ -131,7 +131,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(839, 490);
             this.Controls.Add(this.panel1);
             this.Name = "frmDangNhap";
             this.Text = "frm_DangNhap";

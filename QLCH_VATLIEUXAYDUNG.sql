@@ -446,7 +446,12 @@ END
 --			END
 --	END
 
-
+--XEM TEN MAT HANG CÓ GỢI Ý 
+CREATE FUNCTION gomnhom()
+RETURNS TABLE
+AS
+	RETURN (SELECT MACTPHIEUDATHANG, SUM(SOLUONGMH) as"tongsl" FROM CHITIETPHIEUNHAPHANG GROUP BY MACTPHIEUDATHANG)
+GO
 -------------------------------------------------------------NHẬP LIỆU------------------------------------------------------------
 INSERT INTO  CHUCVU
 VALUES	('CV01',N'Giám đốc'),

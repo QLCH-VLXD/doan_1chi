@@ -11,10 +11,6 @@ namespace BLL
     {
         DAL_DanhMucSanPham dal_DanhMucSanPham = new DAL_DanhMucSanPham();
 
-
-
-
-
         public List<LOAIMATHANG> load_loaiMatHang()
         {
             return dal_DanhMucSanPham.Loaddata_LoaiMatHang();
@@ -95,6 +91,11 @@ namespace BLL
             return dal_DanhMucSanPham.SinhMaDonGia();
 
         }
+        public string Sinh_MaMatHang_BLL()
+        {
+            return dal_DanhMucSanPham.SinhMaMatHang();
+
+        }
 
 
 
@@ -140,6 +141,7 @@ namespace BLL
             return dal_DanhMucSanPham.ktkc(mh);
 
         }
+
     }
 
     

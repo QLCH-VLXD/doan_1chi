@@ -256,3 +256,4 @@ C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\QuanLy_CH_VLXD
 C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\QuanLy_CH_VLXD\obj\Debug\QuanLy_CH_VLXD.csproj.CopyComplete
 C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\QuanLy_CH_VLXD\obj\Debug\QuanLy_CH_VLXD.exe
 C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\QuanLy_CH_VLXD\obj\Debug\QuanLy_CH_VLXD.pdb
+C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\QuanLy_CH_VLXD\obj\Debug\QuanLy_CH_VLXD.Form1.resources

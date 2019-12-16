@@ -282,4 +282,10 @@
     <Parameter Name="MNV" Parameter="mNV" Type="System.String" DbType="NVarChar(10)" />
     <Return Type="System.String" />
   </Function>
+  <Function Name="dbo.gomnhom" Method="gomnhom" IsComposable="true">
+    <ElementType Name="gomnhomResult">
+      <Column Name="MACTPHIEUDATHANG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tongsl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

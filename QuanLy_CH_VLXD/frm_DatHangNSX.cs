@@ -77,15 +77,15 @@ namespace QuanLy_CH_VLXD
                     {
                         lbl_SoLuong.Visible = txt_SoLuong.Visible = lbl_Ngaylap.Visible = dateTimePicker2.Visible = false;
                         lbl_TongTien.Visible = lbl_TienTraTruoc.Visible = lbl_TienConLai.Visible = false;
-                        lbl_TongtienSo.Visible = lbl_TienTraTruocSo.Visible = lbl_TienConLaiSo.Visible = false;
-                        lbl_VND.Visible=lbl_VNDD.Visible=lbl_VNDDD.Visible= false;
+                       // lbl_TongtienSo.Visible = lbl_TienTraTruocSo.Visible = lbl_TienConLaiSo.Visible = false;
+                        //lbl_VND.Visible=lbl_VNDD.Visible=lbl_VNDDD.Visible= false;
                     }
                     else
                     {
                         lbl_SoLuong.Visible = txt_SoLuong.Visible = lbl_Ngaylap.Visible = dateTimePicker2.Visible = true;
                         lbl_TongTien.Visible = lbl_TienTraTruoc.Visible = lbl_TienConLai.Visible = true;
-                        lbl_TongtienSo.Visible = lbl_TienTraTruocSo.Visible = lbl_TienConLaiSo.Visible = true;
-                        lbl_VND.Visible = lbl_VNDD.Visible = lbl_VNDDD.Visible = true;
+                        //lbl_TongtienSo.Visible = lbl_TienTraTruocSo.Visible = lbl_TienConLaiSo.Visible = true;
+                        //lbl_VND.Visible = lbl_VNDD.Visible = lbl_VNDDD.Visible = true;
                     }
                 }
 
@@ -186,7 +186,7 @@ namespace QuanLy_CH_VLXD
             txt_MaPDNSX.Text = dataGridView_DatHangNSX.CurrentRow.Cells[0].Value.ToString();
             cbo_NhaSanXuat.Text = dataGridView_DatHangNSX.CurrentRow.Cells[2].Value.ToString();
             lbl_TongtienSo.Text = dataGridView_DatHangNSX.CurrentRow.Cells[4].Value.ToString();
-            lbl_TienTraTruocSo.Text = dataGridView_DatHangNSX.CurrentRow.Cells[5].Value.ToString();
+            //lbl_TienTraTruocSo.Text = dataGridView_DatHangNSX.CurrentRow.Cells[5].Value.ToString();
             
         }
 
@@ -252,6 +252,36 @@ namespace QuanLy_CH_VLXD
             {
                 MessageBox.Show("that bai");
                 return;
+            }
+        }
+
+        private void btn_TraTruoc_Click(object sender, EventArgs e)
+        {
+            PHIEUDATHANGNSX ct = new PHIEUDATHANGNSX();
+            ct.MAPDHNSX = dataGridView_DatHangNSX.CurrentRow.Cells[0].Value.ToString();
+            ct.TONGTIENHANGDAT = Convert.ToDecimal(dataGridView_DatHangNSX.CurrentRow.Cells[4].Value.ToString());
+            ct.SOTIENTRATRUOC =Convert.ToDecimal (txt_TienTraTruoc.Text.ToString()) ;
+            Double l = Convert.ToDouble(txt_TienTraTruoc.Text.ToString());
+            if (bLL_DatHangNSX.Sua_PDHNSX(ct) == true)
+            {
+                MessageBox.Show("Thành công");
+                lbl_TienConLaiSo.Text = (Convert.ToDouble(dataGridView_DatHangNSX.CurrentRow.Cells[4].Value.ToString()) - l).ToString();
+            }
+            else
+            {
+                MessageBox.Show("that bai");
+                // return;
+            }
+            dataGridView_DatHangNSX.DataSource = bLL_DatHangNSX.load_dathangnsx();
+           
+        }
+
+        private void txt_TienTraTruoc_TextChanged(object sender, EventArgs e)
+        {
+            if(Convert.ToDouble(dataGridView_DatHangNSX.CurrentRow.Cells[4].Value.ToString())< Convert.ToDouble(txt_TienTraTruoc.Text.ToString()))
+            {
+                return;
+                MessageBox.Show("Số tiền trả trước phải nhỏ hơn tổng tiền");
             }
         }
     }

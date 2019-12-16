@@ -27,7 +27,7 @@ namespace QuanLy_CH_VLXD
             //BonusSkins.Register();
             //SkinManager.EnableFormSkins();
             Application.Run(Frm_DangNhap = new frmDangNhap());
-            //Application.Run(new frm_BanHang());
+            //Application.Run(new Form1());
         }
     }
 }

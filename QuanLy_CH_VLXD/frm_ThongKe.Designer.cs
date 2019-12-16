@@ -77,12 +77,6 @@
             this.mATHANGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
-            this.pHIEUNHAPHANGTableAdapter = new QuanLy_CH_VLXD.DataSet1TableAdapters.PHIEUNHAPHANGTableAdapter();
-            this.tableAdapterManager = new QuanLy_CH_VLXD.DataSet1TableAdapters.TableAdapterManager();
-            this.cHITIETPHIEUNHAPHANGTableAdapter = new QuanLy_CH_VLXD.DataSet1TableAdapters.CHITIETPHIEUNHAPHANGTableAdapter();
-            this.hOADONBANTableAdapter = new QuanLy_CH_VLXD.DataSet1TableAdapters.HOADONBANTableAdapter();
-            this.cHITIETHOADONBANTableAdapter = new QuanLy_CH_VLXD.DataSet1TableAdapters.CHITIETHOADONBANTableAdapter();
-            this.mATHANGTableAdapter = new QuanLy_CH_VLXD.DataSet1TableAdapters.MATHANGTableAdapter();
             this.mATHANGDataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,6 +86,12 @@
             this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pHIEUNHAPHANGTableAdapter = new QuanLy_CH_VLXD.DataSet1TableAdapters.PHIEUNHAPHANGTableAdapter();
+            this.tableAdapterManager = new QuanLy_CH_VLXD.DataSet1TableAdapters.TableAdapterManager();
+            this.cHITIETPHIEUNHAPHANGTableAdapter = new QuanLy_CH_VLXD.DataSet1TableAdapters.CHITIETPHIEUNHAPHANGTableAdapter();
+            this.hOADONBANTableAdapter = new QuanLy_CH_VLXD.DataSet1TableAdapters.HOADONBANTableAdapter();
+            this.cHITIETHOADONBANTableAdapter = new QuanLy_CH_VLXD.DataSet1TableAdapters.CHITIETHOADONBANTableAdapter();
+            this.mATHANGTableAdapter = new QuanLy_CH_VLXD.DataSet1TableAdapters.MATHANGTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -488,55 +488,6 @@
             this.xtraTabPage5.Size = new System.Drawing.Size(1364, 721);
             this.xtraTabPage5.Text = "Thống kê danh mục sản phẩm";
             // 
-            // pHIEUNHAPHANGTableAdapter
-            // 
-            this.pHIEUNHAPHANGTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CHITIETGIAOHANGTableAdapter = null;
-            this.tableAdapterManager.CHITIETHOADONBANTableAdapter = null;
-            this.tableAdapterManager.CHITIETMATHANGTableAdapter = null;
-            this.tableAdapterManager.CHITIETNHASANXUATTableAdapter = null;
-            this.tableAdapterManager.CHITIETPHIEUNHAPHANGTableAdapter = this.cHITIETPHIEUNHAPHANGTableAdapter;
-            this.tableAdapterManager.CHUCVUTableAdapter = null;
-            this.tableAdapterManager.CTPHIEUDATHANGNSXTableAdapter = null;
-            this.tableAdapterManager.DONGIATableAdapter = null;
-            this.tableAdapterManager.DONVITINHTableAdapter = null;
-            this.tableAdapterManager.GIAOHANGTableAdapter = null;
-            this.tableAdapterManager.HOADONBANTableAdapter = null;
-            this.tableAdapterManager.KHACHHANGTableAdapter = null;
-            this.tableAdapterManager.LOAIKHACHHANGTableAdapter = null;
-            this.tableAdapterManager.LOAIMATHANGTableAdapter = null;
-            this.tableAdapterManager.MANHINHTableAdapter = null;
-            this.tableAdapterManager.MATHANGTableAdapter = null;
-            this.tableAdapterManager.NGUOIDUNGNHOMNGUOIDUNGTableAdapter = null;
-            this.tableAdapterManager.NHANVIENTableAdapter = null;
-            this.tableAdapterManager.NHASANXUATTableAdapter = null;
-            this.tableAdapterManager.NHOMNGUOIDUNGTableAdapter = null;
-            this.tableAdapterManager.PHANQUYENTableAdapter = null;
-            this.tableAdapterManager.PHIEUDATHANGNSXTableAdapter = null;
-            this.tableAdapterManager.PHIEUNHAPHANGTableAdapter = this.pHIEUNHAPHANGTableAdapter;
-            this.tableAdapterManager.TAIKHOANTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = QuanLy_CH_VLXD.DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // cHITIETPHIEUNHAPHANGTableAdapter
-            // 
-            this.cHITIETPHIEUNHAPHANGTableAdapter.ClearBeforeFill = true;
-            // 
-            // hOADONBANTableAdapter
-            // 
-            this.hOADONBANTableAdapter.ClearBeforeFill = true;
-            // 
-            // cHITIETHOADONBANTableAdapter
-            // 
-            this.cHITIETHOADONBANTableAdapter.ClearBeforeFill = true;
-            // 
-            // mATHANGTableAdapter
-            // 
-            this.mATHANGTableAdapter.ClearBeforeFill = true;
-            // 
             // mATHANGDataGridView1
             // 
             this.mATHANGDataGridView1.AutoGenerateColumns = false;
@@ -604,6 +555,55 @@
             this.dataGridViewTextBoxColumn37.DataPropertyName = "GHICHU";
             this.dataGridViewTextBoxColumn37.HeaderText = "GHICHU";
             this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
+            // 
+            // pHIEUNHAPHANGTableAdapter
+            // 
+            this.pHIEUNHAPHANGTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CHITIETGIAOHANGTableAdapter = null;
+            this.tableAdapterManager.CHITIETHOADONBANTableAdapter = null;
+            this.tableAdapterManager.CHITIETMATHANGTableAdapter = null;
+            this.tableAdapterManager.CHITIETNHASANXUATTableAdapter = null;
+            this.tableAdapterManager.CHITIETPHIEUNHAPHANGTableAdapter = this.cHITIETPHIEUNHAPHANGTableAdapter;
+            this.tableAdapterManager.CHUCVUTableAdapter = null;
+            this.tableAdapterManager.CTPHIEUDATHANGNSXTableAdapter = null;
+            this.tableAdapterManager.DONGIATableAdapter = null;
+            this.tableAdapterManager.DONVITINHTableAdapter = null;
+            this.tableAdapterManager.GIAOHANGTableAdapter = null;
+            this.tableAdapterManager.HOADONBANTableAdapter = null;
+            this.tableAdapterManager.KHACHHANGTableAdapter = null;
+            this.tableAdapterManager.LOAIKHACHHANGTableAdapter = null;
+            this.tableAdapterManager.LOAIMATHANGTableAdapter = null;
+            this.tableAdapterManager.MANHINHTableAdapter = null;
+            this.tableAdapterManager.MATHANGTableAdapter = null;
+            this.tableAdapterManager.NGUOIDUNGNHOMNGUOIDUNGTableAdapter = null;
+            this.tableAdapterManager.NHANVIENTableAdapter = null;
+            this.tableAdapterManager.NHASANXUATTableAdapter = null;
+            this.tableAdapterManager.NHOMNGUOIDUNGTableAdapter = null;
+            this.tableAdapterManager.PHANQUYENTableAdapter = null;
+            this.tableAdapterManager.PHIEUDATHANGNSXTableAdapter = null;
+            this.tableAdapterManager.PHIEUNHAPHANGTableAdapter = this.pHIEUNHAPHANGTableAdapter;
+            this.tableAdapterManager.TAIKHOANTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = QuanLy_CH_VLXD.DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // cHITIETPHIEUNHAPHANGTableAdapter
+            // 
+            this.cHITIETPHIEUNHAPHANGTableAdapter.ClearBeforeFill = true;
+            // 
+            // hOADONBANTableAdapter
+            // 
+            this.hOADONBANTableAdapter.ClearBeforeFill = true;
+            // 
+            // cHITIETHOADONBANTableAdapter
+            // 
+            this.cHITIETHOADONBANTableAdapter.ClearBeforeFill = true;
+            // 
+            // mATHANGTableAdapter
+            // 
+            this.mATHANGTableAdapter.ClearBeforeFill = true;
             // 
             // frm_ThongKe
             // 

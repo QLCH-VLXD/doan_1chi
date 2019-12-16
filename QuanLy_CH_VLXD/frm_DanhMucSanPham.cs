@@ -26,6 +26,7 @@ namespace QuanLy_CH_VLXD
 
         private void frm_DanhMucSanPham_Load(object sender, EventArgs e)
         {
+            //dataGridView1.DataSource = bll_DanhMucSanPham.load_MATHANG();
             cbo_MaLoaiMH.DataSource = bll_DanhMucSanPham.load_loaiMatHang();
             cbo_MaLoaiMH.ValueMember = "MALOAIMATHANG";
             cbo_MaLoaiMH.DisplayMember = "MALOAIMATHANG";
@@ -36,11 +37,19 @@ namespace QuanLy_CH_VLXD
             cbo_NhaSX.ValueMember = "MANSX";
             cbo_NhaSX.DisplayMember = "TENNSX";
             Load_CboGT();
-           
+            //cbo_TinhTrang.DataSource = bll_DanhMucSanPham.Load_TinhTrangdll();
+            //cbo_TinhTrang.ValueMember = "MAMATHANG";
+            //cbo_TinhTrang.DisplayMember = "TINHTRANG";
 
             loaddatagirdview();
             this.txt_TenloaiMH.Enabled = false;
+            this.txt_MaMH.Enabled = false;
+
             flag = 1;
+            //dataGridView_HoaDonBan.DataSource = bll_BanHang.load_HDB();
+            //dataGridView_CTHoaDonBan.DataSource = bll_BanHang.load_CTHDB();
+            //dataGridView1.DataSource = bll_BanHang.load_HDB();
+            //lbl_Manv.Text = Lay_DL;
         }
 
         int flag2 = 0;
@@ -51,8 +60,15 @@ namespace QuanLy_CH_VLXD
             {
                 if (cbo_MaLoaiMH.SelectedValue.ToString() != String.Empty)
                 {
+                    //            cbo_MaMH.DataSource = bll_DanhMucSanPham.load_MatHang(cbo_MaLoaiMH.SelectedValue.ToString());
+                    //            cbo_MaMH.ValueMember = "MAMATHANG";
+                    //            cbo_MaMH.DisplayMember = "MAMATHANG";
+
+
                     txt_TenloaiMH.Text = bll_DanhMucSanPham.Load_tenloaiMH(cbo_MaLoaiMH.SelectedValue.ToString());
-                    
+
+                    //            //txt_TenMH.Text = bll_DanhMucSanPham.Load_tenMH(cbo_MaLoaiMH.SelectedValue.ToString());
+
                     flag2 = 1;
                 }
             }
@@ -60,7 +76,7 @@ namespace QuanLy_CH_VLXD
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (txt_DonGia.Text.Length > 0 && txt_GhiChu.Text.Length > 0 && txt_SoLuong.Text.Length > 0 && txt_TenloaiMH.Text.Length > 0 && txt_TenMH.Text.Length > 0 && cbo_DonViTinh.Text.Length > 0 && txt_MaMH.Text.Length > 0 && cbo_MaLoaiMH.Text.Length > 0 && cbo_NhaSX.Text.Length > 0 && cbo_TinhTrang.Text.Length > 0)
+            if (txt_DonGia.Text.Length > 0 && txt_GhiChu.Text.Length > 0 && txt_SoLuong.Text.Length > 0 && txt_TenloaiMH.Text.Length > 0 && cbo_DonViTinh.Text.Length > 0 && cbo_MaLoaiMH.Text.Length > 0 && cbo_NhaSX.Text.Length > 0 && cbo_TinhTrang.Text.Length > 0)
             {
 
 
@@ -69,7 +85,7 @@ namespace QuanLy_CH_VLXD
                 mh.GHICHU = txt_GhiChu.Text;
                 mh.MADVT = cbo_DonViTinh.SelectedValue.ToString();
                 mh.MALOAIMATHANG = cbo_MaLoaiMH.Text;
-                mh.MAMATHANG = txt_MaMH.Text;
+                mh.MAMATHANG = "MH" + bll_DanhMucSanPham.Sinh_MaMatHang_BLL();
                 mh.MANSX = cbo_NhaSX.SelectedValue.ToString();
                 mh.SOLUONG = int.Parse(txt_SoLuong.Text);
                 mh.TENMATHANG = txt_TenMH.Text;
@@ -79,26 +95,18 @@ namespace QuanLy_CH_VLXD
 
                 DONGIA dg = new DONGIA();
                 dg.MADONGIA = "DG" + bll_DanhMucSanPham.Sinh_MaDonGia_BLL();
-                dg.MAMATHANG = txt_MaMH.Text;
+                dg.MAMATHANG = "MH" + bll_DanhMucSanPham.Sinh_MaMatHang_BLL();
+                mh.MANSX = cbo_NhaSX.SelectedValue.ToString();
                 dg.NGAYAPDUNG = DateTime.Parse(dateEdit1.Text);
                 dg.NGAYKETTHUC = DateTime.Parse(dateEdit2.Text);
                 dg.GIA = decimal.Parse(txt_DonGia.Text);
                 bll_DanhMucSanPham.Load_ThemDonGiadll(dg);
 
-                CHITIETNHASANXUAT ctnsx = new CHITIETNHASANXUAT();
-                ctnsx.MANSX = cbo_NhaSX.SelectedValue.ToString();
-                ctnsx.MAMATHANG = txt_MaMH.Text;
-                bll_DanhMucSanPham.Load_ThemCTNSXdll(ctnsx);
+                //CHITIETNHASANXUAT ctnsx = new CHITIETNHASANXUAT();
+                //ctnsx.MANSX = cbo_NhaSX.SelectedValue.ToString();
+                //ctnsx.MAMATHANG = txt_MaMH.Text;
+                //bll_DanhMucSanPham.Load_ThemCTNSXdll(ctnsx);
 
-
-                //result = service.them_dal(kh);
-
-
-                //LOAIMATHANG lmh = new LOAIMATHANG();
-                ////lmh.MATHANGs =cbo_MaMH.Text;
-                //lmh.MALOAIMATHANG = cbo_MaLoaiMH.Text;
-                //lmh.TENLOAIMATHANG =txt_TenloaiMH.Text;
-                //bll_DanhMucSanPham.Load_ThemloaiMHdll(lmh);
                 loaddatagirdview();
                 MessageBox.Show("thêm thành công", "Thông báo");
 
@@ -111,6 +119,7 @@ namespace QuanLy_CH_VLXD
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
+            //sửa
             if (txt_DonGia.Text.Length > 0 && txt_GhiChu.Text.Length > 0 && txt_SoLuong.Text.Length > 0 && txt_TenloaiMH.Text.Length > 0 && txt_TenMH.Text.Length > 0 && cbo_DonViTinh.Text.Length > 0 && txt_MaMH.Text.Length > 0 && cbo_MaLoaiMH.Text.Length > 0 && cbo_NhaSX.Text.Length > 0 && cbo_TinhTrang.Text.Length > 0)
             {
                 MATHANG mh = new MATHANG();
@@ -162,7 +171,7 @@ namespace QuanLy_CH_VLXD
 
 
                 loaddatagirdview();
-                MessageBox.Show("Đã cập nhật thành công");
+                MessageBox.Show("Đã cập nhật thành công", "Thông báo");
 
             }
             else
@@ -177,6 +186,7 @@ namespace QuanLy_CH_VLXD
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
+
             if (txt_DonGia.Text.Length > 0 && txt_GhiChu.Text.Length > 0 && txt_SoLuong.Text.Length > 0 && txt_TenloaiMH.Text.Length > 0 && txt_TenMH.Text.Length > 0 && cbo_DonViTinh.Text.Length > 0 && txt_MaMH.Text.Length > 0 && cbo_MaLoaiMH.Text.Length > 0 && cbo_NhaSX.Text.Length > 0 && cbo_TinhTrang.Text.Length > 0)
             {
 
@@ -190,6 +200,10 @@ namespace QuanLy_CH_VLXD
                 mh.TENMATHANG = txt_TenMH.Text;
                 mh.TINHTRANG = cbo_TinhTrang.Text;
 
+                CHITIETNHASANXUAT ctnsx = new CHITIETNHASANXUAT();
+                ctnsx.MANSX = cbo_NhaSX.SelectedValue.ToString();
+                ctnsx.MAMATHANG = txt_MaMH.Text;
+
                 DONGIA dg = new DONGIA();
                 dg.MADONGIA = bll_DanhMucSanPham.mahangdll(mh.MAMATHANG);
                 dg.MAMATHANG = txt_MaMH.Text;
@@ -202,29 +216,25 @@ namespace QuanLy_CH_VLXD
                     return;
 
                 }
-                CHITIETNHASANXUAT ctnsx = new CHITIETNHASANXUAT();
-                ctnsx.MANSX = cbo_NhaSX.SelectedValue.ToString();
-                ctnsx.MAMATHANG = txt_MaMH.Text;
-                if (!bll_DanhMucSanPham.Load_Xoactnsxdll(ctnsx))
-                {
-                    MessageBox.Show("ko thể xoa chi tiet nsx");
-                    return;
-                }
 
-                if (!bll_DanhMucSanPham.Load_XoaMHdll(mh))
-                {
-                    MessageBox.Show("ko thể xoa mathang");
-                    return;
-                }
+                bll_DanhMucSanPham.Load_XoaMHdll(mh);
+
+
+                bll_DanhMucSanPham.Load_Xoactnsxdll(ctnsx);
+
+
+
 
                 loaddatagirdview();
-                MessageBox.Show("Thanh cong xoa");
+                MessageBox.Show("Thanh cong xoa", "Thông báo");
             }
+
 
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
+            //   binding du lieu
             if (flag == 1)
             {
                 if (dataGridView1.SelectedRows != null)
@@ -244,6 +254,9 @@ namespace QuanLy_CH_VLXD
                         cbo_NhaSX.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
                         txt_GhiChu.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
                         cbo_TinhTrang.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
+                        this.txt_TenloaiMH.Enabled = false;
+                        this.txt_MaMH.Enabled = false;
+
                     }
                 }
             }

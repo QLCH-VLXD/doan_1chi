@@ -125,6 +125,12 @@ namespace DAL
 
         }
 
+        public string SinhMaMatHang()
+        {
+            return dal_data.SINHMA_HDN();
+
+        }
+
         public bool SuaMH(MATHANG mh)
         {
             try
@@ -191,17 +197,17 @@ namespace DAL
 
         public bool xoaMH(MATHANG mh)
         {
-            //try
-            //{
-            MATHANG Mh = dal_data.MATHANGs.Where(t => t.MAMATHANG == mh.MAMATHANG.ToString()).FirstOrDefault();
-            dal_data.MATHANGs.DeleteOnSubmit(Mh);
-            dal_data.SubmitChanges(); ;
-            return true;
-            //}
-            //catch
-            //{
-            //    return false;
-            //}
+            try
+            {
+                MATHANG Mh = dal_data.MATHANGs.Where(t => t.MAMATHANG == mh.MAMATHANG.ToString()).FirstOrDefault();
+                dal_data.MATHANGs.DeleteOnSubmit(Mh);
+                dal_data.SubmitChanges(); ;
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public bool xoaDG(DONGIA dg)
@@ -221,18 +227,18 @@ namespace DAL
 
         public bool XoaCTNSX(CHITIETNHASANXUAT ctnsx)
         {
-            //try
-            //{
-            CHITIETNHASANXUAT Ctnsx = dal_data.CHITIETNHASANXUATs.Where(t => t.MANSX == ctnsx.MANSX.ToString() && t.MAMATHANG == ctnsx.MAMATHANG.ToString()).FirstOrDefault();
-            dal_data.CHITIETNHASANXUATs.DeleteOnSubmit(Ctnsx);
-            dal_data.SubmitChanges();
-            return true;
+            try
+            {
+                CHITIETNHASANXUAT Ctnsx = dal_data.CHITIETNHASANXUATs.Where(t => t.MANSX == ctnsx.MANSX.ToString() && t.MAMATHANG == ctnsx.MAMATHANG.ToString()).FirstOrDefault();
+                dal_data.CHITIETNHASANXUATs.DeleteOnSubmit(Ctnsx);
+                dal_data.SubmitChanges();
+                return true;
 
-            //}
-            //catch
-            //{
-            //    return false;
-            //}
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public string mahang(string mh)
@@ -373,7 +379,6 @@ namespace DAL
                 return false;
             }
         }
-
 
 
 

@@ -285,5 +285,28 @@ namespace DAL
                           select f.SOLUONG).FirstOrDefault();
             return Convert.ToInt32(dulieu.ToString());
         }
+
+        public int laysoluong_ctdathang(String s)
+        {
+            var dulieu = (from f in dal_data.CTPHIEUDATHANGNSXes
+                          where  f.MACTPHIEUDATHANG == s.ToString()
+                          select f.SOLUONG).FirstOrDefault();
+            return Convert.ToInt32(dulieu.ToString());
+        }
+
+       
+
+
+        public List<gomnhomctnh> gomnhomctnh()
+        {
+            
+            var kq = dal_data.gomnhom().ToList().ConvertAll(t => new gomnhomctnh()
+            {
+                mactod1 = t.MACTPHIEUDATHANG,
+                sl1 = Convert.ToInt32(t.tongsl)
+            });
+            return kq.ToList<gomnhomctnh>();
+
+        }
     }
 }

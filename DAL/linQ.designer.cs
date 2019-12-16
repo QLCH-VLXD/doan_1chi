@@ -355,6 +355,12 @@ namespace DAL
 		{
 			return ((string)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mNV).ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.gomnhom", IsComposable=true)]
+		public IQueryable<gomnhomResult> gomnhom()
+		{
+			return this.CreateMethodCallQuery<gomnhomResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TAIKHOAN")]
@@ -5740,6 +5746,50 @@ namespace DAL
 				if ((this._GHICHU != value))
 				{
 					this._GHICHU = value;
+				}
+			}
+		}
+	}
+	
+	public partial class gomnhomResult
+	{
+		
+		private string _MACTPHIEUDATHANG;
+		
+		private System.Nullable<int> _tongsl;
+		
+		public gomnhomResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MACTPHIEUDATHANG", DbType="NVarChar(50)")]
+		public string MACTPHIEUDATHANG
+		{
+			get
+			{
+				return this._MACTPHIEUDATHANG;
+			}
+			set
+			{
+				if ((this._MACTPHIEUDATHANG != value))
+				{
+					this._MACTPHIEUDATHANG = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tongsl", DbType="Int")]
+		public System.Nullable<int> tongsl
+		{
+			get
+			{
+				return this._tongsl;
+			}
+			set
+			{
+				if ((this._tongsl != value))
+				{
+					this._tongsl = value;
 				}
 			}
 		}

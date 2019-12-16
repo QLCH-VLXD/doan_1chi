@@ -47,7 +47,9 @@
     <Compile Include="BLL_BanHang.cs" />
     <Compile Include="BLL_DanhMucSanPham.cs" />
     <Compile Include="BLL_DatHangNSX.cs" />
+    <Compile Include="BLL_DonGia.cs" />
     <Compile Include="BLL_GiaoHang.cs" />
+    <Compile Include="BLL_LoaiMatHang.cs" />
     <Compile Include="BLL_NhapHang.cs" />
     <Compile Include="BLL_TTKhachHang.cs" />
     <Compile Include="BLL_TTNhanVien.cs" />

@@ -104,5 +104,16 @@ namespace BLL
         {
             return dal_BanHang.sua_HDB(hdb);
         }
+
+        public string loasl(string ma)
+        {
+            return dal_BanHang.Load_SoLuong(ma);
+        }
+
+        public string loasl1(string ma)
+        {
+            return dal_BanHang.Load_SoLuong1(ma);
+        }
+
     }
 }

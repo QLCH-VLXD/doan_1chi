@@ -42,11 +42,10 @@ namespace QuanLy_CH_VLXD
                         {
                             if (cauhinh.Check_Config() == 0)
                             {
+                                Properties.Settings.Default.user = txtnameDN.Text;
+
                                 ProcessLogin();// Cấu hình phù hợp xử lý đăng nhập
-
                                
-
-
                             }
                             if (cauhinh.Check_Config() == 1)
                             {
@@ -59,9 +58,7 @@ namespace QuanLy_CH_VLXD
                                 ProcessConfig();
                             }
 
-
-                            Properties.Settings.Default.user = txtnameDN.Text;
-                            Properties.Settings.Default.pass = txtMatKhau.Text;
+                            
 
                         }
 

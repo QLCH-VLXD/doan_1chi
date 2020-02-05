@@ -18,6 +18,6 @@ namespace DAL
         public string MAGIAOHANG1 { get => MAGIAOHANG; set => MAGIAOHANG = value; }
         public string MACTHDB1 { get => MACTHDB; set => MACTHDB = value; }
         public string SOLUONGMH1 { get => SOLUONGMH; set => SOLUONGMH = value; }
-        public string THANHTIEN1 { get => SOLUONGMH; set => SOLUONGMH = value; }
+        public string THANHTIEN1 { get => THANHTIEN; set => THANHTIEN = value; }
     }
 }

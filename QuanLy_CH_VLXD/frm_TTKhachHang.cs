@@ -29,7 +29,7 @@ namespace QuanLy_CH_VLXD
             txtMaKH.Text ="KH"  + bll_TTKhachHang.Sinh_Makh_dal();
             a = txtMaLoaiKH.Text;
             b = txtMaKH.Text;
-
+           // label1.Text = Properties.Settings.Default.user;
             showDataGridView();
         }
 
@@ -92,18 +92,18 @@ namespace QuanLy_CH_VLXD
                 result = service.them_dal(kh);
                 if (result == 2)
                 {
-                    MessageBox.Show("đã tồn tại", "Thông báo");
+                    MessageBox.Show("Đã tồn tại", "Thông báo");
                 }
                 else
                 {
-                    MessageBox.Show("thêm thành công", "Thông báo");
+                    MessageBox.Show("Thêm thành công", "Thông báo");
                 }
 
                 showDataGridView();
             }
             else
             {
-                MessageBox.Show("vui lòng điền đầy đủ dữ liệu");
+                MessageBox.Show("Vui lòng điền đầy đủ dữ liệu");
             }
         }
         private void btnSua_TTKH_Click(object sender, EventArgs e)
@@ -129,7 +129,7 @@ namespace QuanLy_CH_VLXD
                 }
                 else
                 {
-                    MessageBox.Show("sửa thất bại", "Inofity");
+                    MessageBox.Show("Sửa thất bại", "Inofity");
                 }
 
 
@@ -138,7 +138,7 @@ namespace QuanLy_CH_VLXD
             }
             else
             {
-                MessageBox.Show("vui lòng điền đầy đủ dữ liệu");
+                MessageBox.Show("Vui lòng điền đầy đủ dữ liệu");
             }
         }
 
@@ -170,7 +170,7 @@ namespace QuanLy_CH_VLXD
                 }
                 else if (result == 2)
                 {
-                    MessageBox.Show("Không tìm thấy khoa", "Thông báo");
+                    MessageBox.Show("Không tìm thấy khóa", "Thông báo");
                 }
 
 
@@ -178,7 +178,7 @@ namespace QuanLy_CH_VLXD
             }
             else
             {
-                MessageBox.Show("vui lòng điền đầy đủ dữ liệu");
+                MessageBox.Show("Vui lòng điền đầy đủ dữ liệu");
             }
         }
 
@@ -190,21 +190,25 @@ namespace QuanLy_CH_VLXD
         {
             BLL_TTKhachHang service = new BLL_TTKhachHang();
             LOAIKHACHHANG lkh = new LOAIKHACHHANG();
-
-            lkh.MALOAIKH = a;
-            lkh.TENLOAIKH = txtLoaiKH.Text;
-
-
-            int result = 0;
-            result = service.themloaiKH_dal(lkh);
-            if (result == 2)
+            if (txtLoaiKH.Text.Length > 0)
             {
-                MessageBox.Show("đã tồn tại", "Thông báo");
+                lkh.MALOAIKH = a;
+                lkh.TENLOAIKH = txtLoaiKH.Text;
+
+
+                int result = 0;
+                result = service.themloaiKH_dal(lkh);
+                if (result == 2)
+                {
+                    MessageBox.Show("Đã tồn tại", "Thông báo");
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thành công", "Thông báo");
+                }
             }
             else
-            {
-                MessageBox.Show("thêm thành công", "Thông báo");
-            }
+                MessageBox.Show("Vui lòng nhập loại khách hàng");
 
             showDataGridView();
         }
@@ -228,7 +232,7 @@ namespace QuanLy_CH_VLXD
             }
             else
             {
-                MessageBox.Show("sửa thất bại", "Inofity");
+                MessageBox.Show("Sửa thất bại", "Inofity");
             }
 
 
@@ -258,7 +262,7 @@ namespace QuanLy_CH_VLXD
             }
             else if (result == 2)
             {
-                MessageBox.Show("Không tìm thấy khoa", "Thông báo");
+                MessageBox.Show("Không tìm thấy khóa", "Thông báo");
             }
 
 
@@ -278,6 +282,17 @@ namespace QuanLy_CH_VLXD
                 txtDiaChi.Text = datagird_KhachHang.CurrentRow.Cells[4].Value.ToString();
 
             }
+        }
+
+        private void txtTenKH_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

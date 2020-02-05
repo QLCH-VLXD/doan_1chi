@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraBars.Ribbon;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,11 +21,86 @@ namespace QuanLy_CH_VLXD
 
         private void frm_Main_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSet1.MANHINH' table. You can move, or remove it, as needed.
+            this.mANHINHTableAdapter.Fill(this.dataSet1.MANHINH);
+            // TODO: This line of code loads data into the 'dataSet1.NGUOIDUNGNHOMNGUOIDUNG' table. You can move, or remove it, as needed.
+            this.nGUOIDUNGNHOMNGUOIDUNGTableAdapter.Fill(this.dataSet1.NGUOIDUNGNHOMNGUOIDUNG);
+            // TODO: This line of code loads data into the 'dataSet1.TAIKHOAN' table. You can move, or remove it, as needed.
+            this.tAIKHOANTableAdapter.Fill(this.dataSet1.TAIKHOAN);
+            // TODO: This line of code loads data into the 'dataSet1.NHOMNGUOIDUNG' table. You can move, or remove it, as needed.
+            this.nHOMNGUOIDUNGTableAdapter.Fill(this.dataSet1.NHOMNGUOIDUNG);
+            // TODO: This line of code loads data into the 'dataSet1.PHANQUYEN' table. You can move, or remove it, as needed.
+            this.pHANQUYENTableAdapter.Fill(this.dataSet1.PHANQUYEN);
             s = Lay_DL;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
 
-        }
+            //load screen 
+            DataTable dt = GetNhomNguoiDung(Properties.Settings.Default.user.ToUpper());
 
+            foreach (DataRow item in dt.Rows)
+            {
+                DataTable dsQuyen = GetMaManHinh(item[1].ToString());
+                foreach (DataRow mh in dsQuyen.Rows)
+                {
+                    FindMenuPhanQuyen(this.ribbonPage_TacVu.Groups, mh[0].ToString(), Convert.ToBoolean(mh[2].ToString()));
+                }
+            }
+            foreach (DataRow item in dt.Rows)
+            {
+                DataTable dsQuyen = GetMaManHinh(item[1].ToString());
+                foreach (DataRow mh in dsQuyen.Rows)
+                {
+                    FindMenuPhanQuyen(this.ribbonPage_DanhMuc.Groups, mh[0].ToString(), Convert.ToBoolean(mh[2].ToString()));
+                }
+            }
+            foreach (DataRow item in dt.Rows)
+            {
+                DataTable dsQuyen = GetMaManHinh(item[1].ToString());
+                foreach (DataRow mh in dsQuyen.Rows)
+                {
+                    FindMenuPhanQuyen(this.ribbonPage_HeThong.Groups, mh[0].ToString(), Convert.ToBoolean(mh[2].ToString()));
+                }
+            }
+        }
+        public DataTable GetMaManHinh(string str)
+        {
+            DataTable dt = dataSet1.PHANQUYEN;
+            DataTable dtR = dt.Clone();
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (dr[1].ToString() == str)
+                {
+                    dtR.ImportRow(dr);
+                }
+            }
+            return dtR;
+         
+        }
+        public DataTable GetNhomNguoiDung(string str)
+        {
+            DataTable dt = dataSet1.NGUOIDUNGNHOMNGUOIDUNG;
+            DataTable dtR = dt.Clone();
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (dr[0].ToString().ToUpper() == str.ToUpper())
+                {
+                    dtR.ImportRow(dr);
+                }
+            }
+            return dtR;
+
+        }
+        private void FindMenuPhanQuyen(RibbonPageGroupCollection mnuItems, string pScreenName, bool pEnable)
+        {
+            foreach (RibbonPageGroup menu in mnuItems)
+            {
+                if (string.Equals(pScreenName, menu.Tag))
+                {
+                    menu.Enabled = pEnable;
+                    menu.Visible = pEnable;
+                }
+            }
+        }
         private void barButtonItem12_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frm_DonGia frm_DonGia = new frm_DonGia();
@@ -123,6 +199,21 @@ namespace QuanLy_CH_VLXD
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void pHANQUYENBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.pHANQUYENBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.dataSet1);
+
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmDangNhap frmDN = new frmDangNhap();
+            frmDN.Show();
+            this.Hide();
         }
 
         // lấy dữ liệu 

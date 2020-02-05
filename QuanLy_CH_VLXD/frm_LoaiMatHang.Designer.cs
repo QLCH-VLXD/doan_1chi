@@ -38,6 +38,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -45,7 +48,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(213, 159);
+            this.btnSua.Location = new System.Drawing.Point(216, 169);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(99, 35);
             this.btnSua.TabIndex = 80;
@@ -55,7 +58,7 @@
             // 
             // txtMaLoaiMH
             // 
-            this.txtMaLoaiMH.Location = new System.Drawing.Point(198, 45);
+            this.txtMaLoaiMH.Location = new System.Drawing.Point(201, 55);
             this.txtMaLoaiMH.Multiline = true;
             this.txtMaLoaiMH.Name = "txtMaLoaiMH";
             this.txtMaLoaiMH.Size = new System.Drawing.Size(230, 27);
@@ -64,7 +67,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(79, 99);
+            this.label4.Location = new System.Drawing.Point(82, 109);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(115, 19);
             this.label4.TabIndex = 54;
@@ -73,7 +76,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(79, 53);
+            this.label8.Location = new System.Drawing.Point(82, 63);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(113, 19);
             this.label8.TabIndex = 52;
@@ -81,7 +84,7 @@
             // 
             // txtTenLoaiMH
             // 
-            this.txtTenLoaiMH.Location = new System.Drawing.Point(198, 91);
+            this.txtTenLoaiMH.Location = new System.Drawing.Point(201, 101);
             this.txtTenLoaiMH.Multiline = true;
             this.txtTenLoaiMH.Name = "txtTenLoaiMH";
             this.txtTenLoaiMH.Size = new System.Drawing.Size(230, 27);
@@ -100,7 +103,11 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 22);
             this.dataGridView1.Name = "dataGridView1";
@@ -120,14 +127,14 @@
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(39, 66);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(533, 228);
+            this.groupBox1.Size = new System.Drawing.Size(533, 300);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Loại mặt hàng";
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(375, 159);
+            this.btnXoa.Location = new System.Drawing.Point(378, 169);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(99, 35);
             this.btnXoa.TabIndex = 79;
@@ -137,7 +144,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(54, 159);
+            this.btnThem.Location = new System.Drawing.Point(57, 169);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(99, 35);
             this.btnThem.TabIndex = 78;
@@ -145,10 +152,33 @@
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(4, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 19);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "label1";
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MALOAIMATHANG";
+            this.Column1.HeaderText = "Mã loại mặt hàng";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TENLOAIMATHANG";
+            this.Column2.HeaderText = "Tên loại mặt hàng";
+            this.Column2.Name = "Column2";
+            // 
             // frm_LoaiMatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_LoaiMatHang";
@@ -159,6 +189,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -174,5 +205,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

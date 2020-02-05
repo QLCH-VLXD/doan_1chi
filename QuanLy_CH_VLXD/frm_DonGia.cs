@@ -32,6 +32,7 @@ namespace QuanLy_CH_VLXD
 
         private void frm_DonGia_Load(object sender, EventArgs e)
         {
+            lbl_MaNv.Text = Properties.Settings.Default.user;
             cboMaLoaiMH.DataSource = bll_DonGia.load_loaiMatHang();
             cboMaLoaiMH.ValueMember = "MALOAIMATHANG";
             cboMaLoaiMH.DisplayMember = "MALOAIMATHANG";
@@ -124,12 +125,12 @@ namespace QuanLy_CH_VLXD
 
 
                 loaddatagirdview();
-                MessageBox.Show("thêm thành công", "Thông báo");
+                MessageBox.Show("Thêm thành công", "Thông báo");
 
             }
             else
             {
-                MessageBox.Show("vui lòng điền đầy đủ dữ liệu");
+                MessageBox.Show("Vui lòng điền đầy đủ dữ liệu");
             }
         }
 
@@ -146,7 +147,7 @@ namespace QuanLy_CH_VLXD
 
                 if (!bll_DonGia.Load_SuaMHdll(mh))
                 {
-                    MessageBox.Show("ko thể sửa mặt hang");
+                    MessageBox.Show("Không thể sửa mặt hàng");
                     return;
                 }
                 DONGIA dg = new DONGIA();
@@ -161,7 +162,7 @@ namespace QuanLy_CH_VLXD
 
                 if (!bll_DonGia.Load_SuaDonGiadll(dg))
                 {
-                    MessageBox.Show("ko thê sửa don gia");
+                    MessageBox.Show("Không thể sửa đơn giá");
                     return;
 
                 }
@@ -173,7 +174,7 @@ namespace QuanLy_CH_VLXD
             }
             else
             {
-                MessageBox.Show("vui lòng điền đầy đủ dữ liệu");
+                MessageBox.Show("Vui lòng điền đầy đủ dữ liệu");
             }
         }
 
@@ -205,7 +206,7 @@ namespace QuanLy_CH_VLXD
 
                 if (!bll_DonGia.Load_XoaDGdll(dg))
                 {
-                    MessageBox.Show("ko thê xoa don gia");
+                    MessageBox.Show("Không thể xóa đơn giá");
                     return;
 
                 }
@@ -229,20 +230,19 @@ namespace QuanLy_CH_VLXD
 
 
                 loaddatagirdview();
-                MessageBox.Show("Thanh cong xoa");
+                MessageBox.Show("Thành công");
             }
         }
 
         private void txtDonGia_Leave(object sender, EventArgs e)
         {
-            try
-            {
-                int a = int.Parse(txtDonGia.Text);
-            }
-            catch
-            {
-                MessageBox.Show("Đơn giá phải là số!");
-            }
+    
+        }
+
+        private void txtDonGia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

@@ -61,6 +61,8 @@
             this.cbo_MaMH = new System.Windows.Forms.ComboBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.groupBox_TTCTSanPham = new System.Windows.Forms.GroupBox();
+            this.btn_TraTruoc = new System.Windows.Forms.Button();
+            this.txt_TienTraTruoc = new System.Windows.Forms.TextBox();
             this.txt_MaPDNSX = new System.Windows.Forms.TextBox();
             this.lbl_TienConLaiSo = new System.Windows.Forms.Label();
             this.lbl_TongtienSo = new System.Windows.Forms.Label();
@@ -69,12 +71,9 @@
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Them = new System.Windows.Forms.Button();
             this.lbl_VNDDD = new System.Windows.Forms.Label();
-            this.lbl_TienConLai = new System.Windows.Forms.Label();
             this.lbl_VND = new System.Windows.Forms.Label();
             this.lbl_TienTraTruoc = new System.Windows.Forms.Label();
             this.lbl_TongTien = new System.Windows.Forms.Label();
-            this.txt_TienTraTruoc = new System.Windows.Forms.TextBox();
-            this.btn_TraTruoc = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DatHangNSX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_CTDatHangNSX)).BeginInit();
@@ -84,7 +83,7 @@
             // lbl_MaNV
             // 
             this.lbl_MaNV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_MaNV.Location = new System.Drawing.Point(33, 14);
+            this.lbl_MaNV.Location = new System.Drawing.Point(3, 0);
             this.lbl_MaNV.Name = "lbl_MaNV";
             this.lbl_MaNV.Size = new System.Drawing.Size(53, 19);
             this.lbl_MaNV.TabIndex = 30;
@@ -167,9 +166,9 @@
             this.groupBox1.Controls.Add(this.dataGridView_DatHangNSX);
             this.groupBox1.Controls.Add(this.dataGridView_CTDatHangNSX);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(25, 355);
+            this.groupBox1.Location = new System.Drawing.Point(25, 314);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1320, 372);
+            this.groupBox1.Size = new System.Drawing.Size(1320, 220);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách mặt hàng";
@@ -185,10 +184,9 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            this.dataGridView_DatHangNSX.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dataGridView_DatHangNSX.Location = new System.Drawing.Point(601, 21);
+            this.dataGridView_DatHangNSX.Location = new System.Drawing.Point(3, 21);
             this.dataGridView_DatHangNSX.Name = "dataGridView_DatHangNSX";
-            this.dataGridView_DatHangNSX.Size = new System.Drawing.Size(716, 348);
+            this.dataGridView_DatHangNSX.Size = new System.Drawing.Size(716, 193);
             this.dataGridView_DatHangNSX.TabIndex = 1;
             this.dataGridView_DatHangNSX.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DatHangNSX_CellClick);
             this.dataGridView_DatHangNSX.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_DatHangNSX_CellMouseClick);
@@ -226,8 +224,9 @@
             // Column6
             // 
             this.Column6.DataPropertyName = "SOTIENTRATRUOC1";
-            this.Column6.HeaderText = "Số tiền trả trước";
+            this.Column6.HeaderText = "Column6";
             this.Column6.Name = "Column6";
+            this.Column6.Visible = false;
             // 
             // dataGridView_CTDatHangNSX
             // 
@@ -239,10 +238,9 @@
             this.Column9,
             this.Column10,
             this.Column11});
-            this.dataGridView_CTDatHangNSX.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dataGridView_CTDatHangNSX.Location = new System.Drawing.Point(3, 21);
+            this.dataGridView_CTDatHangNSX.Location = new System.Drawing.Point(725, 21);
             this.dataGridView_CTDatHangNSX.Name = "dataGridView_CTDatHangNSX";
-            this.dataGridView_CTDatHangNSX.Size = new System.Drawing.Size(592, 348);
+            this.dataGridView_CTDatHangNSX.Size = new System.Drawing.Size(592, 193);
             this.dataGridView_CTDatHangNSX.TabIndex = 0;
             this.dataGridView_CTDatHangNSX.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_CTDatHangNSX_CellMouseClick);
             // 
@@ -368,7 +366,6 @@
             this.groupBox_TTCTSanPham.Controls.Add(this.btn_Sua);
             this.groupBox_TTCTSanPham.Controls.Add(this.btn_Them);
             this.groupBox_TTCTSanPham.Controls.Add(this.lbl_VNDDD);
-            this.groupBox_TTCTSanPham.Controls.Add(this.lbl_TienConLai);
             this.groupBox_TTCTSanPham.Controls.Add(this.lbl_VND);
             this.groupBox_TTCTSanPham.Controls.Add(this.lbl_TienTraTruoc);
             this.groupBox_TTCTSanPham.Controls.Add(this.lbl_TongTien);
@@ -392,11 +389,32 @@
             this.groupBox_TTCTSanPham.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox_TTCTSanPham.Location = new System.Drawing.Point(25, 39);
             this.groupBox_TTCTSanPham.Name = "groupBox_TTCTSanPham";
-            this.groupBox_TTCTSanPham.Size = new System.Drawing.Size(1320, 286);
+            this.groupBox_TTCTSanPham.Size = new System.Drawing.Size(1320, 269);
             this.groupBox_TTCTSanPham.TabIndex = 3;
             this.groupBox_TTCTSanPham.TabStop = false;
             this.groupBox_TTCTSanPham.Text = "Thông tin mặt hàng";
             this.groupBox_TTCTSanPham.Enter += new System.EventHandler(this.groupBox_TTCTSanPham_Enter);
+            // 
+            // btn_TraTruoc
+            // 
+            this.btn_TraTruoc.Location = new System.Drawing.Point(1227, 126);
+            this.btn_TraTruoc.Name = "btn_TraTruoc";
+            this.btn_TraTruoc.Size = new System.Drawing.Size(47, 29);
+            this.btn_TraTruoc.TabIndex = 49;
+            this.btn_TraTruoc.Text = "$";
+            this.btn_TraTruoc.UseVisualStyleBackColor = true;
+            this.btn_TraTruoc.Visible = false;
+            this.btn_TraTruoc.Click += new System.EventHandler(this.btn_TraTruoc_Click);
+            // 
+            // txt_TienTraTruoc
+            // 
+            this.txt_TienTraTruoc.Location = new System.Drawing.Point(1039, 126);
+            this.txt_TienTraTruoc.Multiline = true;
+            this.txt_TienTraTruoc.Name = "txt_TienTraTruoc";
+            this.txt_TienTraTruoc.Size = new System.Drawing.Size(181, 27);
+            this.txt_TienTraTruoc.TabIndex = 48;
+            this.txt_TienTraTruoc.Visible = false;
+            this.txt_TienTraTruoc.TextChanged += new System.EventHandler(this.txt_TienTraTruoc_TextChanged);
             // 
             // txt_MaPDNSX
             // 
@@ -415,6 +433,7 @@
             this.lbl_TienConLaiSo.Size = new System.Drawing.Size(17, 19);
             this.lbl_TienConLaiSo.TabIndex = 46;
             this.lbl_TienConLaiSo.Text = "0";
+            this.lbl_TienConLaiSo.Visible = false;
             // 
             // lbl_TongtienSo
             // 
@@ -472,15 +491,7 @@
             this.lbl_VNDDD.Size = new System.Drawing.Size(43, 19);
             this.lbl_VNDDD.TabIndex = 39;
             this.lbl_VNDDD.Text = "VND";
-            // 
-            // lbl_TienConLai
-            // 
-            this.lbl_TienConLai.AutoSize = true;
-            this.lbl_TienConLai.Location = new System.Drawing.Point(906, 180);
-            this.lbl_TienConLai.Name = "lbl_TienConLai";
-            this.lbl_TienConLai.Size = new System.Drawing.Size(77, 19);
-            this.lbl_TienConLai.TabIndex = 38;
-            this.lbl_TienConLai.Text = "Tiền còn lại";
+            this.lbl_VNDDD.Visible = false;
             // 
             // lbl_VND
             // 
@@ -496,9 +507,9 @@
             this.lbl_TienTraTruoc.AutoSize = true;
             this.lbl_TienTraTruoc.Location = new System.Drawing.Point(906, 136);
             this.lbl_TienTraTruoc.Name = "lbl_TienTraTruoc";
-            this.lbl_TienTraTruoc.Size = new System.Drawing.Size(91, 19);
+            this.lbl_TienTraTruoc.Size = new System.Drawing.Size(0, 19);
             this.lbl_TienTraTruoc.TabIndex = 34;
-            this.lbl_TienTraTruoc.Text = "Tiền trả trước";
+            this.lbl_TienTraTruoc.Visible = false;
             // 
             // lbl_TongTien
             // 
@@ -508,25 +519,6 @@
             this.lbl_TongTien.Size = new System.Drawing.Size(120, 19);
             this.lbl_TongTien.TabIndex = 32;
             this.lbl_TongTien.Text = "Tổng tiền đạt hàng";
-            // 
-            // txt_TienTraTruoc
-            // 
-            this.txt_TienTraTruoc.Location = new System.Drawing.Point(1039, 126);
-            this.txt_TienTraTruoc.Multiline = true;
-            this.txt_TienTraTruoc.Name = "txt_TienTraTruoc";
-            this.txt_TienTraTruoc.Size = new System.Drawing.Size(181, 27);
-            this.txt_TienTraTruoc.TabIndex = 48;
-            this.txt_TienTraTruoc.TextChanged += new System.EventHandler(this.txt_TienTraTruoc_TextChanged);
-            // 
-            // btn_TraTruoc
-            // 
-            this.btn_TraTruoc.Location = new System.Drawing.Point(1227, 126);
-            this.btn_TraTruoc.Name = "btn_TraTruoc";
-            this.btn_TraTruoc.Size = new System.Drawing.Size(47, 29);
-            this.btn_TraTruoc.TabIndex = 49;
-            this.btn_TraTruoc.Text = "$";
-            this.btn_TraTruoc.UseVisualStyleBackColor = true;
-            this.btn_TraTruoc.Click += new System.EventHandler(this.btn_TraTruoc_Click);
             // 
             // frm_DatHangNSX
             // 
@@ -568,26 +560,18 @@
         private System.Windows.Forms.ComboBox cbo_MaMH;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.GroupBox groupBox_TTCTSanPham;
-        private System.Windows.Forms.Label lbl_TienTraTruoc;
         private System.Windows.Forms.Label lbl_TongTien;
         private System.Windows.Forms.Label lbl_VND;
         private System.Windows.Forms.Button btn_Xoa;
         private System.Windows.Forms.Button btn_Sua;
         private System.Windows.Forms.Button btn_Them;
         private System.Windows.Forms.Label lbl_VNDDD;
-        private System.Windows.Forms.Label lbl_TienConLai;
         private System.Windows.Forms.TextBox txt_TinhTrang;
         private System.Windows.Forms.Label lbl_TienConLaiSo;
         private System.Windows.Forms.Label lbl_TongtienSo;
         private System.Windows.Forms.DataGridView dataGridView_CTDatHangNSX;
         private System.Windows.Forms.DataGridView dataGridView_DatHangNSX;
         private System.Windows.Forms.TextBox txt_MaPDNSX;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
@@ -595,5 +579,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.TextBox txt_TienTraTruoc;
         private System.Windows.Forms.Button btn_TraTruoc;
+        private System.Windows.Forms.Label lbl_TienTraTruoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }

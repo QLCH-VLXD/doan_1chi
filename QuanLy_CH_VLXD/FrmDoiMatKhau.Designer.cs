@@ -124,6 +124,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmDoiMatKhau";
             this.Text = "FrmDoiMatKhau";
+            this.Load += new System.EventHandler(this.FrmDoiMatKhau_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 

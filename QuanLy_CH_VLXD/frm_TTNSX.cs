@@ -32,6 +32,7 @@ namespace QuanLy_CH_VLXD
             a = txtMaNSX.Text;
             dataGridView1.DataSource = bll_TTNSX.load_TTNSX();
             showDataGridView();
+            
         }
         public void showDataGridView()
         {
@@ -66,22 +67,27 @@ namespace QuanLy_CH_VLXD
         {
             BLL_TTNSX service = new BLL_TTNSX();
             NHASANXUAT cv = new NHASANXUAT();
-
-            cv.MANSX = a;
-            cv.TENNSX = txtTenNSX.Text;
-            cv.SDT = txtSDT.Text;
-            cv.EMAIL = txtEmail.Text;
-            cv.DIACHI = txtDiaChi.Text;
-            int result = 0;
-            result = service.themnsx(cv);
-            if (result == 2)
+            if (txtTenNSX.Text.Length > 0 && txtSDT.Text.Length > 0 && txtEmail.Text.Length > 0 && txtDiaChi.Text.Length > 0)
             {
-                MessageBox.Show("đã tồn tại", "Thông báo");
+                cv.MANSX = a;
+                cv.TENNSX = txtTenNSX.Text;
+                cv.SDT = txtSDT.Text;
+                cv.EMAIL = txtEmail.Text;
+                cv.DIACHI = txtDiaChi.Text;
+                int result = 0;
+                result = service.themnsx(cv);
+                if (result == 2)
+                {
+                    MessageBox.Show("Đã tồn tại", "Thông báo");
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thành công", "Thông báo");
+                }
             }
             else
-            {
-                MessageBox.Show("thêm thành công", "Thông báo");
-            }
+                MessageBox.Show("Vui lòng nhập đủ thông tin");
+           
 
             showDataGridView();
         }
@@ -107,7 +113,7 @@ namespace QuanLy_CH_VLXD
             }
             else
             {
-                MessageBox.Show("sửa thất bại", "Inofity");
+                MessageBox.Show("Sửa thất bại", "Inofity");
             }
 
 
@@ -136,11 +142,27 @@ namespace QuanLy_CH_VLXD
             }
             else if (result == 2)
             {
-                MessageBox.Show("Không tìm thấy khoa", "Thông báo");
+                MessageBox.Show("Không tìm thấy khóa", "Thông báo");
             }
 
 
             showDataGridView();
+        }
+
+        private void txtTenNSX_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

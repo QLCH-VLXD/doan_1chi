@@ -51,7 +51,12 @@ namespace BLL
         {
             return dal_GiaoHang.Load_SoLuong(mact);
         }
-
+        public string load_SoLuong2(string mact)
+        {
+            if (dal_GiaoHang.Load_SoLuong2(mact) == null)
+                return 0.ToString();
+            return dal_GiaoHang.Load_SoLuong2(mact);
+        }
         public String Load_dongia(string mamathang)
         {
 
@@ -96,6 +101,20 @@ namespace BLL
         public bool Sua_GH(GIAOHANG mh)
         {
             return dal_GiaoHang.sua_GH(mh);
+        }
+
+        public int laysoluong_ctdathang(string maphieudat)
+        {
+            return dal_GiaoHang.laysoluong_ctdathang(maphieudat);
+        }
+
+        public int laysoluong_ctdathang1(string maphieudat)
+        {
+            return dal_GiaoHang.laysoluong_ctdathang1(maphieudat);
+        }
+        public int laysoluong_ctdathang2(string maphieudat)
+        {
+            return dal_GiaoHang.laysoluong_ctdathang2(maphieudat);
         }
     }
 }

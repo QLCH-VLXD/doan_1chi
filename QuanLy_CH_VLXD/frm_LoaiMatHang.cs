@@ -24,6 +24,7 @@ namespace QuanLy_CH_VLXD
         private void frm_LoaiMatHang_Load(object sender, EventArgs e)
         {
             showDataGridView();
+            label1.Text = Properties.Settings.Default.user;
         }
 
         public void showDataGridView()
@@ -51,23 +52,28 @@ namespace QuanLy_CH_VLXD
         }
         public void ThemLoaiMH()
         {
-            BLL_LoaiMatHang service = new BLL_LoaiMatHang();
-            LOAIMATHANG lmh = new LOAIMATHANG();
-
-            lmh.MALOAIMATHANG = txtMaLoaiMH.Text;
-            lmh.TENLOAIMATHANG = txtTenLoaiMH.Text;
-
-
-            int result = 0;
-            result = service.themloaiMH_dal(lmh);
-            if (result == 2)
+            if (txtMaLoaiMH.Text.Length > 0 && txtTenLoaiMH.Text.Length > 0)
             {
-                MessageBox.Show("đã tồn tại", "Thông báo");
+                BLL_LoaiMatHang service = new BLL_LoaiMatHang();
+                LOAIMATHANG lmh = new LOAIMATHANG();
+
+                lmh.MALOAIMATHANG = txtMaLoaiMH.Text;
+                lmh.TENLOAIMATHANG = txtTenLoaiMH.Text;
+
+
+                int result = 0;
+                result = service.themloaiMH_dal(lmh);
+                if (result == 2)
+                {
+                    MessageBox.Show("Đã tồn tại", "Thông báo");
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thành công", "Thông báo");
+                }
             }
             else
-            {
-                MessageBox.Show("thêm thành công", "Thông báo");
-            }
+                MessageBox.Show("Vui long nhập đủ thông tin");
 
             showDataGridView();
         }
@@ -91,7 +97,7 @@ namespace QuanLy_CH_VLXD
             }
             else
             {
-                MessageBox.Show("sửa thất bại", "Inofity");
+                MessageBox.Show("Sửa thất bại", "Inofity");
             }
 
 
@@ -123,7 +129,7 @@ namespace QuanLy_CH_VLXD
             }
             else if (result == 2)
             {
-                MessageBox.Show("Không tìm thấy khoa", "Thông báo");
+                MessageBox.Show("Không tìm thấy khóa", "Thông báo");
             }
 
 

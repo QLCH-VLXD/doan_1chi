@@ -91,20 +91,37 @@ namespace DAL
             }
             return null;
         }
+        // ///////////////////////////
         public string Load_SoLuong(string mact)
         {
-            if(dal_data.CTPHIEUDATHANGNSXes.Where(t => t.MACTPHIEUDATHANG == mact).FirstOrDefault()!=null)
-            return dal_data.CTPHIEUDATHANGNSXes.Where(t => t.MACTPHIEUDATHANG == mact).FirstOrDefault().SOLUONG.ToString();
+            var dl = (from s in dal_data.CHITIETPHIEUNHAPHANGs 
+                      where s.MACTPHIEUDATHANG == mact
+                      select s.SOLUONGMH);
+            dl.ToList<int?>();
+            int? sum = dl.Sum();
+            if(sum>=0)
+            {
+                return sum.ToString();
+            }
+            
             return null;
-        }
+        } 
 
         public List<PHIEUDATHANGNSX> Load_MaPDHNSX()
         {
             return dal_data.PHIEUDATHANGNSXes.Select(t =>t).ToList<PHIEUDATHANGNSX>();
         }
+        public List<PHIEUDATHANGNSX> Load_MaPDHNSX1()
+        {
+            var dl = (from s in dal_data.PHIEUDATHANGNSXes
+                                where s.HOANTAT == false
+                                select s);
+            return dl.ToList<PHIEUDATHANGNSX>();
+        }
         public List<CTPHIEUDATHANGNSX> Load_ChiTietPDNSX(string mact)
         {
             return dal_data.CTPHIEUDATHANGNSXes.Where(t => t.MAPDHNSX == mact).ToList<CTPHIEUDATHANGNSX>();
+            //return dal_data.CTPHIEUDATHANGNSXes.Where(t => t.MAPDHNSX == mact && Convert.ToInt32(dal_data.CHITIETPHIEUNHAPHANGs.Where(x => x.MACTPHIEUDATHANG == t.MACTPHIEUDATHANG).FirstOrDefault().SOLUONGMH.ToString()) < Convert.ToInt32(t.SOLUONG.ToString())).ToList<CTPHIEUDATHANGNSX>();
         }
 
         public List<Bangghep_NhapHang> LoadDL_nhaphang()
@@ -279,34 +296,55 @@ namespace DAL
         
         public int laysomathangdat(String s)
         {
-            var dulieu = (from f in dal_data.CTPHIEUDATHANGNSXes
-                          from d in dal_data.CHITIETPHIEUNHAPHANGs
-                          where d.MACTPN == s.ToString() && f.MACTPHIEUDATHANG==d.MACTPHIEUDATHANG
-                          select f.SOLUONG).FirstOrDefault();
-            return Convert.ToInt32(dulieu.ToString());
+            try
+            {
+                var dulieu = (from f in dal_data.CTPHIEUDATHANGNSXes
+                              from d in dal_data.CHITIETPHIEUNHAPHANGs
+                              where d.MACTPN == s.ToString() && f.MACTPHIEUDATHANG == d.MACTPHIEUDATHANG
+                              select f.SOLUONG).FirstOrDefault();
+                return Convert.ToInt32(dulieu.ToString());
+            }
+            catch
+            {
+                return 0;
+            }
         }
-
+        // //////////////////////////////
         public int laysoluong_ctdathang(String s)
         {
             var dulieu = (from f in dal_data.CTPHIEUDATHANGNSXes
-                          where  f.MACTPHIEUDATHANG == s.ToString()
-                          select f.SOLUONG).FirstOrDefault();
-            return Convert.ToInt32(dulieu.ToString());
-        }
-
-       
-
-
-        public List<gomnhomctnh> gomnhomctnh()
-        {
-            
-            var kq = dal_data.gomnhom().ToList().ConvertAll(t => new gomnhomctnh()
+                          where  f.MAPDHNSX == s.ToString()
+                          select f.SOLUONG);
+            dulieu.ToList<int?>();
+            int? sum = dulieu.Sum();
+            if (sum >= 0)
             {
-                mactod1 = t.MACTPHIEUDATHANG,
-                sl1 = Convert.ToInt32(t.tongsl)
-            });
-            return kq.ToList<gomnhomctnh>();
+                return Convert.ToInt32(sum.ToString());
+            }
 
+            return 0;
         }
+
+        public int laysoluong_ctdathang1(String s)
+        {
+            var dulieu = (from f in dal_data.CTPHIEUDATHANGNSXes
+                          where f.MACTPHIEUDATHANG == s.ToString()
+                          select f.SOLUONG);
+            dulieu.ToList<int?>();
+            int? sum = dulieu.Sum();
+            if (sum >= 0)
+            {
+                return Convert.ToInt32(sum.ToString());
+            }
+
+            return 0;
+        }
+
+
+
+
+
+
+
     }
 }

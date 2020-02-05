@@ -58,6 +58,11 @@ namespace BLL
         {
             return dAL_NhapHang.Load_MaPDHNSX();
         }
+
+        public List<PHIEUDATHANGNSX> load_maPNHNSX1()
+        {
+            return dAL_NhapHang.Load_MaPDHNSX1();
+        }
         public List<CTPHIEUDATHANGNSX>load_ChiTietPDNSX(string mact)
         {
             return dAL_NhapHang.Load_ChiTietPDNSX(mact);
@@ -115,10 +120,10 @@ namespace BLL
             return dAL_NhapHang.laysoluong_ctdathang(maphieudat);
         }
 
-        public List<gomnhomctnh> Gomnhom_CTPDH()
+        public int laysoluong_ctdathang1(string maphieudat)
         {
-            return dAL_NhapHang.gomnhomctnh();
+            return dAL_NhapHang.laysoluong_ctdathang1(maphieudat);
         }
-        
+
     }
 }

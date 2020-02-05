@@ -36,14 +36,20 @@ namespace QuanLy_CH_VLXD
             cbo_NhaSX.DataSource = bll_DanhMucSanPham.Load_NhaSXdll();
             cbo_NhaSX.ValueMember = "MANSX";
             cbo_NhaSX.DisplayMember = "TENNSX";
+
+            cbo_mathang.DataSource = bll_DanhMucSanPham.load_MatHang();
+            cbo_mathang.ValueMember = "MAMATHANG";
+            cbo_mathang.DisplayMember = "TENMATHANG";
+
             Load_CboGT();
+            lbl_Manv.Text = Properties.Settings.Default.user;
             //cbo_TinhTrang.DataSource = bll_DanhMucSanPham.Load_TinhTrangdll();
             //cbo_TinhTrang.ValueMember = "MAMATHANG";
             //cbo_TinhTrang.DisplayMember = "TINHTRANG";
 
             loaddatagirdview();
             this.txt_TenloaiMH.Enabled = false;
-            this.txt_MaMH.Enabled = false;
+            //this.cbo_mathang.Enabled = false;
 
             flag = 1;
             //dataGridView_HoaDonBan.DataSource = bll_BanHang.load_HDB();
@@ -88,7 +94,7 @@ namespace QuanLy_CH_VLXD
                 mh.MAMATHANG = "MH" + bll_DanhMucSanPham.Sinh_MaMatHang_BLL();
                 mh.MANSX = cbo_NhaSX.SelectedValue.ToString();
                 mh.SOLUONG = int.Parse(txt_SoLuong.Text);
-                mh.TENMATHANG = txt_TenMH.Text;
+                mh.TENMATHANG = cbo_mathang.Text;
                 mh.TINHTRANG = cbo_TinhTrang.Text;
                 bll_DanhMucSanPham.Load_ThemMHdll(mh);
 
@@ -108,32 +114,32 @@ namespace QuanLy_CH_VLXD
                 //bll_DanhMucSanPham.Load_ThemCTNSXdll(ctnsx);
 
                 loaddatagirdview();
-                MessageBox.Show("thêm thành công", "Thông báo");
+                MessageBox.Show("Thêm thành công", "Thông báo");
 
             }
             else
             {
-                MessageBox.Show("vui lòng điền đầy đủ dữ liệu");
+                MessageBox.Show("Vui lòng điền đầy đủ dữ liệu");
             }
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
             //sửa
-            if (txt_DonGia.Text.Length > 0 && txt_GhiChu.Text.Length > 0 && txt_SoLuong.Text.Length > 0 && txt_TenloaiMH.Text.Length > 0 && txt_TenMH.Text.Length > 0 && cbo_DonViTinh.Text.Length > 0 && txt_MaMH.Text.Length > 0 && cbo_MaLoaiMH.Text.Length > 0 && cbo_NhaSX.Text.Length > 0 && cbo_TinhTrang.Text.Length > 0)
+            if (txt_DonGia.Text.Length > 0 && txt_GhiChu.Text.Length > 0 && txt_SoLuong.Text.Length > 0 && txt_TenloaiMH.Text.Length > 0 && cbo_mathang.Text.Length > 0 && cbo_DonViTinh.Text.Length > 0  && cbo_MaLoaiMH.Text.Length > 0 && cbo_NhaSX.Text.Length > 0 && cbo_TinhTrang.Text.Length > 0)
             {
                 MATHANG mh = new MATHANG();
                 mh.GHICHU = txt_GhiChu.Text;
                 mh.MADVT = cbo_DonViTinh.SelectedValue.ToString();
                 mh.MALOAIMATHANG = cbo_MaLoaiMH.Text;
-                mh.MAMATHANG = txt_MaMH.Text;
+                mh.MAMATHANG = cbo_mathang.Text;
                 mh.MANSX = cbo_NhaSX.SelectedValue.ToString();
                 mh.SOLUONG = int.Parse(txt_SoLuong.Text);
-                mh.TENMATHANG = txt_TenMH.Text;
+                mh.TENMATHANG = cbo_mathang.Text;
                 mh.TINHTRANG = cbo_TinhTrang.Text;
                 if (!bll_DanhMucSanPham.Load_SuaMHdll(mh))
                 {
-                    MessageBox.Show("ko thể sửa mathang");
+                    MessageBox.Show("Không thể sửa mặt hàng");
                     return;
                 }
 
@@ -156,13 +162,13 @@ namespace QuanLy_CH_VLXD
 
                 DONGIA dg = new DONGIA();
                 dg.MADONGIA = bll_DanhMucSanPham.mahangdll(mh.MAMATHANG);
-                dg.MAMATHANG = txt_MaMH.Text;
+                dg.MAMATHANG = cbo_mathang.Text;
                 dg.NGAYAPDUNG = DateTime.Parse(dateEdit1.Text);
                 dg.NGAYKETTHUC = DateTime.Parse(dateEdit2.Text);
                 dg.GIA = decimal.Parse(txt_DonGia.Text);
                 if (!bll_DanhMucSanPham.Load_SuaDonGiadll(dg))
                 {
-                    MessageBox.Show("ko thê sửa dongia");
+                    MessageBox.Show("Không thể sửa đơn giá");
                     return;
 
                 }
@@ -176,7 +182,7 @@ namespace QuanLy_CH_VLXD
             }
             else
             {
-                MessageBox.Show("vui lòng điền đầy đủ dữ liệu");
+                MessageBox.Show("Vui lòng điền đầy đủ dữ liệu");
             }
         }
         private void loaddatagirdview()
@@ -187,32 +193,32 @@ namespace QuanLy_CH_VLXD
         private void btnXoa_Click(object sender, EventArgs e)
         {
 
-            if (txt_DonGia.Text.Length > 0 && txt_GhiChu.Text.Length > 0 && txt_SoLuong.Text.Length > 0 && txt_TenloaiMH.Text.Length > 0 && txt_TenMH.Text.Length > 0 && cbo_DonViTinh.Text.Length > 0 && txt_MaMH.Text.Length > 0 && cbo_MaLoaiMH.Text.Length > 0 && cbo_NhaSX.Text.Length > 0 && cbo_TinhTrang.Text.Length > 0)
+            if (txt_DonGia.Text.Length > 0 && txt_GhiChu.Text.Length > 0 && txt_SoLuong.Text.Length > 0 && txt_TenloaiMH.Text.Length > 0 && cbo_mathang.Text.Length > 0 && cbo_DonViTinh.Text.Length > 0  && cbo_MaLoaiMH.Text.Length > 0 && cbo_NhaSX.Text.Length > 0 && cbo_TinhTrang.Text.Length > 0 && cbo_mathang.SelectedValue!=null)
             {
 
                 MATHANG mh = new MATHANG();
                 mh.GHICHU = txt_GhiChu.Text;
                 mh.MADVT = cbo_DonViTinh.SelectedValue.ToString();
                 mh.MALOAIMATHANG = cbo_MaLoaiMH.Text;
-                mh.MAMATHANG = txt_MaMH.Text;
+                mh.MAMATHANG = cbo_mathang.SelectedValue.ToString();//
                 mh.MANSX = cbo_NhaSX.SelectedValue.ToString();
                 mh.SOLUONG = int.Parse(txt_SoLuong.Text);
-                mh.TENMATHANG = txt_TenMH.Text;
+                mh.TENMATHANG = cbo_mathang.Text;
                 mh.TINHTRANG = cbo_TinhTrang.Text;
 
                 CHITIETNHASANXUAT ctnsx = new CHITIETNHASANXUAT();
                 ctnsx.MANSX = cbo_NhaSX.SelectedValue.ToString();
-                ctnsx.MAMATHANG = txt_MaMH.Text;
+                ctnsx.MAMATHANG = cbo_mathang.Text;
 
                 DONGIA dg = new DONGIA();
                 dg.MADONGIA = bll_DanhMucSanPham.mahangdll(mh.MAMATHANG);
-                dg.MAMATHANG = txt_MaMH.Text;
+                dg.MAMATHANG = cbo_mathang.Text;
                 dg.NGAYAPDUNG = DateTime.Parse(dateEdit1.Text);
                 dg.NGAYKETTHUC = DateTime.Parse(dateEdit2.Text);
                 dg.GIA = decimal.Parse(txt_DonGia.Text);
                 if (!bll_DanhMucSanPham.Load_XoaDGdll(dg))
                 {
-                    MessageBox.Show("ko thê xoa dongia");
+                    MessageBox.Show("Không thể sửa đơn giá");
                     return;
 
                 }
@@ -226,7 +232,7 @@ namespace QuanLy_CH_VLXD
 
 
                 loaddatagirdview();
-                MessageBox.Show("Thanh cong xoa", "Thông báo");
+                MessageBox.Show("Thành công", "Thông báo");
             }
 
 
@@ -244,8 +250,8 @@ namespace QuanLy_CH_VLXD
                     {
                         cbo_MaLoaiMH.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                         txt_TenloaiMH.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                        txt_MaMH.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                        txt_TenMH.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                        //cbo_mathang.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                        cbo_mathang.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
                         txt_SoLuong.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
                         txt_DonGia.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
                         dateEdit1.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
@@ -255,7 +261,7 @@ namespace QuanLy_CH_VLXD
                         txt_GhiChu.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
                         cbo_TinhTrang.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
                         this.txt_TenloaiMH.Enabled = false;
-                        this.txt_MaMH.Enabled = false;
+                       // this.cbo_mathang.Enabled = false;
 
                     }
                 }
@@ -264,26 +270,26 @@ namespace QuanLy_CH_VLXD
 
         private void txt_SoLuong_Leave(object sender, EventArgs e)
         {
-            try
-            {
-                int a = int.Parse(txt_SoLuong.Text);
-            }
-            catch
-            {
-                MessageBox.Show("Số lượng phải là số!");
-            }
+            //try
+            //{
+            //    int a = int.Parse(txt_SoLuong.Text);
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Số lượng phải là số!");
+            //}
         }
 
         private void txt_DonGia_Leave(object sender, EventArgs e)
         {
-            try
-            {
-                int a = int.Parse(txt_DonGia.Text);
-            }
-            catch
-            {
-                MessageBox.Show("Đơn giá phải là số!");
-            }
+        //    try
+        //    {
+        //        int a = int.Parse(txt_DonGia.Text);
+        //    }
+        //    catch
+        //    {
+        //        MessageBox.Show("Đơn giá phải là số!");
+        //    }
         }
 
         List<Bangghep_DMMH> mh_bangghep = new List<Bangghep_DMMH>();
@@ -321,11 +327,20 @@ namespace QuanLy_CH_VLXD
 
         void Load_CboGT()
         {
-            cbo_TinhTrang.Items.Add("còn hàng");
-            cbo_TinhTrang.Items.Add("hết hàng");
+            cbo_TinhTrang.Items.Add("Còn hàng");
+            cbo_TinhTrang.Items.Add("Hết hàng");
         }
 
+        private void txt_SoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
 
-
+        private void txt_DonGia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
     }
 }

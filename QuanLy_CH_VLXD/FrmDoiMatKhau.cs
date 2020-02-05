@@ -56,5 +56,10 @@ namespace QuanLy_CH_VLXD
         {
 
         }
+
+        private void FrmDoiMatKhau_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

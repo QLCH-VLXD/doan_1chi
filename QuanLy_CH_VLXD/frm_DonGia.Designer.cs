@@ -30,6 +30,8 @@
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
             this.txtMaMH = new System.Windows.Forms.TextBox();
             this.dateEdit_NgayKT = new DevExpress.XtraEditors.DateEdit();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,8 +39,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSua = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaDonGia = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -50,6 +50,7 @@
             this.cboMaLoaiMH = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtTenLoaiMH = new System.Windows.Forms.TextBox();
+            this.lbl_MaNv = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_NgayKT.Properties.CalendarTimeProperties)).BeginInit();
@@ -62,6 +63,8 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.btnXoa);
+            this.groupBox2.Controls.Add(this.btnThem);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(506, 39);
             this.groupBox2.Name = "groupBox2";
@@ -79,6 +82,26 @@
             this.dataGridView1.Size = new System.Drawing.Size(793, 459);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Location = new System.Drawing.Point(128, 388);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(10, 10);
+            this.btnXoa.TabIndex = 76;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnThem
+            // 
+            this.btnThem.Location = new System.Drawing.Point(144, 372);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(10, 10);
+            this.btnThem.TabIndex = 75;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // txtMaMH
             // 
@@ -133,8 +156,6 @@
             this.groupBox1.Controls.Add(this.dateEdit_NgayBD);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnSua);
-            this.groupBox1.Controls.Add(this.btnXoa);
-            this.groupBox1.Controls.Add(this.btnThem);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtMaDonGia);
             this.groupBox1.Controls.Add(this.label5);
@@ -167,31 +188,11 @@
             // 
             this.btnSua.Location = new System.Drawing.Point(145, 411);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(99, 35);
+            this.btnSua.Size = new System.Drawing.Size(230, 35);
             this.btnSua.TabIndex = 77;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Location = new System.Drawing.Point(276, 411);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(99, 35);
-            this.btnXoa.TabIndex = 76;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
-            // btnThem
-            // 
-            this.btnThem.Location = new System.Drawing.Point(15, 411);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(99, 35);
-            this.btnThem.TabIndex = 75;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // label1
             // 
@@ -226,6 +227,7 @@
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Size = new System.Drawing.Size(230, 27);
             this.txtDonGia.TabIndex = 67;
+            this.txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGia_KeyPress);
             this.txtDonGia.Leave += new System.EventHandler(this.txtDonGia_Leave);
             // 
             // label11
@@ -289,10 +291,21 @@
             this.txtTenLoaiMH.Size = new System.Drawing.Size(230, 27);
             this.txtTenLoaiMH.TabIndex = 51;
             // 
+            // lbl_MaNv
+            // 
+            this.lbl_MaNv.AutoSize = true;
+            this.lbl_MaNv.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_MaNv.Location = new System.Drawing.Point(4, 4);
+            this.lbl_MaNv.Name = "lbl_MaNv";
+            this.lbl_MaNv.Size = new System.Drawing.Size(49, 19);
+            this.lbl_MaNv.TabIndex = 7;
+            this.lbl_MaNv.Text = "label6";
+            // 
             // frm_DonGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lbl_MaNv);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_DonGia";
@@ -307,6 +320,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -334,5 +348,6 @@
         private System.Windows.Forms.ComboBox cboMaLoaiMH;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtTenLoaiMH;
+        private System.Windows.Forms.Label lbl_MaNv;
     }
 }

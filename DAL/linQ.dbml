@@ -5,7 +5,6 @@
       <Column Name="MANV" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="MATKHAU" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="HOATDONG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="NHANVIEN_TAIKHOAN" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.CHITIETMATHANG" Member="CHITIETMATHANGs">
@@ -42,7 +41,6 @@
     <Type Name="CHUCVU">
       <Column Name="MACHUCVU" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TENCV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="CHUCVU_NHANVIEN" Member="NHANVIENs" ThisKey="MACHUCVU" OtherKey="MACHUCVU" Type="NHANVIEN" />
     </Type>
   </Table>
   <Table Name="dbo.CTPHIEUDATHANGNSX" Member="CTPHIEUDATHANGNSXes">
@@ -94,14 +92,12 @@
       <Column Name="HOTENKH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="SDT" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
       <Column Name="DIACHI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="LOAIKHACHHANG_KHACHHANG" Member="LOAIKHACHHANG" ThisKey="MALOAIKH" OtherKey="MALOAIKH" Type="LOAIKHACHHANG" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.LOAIKHACHHANG" Member="LOAIKHACHHANGs">
     <Type Name="LOAIKHACHHANG">
       <Column Name="MALOAIKH" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TENLOAIKH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="LOAIKHACHHANG_KHACHHANG" Member="KHACHHANGs" ThisKey="MALOAIKH" OtherKey="MALOAIKH" Type="KHACHHANG" />
     </Type>
   </Table>
   <Table Name="dbo.LOAIMATHANG" Member="LOAIMATHANGs">
@@ -159,11 +155,9 @@
       <Column Name="DIACHI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="TINHTRANG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="NGAYVAOLAM" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="NHANVIEN_TAIKHOAN" Member="TAIKHOAN" ThisKey="MANV" OtherKey="MANV" Type="TAIKHOAN" Cardinality="One" />
       <Association Name="NHANVIEN_GIAOHANG" Member="GIAOHANGs" ThisKey="MANV" OtherKey="MANVGIAOHANG" Type="GIAOHANG" />
       <Association Name="NHANVIEN_NGUOIDUNGNHOMNGUOIDUNG" Member="NGUOIDUNGNHOMNGUOIDUNGs" ThisKey="MANV" OtherKey="MANV" Type="NGUOIDUNGNHOMNGUOIDUNG" />
       <Association Name="NHANVIEN_PHIEUDATHANGNSX" Member="PHIEUDATHANGNSXes" ThisKey="MANV" OtherKey="MANV" Type="PHIEUDATHANGNSX" />
-      <Association Name="CHUCVU_NHANVIEN" Member="CHUCVU" ThisKey="MACHUCVU" OtherKey="MACHUCVU" Type="CHUCVU" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.NHASANXUAT" Member="NHASANXUATs">
@@ -194,20 +188,6 @@
       <Column Name="COQUYEN" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="MANHINH_PHANQUYEN" Member="MANHINH" ThisKey="MAMANHINH" OtherKey="MAMANHINH" Type="MANHINH" IsForeignKey="true" />
       <Association Name="NHOMNGUOIDUNG_PHANQUYEN" Member="NHOMNGUOIDUNG" ThisKey="MANHOM" OtherKey="MANHOM" Type="NHOMNGUOIDUNG" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PHIEUDATHANGNSX" Member="PHIEUDATHANGNSXes">
-    <Type Name="PHIEUDATHANGNSX">
-      <Column Name="MAPDHNSX" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MANSX" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="MANV" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="NGAYLAP" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="TONGTIENHANGDAT" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="TINHTRANGHANG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="SOTIENTRATRUOC" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Association Name="PHIEUDATHANGNSX_CTPHIEUDATHANGNSX" Member="CTPHIEUDATHANGNSXes" ThisKey="MAPDHNSX" OtherKey="MAPDHNSX" Type="CTPHIEUDATHANGNSX" />
-      <Association Name="NHASANXUAT_PHIEUDATHANGNSX" Member="NHASANXUAT" ThisKey="MANSX" OtherKey="MANSX" Type="NHASANXUAT" IsForeignKey="true" />
-      <Association Name="NHANVIEN_PHIEUDATHANGNSX" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PHIEUNHAPHANG" Member="PHIEUNHAPHANGs">
@@ -253,6 +233,21 @@
       <Column Name="THANHTIEN" Type="System.Decimal" DbType="Money" CanBeNull="true" />
       <Association Name="CHITIETHOADONBAN_CHITIETGIAOHANG" Member="CHITIETHOADONBAN" ThisKey="MACTHDB" OtherKey="MACTHDB" Type="CHITIETHOADONBAN" IsForeignKey="true" />
       <Association Name="GIAOHANG_CHITIETGIAOHANG" Member="GIAOHANG" ThisKey="MAGIAOHANG" OtherKey="MAGIAOHANG" Type="GIAOHANG" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PHIEUDATHANGNSX" Member="PHIEUDATHANGNSXes">
+    <Type Name="PHIEUDATHANGNSX">
+      <Column Name="MAPDHNSX" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MANSX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MANV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NGAYLAP" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TONGTIENHANGDAT" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="TINHTRANGHANG" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SOTIENTRATRUOC" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="HOANTAT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="PHIEUDATHANGNSX_CTPHIEUDATHANGNSX" Member="CTPHIEUDATHANGNSXes" ThisKey="MAPDHNSX" OtherKey="MAPDHNSX" Type="CTPHIEUDATHANGNSX" />
+      <Association Name="NHASANXUAT_PHIEUDATHANGNSX" Member="NHASANXUAT" ThisKey="MANSX" OtherKey="MANSX" Type="NHASANXUAT" IsForeignKey="true" />
+      <Association Name="NHANVIEN_PHIEUDATHANGNSX" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.XEMTEN_MH" Method="XEMTEN_MH" IsComposable="true">

@@ -32,6 +32,7 @@ namespace QuanLy_CH_VLXD
              a = txtMaNV.Text;
              b = txtMaChucVu.Text;
             showDataGridView();
+            //label1.Text = Properties.Settings.Default.user;
         }
 
         public void showDataGridView()
@@ -108,31 +109,34 @@ namespace QuanLy_CH_VLXD
         {
             BLL_TTNhanVien service = new BLL_TTNhanVien();
             NHANVIEN nv = new NHANVIEN();
-
-            // nv.MANV = txtMaNV.Text;
-            nv.MANV = a;
-            nv.HOTENNV = txtHoTenNV.Text;
-            nv.MACHUCVU = cboChucVu.Text;
-            nv.NGAYSINH = Convert.ToDateTime(dateTimePicker_NgaySinh.Text);
-            nv.GIOITINH = txtGioiTinh.Text;
-            nv.SOCMND = txtCMND.Text;
-            nv.SDT = txtSDT.Text;
-            nv.EMAIL = txtEmail.Text;
-            nv.DIACHI = txtDiaChi.Text;
-            nv.TINHTRANG = txtTinhTrang.Text;
-            nv.NGAYVAOLAM = Convert.ToDateTime(dateTimePicker_NgayVaoLam.Text);
-
-            int result = 0;
-            result = service.them_dal(nv);
-            if (result == 2)
+            if (txtHoTenNV.Text.Length > 0 && txtGioiTinh.Text.Length > 0 && txtCMND.Text.Length > 0 && txtSDT.Text.Length > 0 && txtDiaChi.Text.Length > 0 && txtEmail.Text.Length > 0 && txtTinhTrang.Text.Length > 0)
             {
-                MessageBox.Show("đã tồn tại", "Thông báo");
+                // nv.MANV = txtMaNV.Text;
+                nv.MANV = a;
+                nv.HOTENNV = txtHoTenNV.Text;
+                nv.MACHUCVU = cboChucVu.Text;
+                nv.NGAYSINH = Convert.ToDateTime(dateTimePicker_NgaySinh.Text);
+                nv.GIOITINH = txtGioiTinh.Text;
+                nv.SOCMND = txtCMND.Text;
+                nv.SDT = txtSDT.Text;
+                nv.EMAIL = txtEmail.Text;
+                nv.DIACHI = txtDiaChi.Text;
+                nv.TINHTRANG = txtTinhTrang.Text;
+                nv.NGAYVAOLAM = Convert.ToDateTime(dateTimePicker_NgayVaoLam.Text);
+
+                int result = 0;
+                result = service.them_dal(nv);
+                if (result == 2)
+                {
+                    MessageBox.Show("Đã tồn tại", "Thông báo");
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thành công", "Thông báo");
+                }
             }
             else
-            {
-                MessageBox.Show("thêm thành công", "Thông báo");
-            }
-
+                MessageBox.Show("Vui lòng nhập đủ thông tin");
             showDataGridView();
         }
 
@@ -163,7 +167,7 @@ namespace QuanLy_CH_VLXD
             }
             else
             {
-                MessageBox.Show("sửa thất bại", "Inofity");
+                MessageBox.Show("Sửa thất bại", "Inofity");
             }
 
 
@@ -202,7 +206,7 @@ namespace QuanLy_CH_VLXD
             }
             else if (result == 2)
             {
-                MessageBox.Show("Không tìm thấy khoa", "Thông báo");
+                MessageBox.Show("Không tìm thấy khóa", "Thông báo");
             }
 
 
@@ -214,21 +218,25 @@ namespace QuanLy_CH_VLXD
         {
             BLL_TTNhanVien service = new BLL_TTNhanVien();
             CHUCVU cv = new CHUCVU();
-
-            cv.MACHUCVU = b;
-            cv.TENCV = txtChucVu.Text;
-
-
-            int result = 0;
-            result = service.themCV_dal(cv);
-            if (result == 2)
+            if (txtChucVu.Text.Length > 0)
             {
-                MessageBox.Show("đã tồn tại", "Thông báo");
+                cv.MACHUCVU = b;
+                cv.TENCV = txtChucVu.Text;
+
+
+                int result = 0;
+                result = service.themCV_dal(cv);
+                if (result == 2)
+                {
+                    MessageBox.Show("Đã tồn tại", "Thông báo");
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thành công", "Thông báo");
+                }
             }
             else
-            {
-                MessageBox.Show("thêm thành công", "Thông báo");
-            }
+                MessageBox.Show("Vui lòng nhập tên chức vụ");
 
             showDataGridView();
         }
@@ -251,7 +259,7 @@ namespace QuanLy_CH_VLXD
             }
             else
             {
-                MessageBox.Show("sửa thất bại", "Inofity");
+                MessageBox.Show("Sửa thất bại", "Inofity");
             }
 
 
@@ -277,7 +285,7 @@ namespace QuanLy_CH_VLXD
             }
             else if (result == 2)
             {
-                MessageBox.Show("Không tìm thấy khoa", "Thông báo");
+                MessageBox.Show("Không tìm thấy khóa", "Thông báo");
             }
 
 
@@ -301,6 +309,23 @@ namespace QuanLy_CH_VLXD
             txtDiaChi.Clear();
             txtEmail.Clear();
             txtTinhTrang.Clear();
+        }
+
+        private void txtCMND_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtHoTenNV_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

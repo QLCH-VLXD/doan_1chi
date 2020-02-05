@@ -81,7 +81,7 @@ namespace QuanLy_CH_VLXD
                 txt_TinhTrang.Text = bll_BanHang.Load_TinhtrangMH(cbo_TenMatHang.SelectedValue.ToString());
                 if(txt_TinhTrang.Text != String.Empty)
                 {
-                    if(txt_TinhTrang.Text.Equals("hết hàng"))
+                    if(txt_TinhTrang.Text.Equals("Hết hàng"))
                     {
                         lbl_SoLuong.Visible = lbl_NgayLap.Visible = lbl_tTien.Visible =lbl_vnd.Visible=lbl_Tongtien.Visible=txt_SoLuong.Visible= dateTimePicker2 .Visible= false;
                     }
@@ -115,9 +115,9 @@ namespace QuanLy_CH_VLXD
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-           if(txt_TinhTrang.Text.Equals("hết hàng"))
+           if(txt_TinhTrang.Text.Equals("Hết hàng"))
             {
-                MessageBox.Show("sản phậm hiên hết hàng hoặc ngừng kinh doanh");
+                MessageBox.Show("Sản phẩm hiện hết hàng hoặc ngừng kinh doanh");
                 return;
             }
             HOADONBAN mh = new HOADONBAN();
@@ -132,67 +132,74 @@ namespace QuanLy_CH_VLXD
 
                 if (bll_BanHang.them_HDB(mh) == true)
                 {
-                    MessageBox.Show("thanh cong");
+                    MessageBox.Show("Thành công");
                     dataGridView_HDB.DataSource = bll_BanHang.load_HDB();
                     dataGridView_CTHoaDonBan.DataSource = bll_BanHang.load_CTHDB();
                     
                 }
                 else
                 {
-                    MessageBox.Show("that bai");
+                    MessageBox.Show("Thất bại");
                     return;
                 }
             }
             else
             {
-                CHITIETHOADONBAN ct = new CHITIETHOADONBAN();
-                ct.MACTHDB = "CTHDB" + bll_BanHang.Sinh_MaHoaDon_dal();
-                ct.MAHDB = dataGridView_HDB.CurrentRow.Cells[0].Value.ToString();
-                ct.MAMATHANG = cbo_TenMatHang.SelectedValue.ToString();
-                ct.SOLUONGBAN = Convert.ToInt32(txt_SoLuong.Text);
-                ct.THANHTIEN = Convert.ToDecimal(Convert.ToInt32(txt_SoLuong.Text)*Convert.ToDecimal(txt_DonGia.Text));
-                f += 1;
-                sum += Convert.ToDouble(Convert.ToInt32(txt_SoLuong.Text) * Convert.ToDouble(txt_DonGia.Text));
-                if (bll_BanHang.KTKC_cthdb(ct) == true)
+                try
                 {
-                    if (bll_BanHang.them_CTHDB(ct) == true)
+                    CHITIETHOADONBAN ct = new CHITIETHOADONBAN();
+                    ct.MACTHDB = "CTHDB" + bll_BanHang.Sinh_MaHoaDon_dal();
+                    ct.MAHDB = dataGridView_HDB.CurrentRow.Cells[0].Value.ToString();
+                    ct.MAMATHANG = cbo_TenMatHang.SelectedValue.ToString();
+                    ct.SOLUONGBAN = Convert.ToInt32(txt_SoLuong.Text);
+                    ct.THANHTIEN = Convert.ToDecimal(Convert.ToInt32(txt_SoLuong.Text) * Convert.ToDecimal(txt_DonGia.Text));
+                    f += 1;
+                    sum += Convert.ToDouble(Convert.ToInt32(txt_SoLuong.Text) * Convert.ToDouble(txt_DonGia.Text));
+                    if (bll_BanHang.KTKC_cthdb(ct) == true)
                     {
-                        mh.MAHDB = dataGridView_HDB.CurrentRow.Cells[0].Value.ToString();
-                        mh.TONGSLSANPHAM = f;
-                        mh.TONGTIEN = Convert.ToDecimal(sum);
-
-                        if (bll_BanHang.Sua_HDB(mh) == true)
+                        if (bll_BanHang.them_CTHDB(ct) == true)
                         {
+                            mh.MAHDB = dataGridView_HDB.CurrentRow.Cells[0].Value.ToString();
+                            mh.TONGSLSANPHAM = f;
+                            mh.TONGTIEN = Convert.ToDecimal(sum);
 
-                            dataGridView_HDB.DataSource = bll_BanHang.load_HDB();
-                            dataGridView_CTHoaDonBan.DataSource = bll_BanHang.load_CTHDB();
-                            //MessageBox.Show("Thành công"); 
-                            
-                            dataGridView_CTHoaDonBan.DataSource = bll_BanHang.load_CTHDB1(dataGridView_HDB.CurrentRow.Cells[0].Value.ToString());
-                            lbl_Tongtien.Text = dataGridView_HDB.CurrentRow.Cells[6].Value.ToString();
+                            if (bll_BanHang.Sua_HDB(mh) == true)
+                            {
+
+                                dataGridView_HDB.DataSource = bll_BanHang.load_HDB();
+                                dataGridView_CTHoaDonBan.DataSource = bll_BanHang.load_CTHDB();
+                                //MessageBox.Show("Thành công"); 
+
+                                dataGridView_CTHoaDonBan.DataSource = bll_BanHang.load_CTHDB1(dataGridView_HDB.CurrentRow.Cells[0].Value.ToString());
+                                lbl_Tongtien.Text = dataGridView_HDB.CurrentRow.Cells[6].Value.ToString();
+                            }
+                            else
+                            {
+                                MessageBox.Show("xảy ra sự số");
+                                // return;
+
+                            }
+                            // dataGridView_HDB.DataSource = bll_BanHang.load_HDB();
+                            //dataGridView_CTHoaDonBan.DataSource = bll_BanHang.load_CTHDB1(dataGridView_HDB.CurrentRow.Cells[0].Value.ToString());
+                            MessageBox.Show("Thành công");
                         }
                         else
                         {
-                            MessageBox.Show("xảy ra sự số");
-                            // return;
-
+                            MessageBox.Show("Thất bại");
+                            // dataGridView_HDB.DataSource = bll_BanHang.load_HDB();
+                            // dataGridView_CTHoaDonBan.DataSource = bll_BanHang.load_CTHDB1(dataGridView_HDB.CurrentRow.Cells[0].Value.ToString());
+                            return;
                         }
-                       // dataGridView_HDB.DataSource = bll_BanHang.load_HDB();
-                        //dataGridView_CTHoaDonBan.DataSource = bll_BanHang.load_CTHDB1(dataGridView_HDB.CurrentRow.Cells[0].Value.ToString());
-                        MessageBox.Show("thanh cong");
                     }
                     else
                     {
-                        MessageBox.Show("that bai");
-                       // dataGridView_HDB.DataSource = bll_BanHang.load_HDB();
-                       // dataGridView_CTHoaDonBan.DataSource = bll_BanHang.load_CTHDB1(dataGridView_HDB.CurrentRow.Cells[0].Value.ToString());
+                        MessageBox.Show("Mã đã tồn tại");
                         return;
                     }
                 }
-                else
+                catch
                 {
-                    MessageBox.Show("ma da ton tai");
-                    return;
+                    MessageBox.Show("Vui lòng nhập số lượng");
                 }
             }
            
@@ -234,16 +241,19 @@ namespace QuanLy_CH_VLXD
         private void dataGridView_HDB_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             s = dataGridView_HDB.CurrentRow.Cells[0].Value.ToString();
-            dataGridView_HDB.DataSource = bll_BanHang.load_CTHDB1(s);
+            //dataGridView_HDB.DataSource = bll_BanHang.load_CTHDB1(s);
         }
 
         private void dataGridView_HDB_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            txt_MaHDB.Enabled = txt_SDT.Enabled = txt_Tenkh.Enabled = false;
-            txt_MaHDB.Text = dataGridView_HDB.CurrentRow.Cells[0].Value.ToString();
-            txt_SDT.Text = dataGridView_HDB.CurrentRow.Cells[2].Value.ToString();
-            txt_Tenkh.Text = dataGridView_HDB.CurrentRow.Cells[3].Value.ToString();
-            lbl_Tongtien.Text = dataGridView_HDB.CurrentRow.Cells[6].Value.ToString();
+            if (dataGridView_HDB.CurrentRow != null)
+            {
+                txt_MaHDB.Enabled = txt_SDT.Enabled = txt_Tenkh.Enabled = false;
+                txt_MaHDB.Text = dataGridView_HDB.CurrentRow.Cells[0].Value.ToString();
+                txt_SDT.Text = dataGridView_HDB.CurrentRow.Cells[2].Value.ToString();
+                txt_Tenkh.Text = dataGridView_HDB.CurrentRow.Cells[3].Value.ToString();
+                lbl_Tongtien.Text = dataGridView_HDB.CurrentRow.Cells[6].Value.ToString();
+            }
         }
 
         private void dataGridView_CTHoaDonBan_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -270,7 +280,7 @@ namespace QuanLy_CH_VLXD
             }
             else
             {
-                MessageBox.Show("that bai");
+                MessageBox.Show("Thất bại");
                    // return;
             }
             dataGridView_CTHoaDonBan.DataSource = bll_BanHang.load_CTHDB1(dataGridView_HDB.CurrentRow.Cells[0].Value.ToString());
@@ -291,7 +301,7 @@ namespace QuanLy_CH_VLXD
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
             CHITIETHOADONBAN ct = new CHITIETHOADONBAN();
-            if (MessageBox.Show("Ban muon xoa khong?", "Thong bao", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (MessageBox.Show("Bạn có muốn xóa?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
             ct.MACTHDB = dataGridView_CTHoaDonBan.CurrentRow.Cells[0].Value.ToString();
             //ct.MAMATHANG = dataGridView_CTHoaDonBan.CurrentRow.Cells[1].Value.ToString();
@@ -299,14 +309,14 @@ namespace QuanLy_CH_VLXD
              ct.THANHTIEN = Convert.ToDecimal(dataGridView_CTHoaDonBan.CurrentRow.Cells[4].Value.ToString());
             if (bll_BanHang.Xoa_CTHDB(ct) == true)
             {
-                MessageBox.Show("thanh cong");
+                MessageBox.Show("Thành công");
                 dataGridView_CTHoaDonBan.DataSource = bll_BanHang.load_CTHDB1(dataGridView_HDB.CurrentRow.Cells[0].Value.ToString());
                
                
             }
             else
             {
-                MessageBox.Show("that bai");
+                MessageBox.Show("Thất bại");
                 return;
             }
             

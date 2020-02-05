@@ -67,7 +67,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtTenNSX);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(222, 34);
+            this.groupBox2.Location = new System.Drawing.Point(221, 15);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(903, 207);
             this.groupBox2.TabIndex = 7;
@@ -87,10 +87,12 @@
             // txtSDT
             // 
             this.txtSDT.Location = new System.Drawing.Point(145, 127);
+            this.txtSDT.MaxLength = 11;
             this.txtSDT.Multiline = true;
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(240, 27);
             this.txtSDT.TabIndex = 35;
+            this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
             // 
             // label3
             // 
@@ -198,25 +200,28 @@
             this.txtTenNSX.Name = "txtTenNSX";
             this.txtTenNSX.Size = new System.Drawing.Size(240, 27);
             this.txtTenNSX.TabIndex = 13;
+            this.txtTenNSX.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTenNSX_KeyPress);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView1);
             this.groupBox3.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(222, 262);
+            this.groupBox3.Location = new System.Drawing.Point(221, 228);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1320, 476);
+            this.groupBox3.Size = new System.Drawing.Size(903, 266);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Danh sách nhà sản xuất";
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(35, 64);
+            this.dataGridView1.Location = new System.Drawing.Point(21, 24);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(626, 196);
+            this.dataGridView1.Size = new System.Drawing.Size(858, 224);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // frm_TTNSX

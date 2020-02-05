@@ -104,7 +104,6 @@
             this.txtnameDN.Name = "txtnameDN";
             this.txtnameDN.Size = new System.Drawing.Size(236, 25);
             this.txtnameDN.TabIndex = 2;
-            this.txtnameDN.Text = "NV01";
             // 
             // label2
             // 
@@ -135,7 +134,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmDangNhap";
             this.Text = "frm_DangNhap";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmDangNhap_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

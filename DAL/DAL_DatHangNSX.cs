@@ -77,7 +77,7 @@ namespace DAL
                                 q.TENNSX,
                                 s.NGAYLAP,
                                 s.TONGTIENHANGDAT,
-                                s.SOTIENTRATRUOC,
+                                
                             };
             var kq = dathangnsx.ToList().ConvertAll(t => new BangGhep_DatHangNSX()
             {
@@ -86,7 +86,6 @@ namespace DAL
                 TENNSX1 = t.TENNSX,
                 NGAYLAP1 = Convert.ToString(t.NGAYLAP),
                 TONGTIENHANGDAT1 = Convert.ToString(t.TONGTIENHANGDAT),
-                SOTIENTRATRUOC1 = Convert.ToString(t.SOTIENTRATRUOC),
             });
             return kq.ToList<BangGhep_DatHangNSX>();
         }
@@ -217,6 +216,7 @@ namespace DAL
                 var aa = dal_data.CTPHIEUDATHANGNSXes.Where(t => t.MACTPHIEUDATHANG == mh.MACTPHIEUDATHANG.ToString()).FirstOrDefault();
                 aa.MAMATHANG = mh.MAMATHANG;
                 aa.SOLUONG = mh.SOLUONG;
+               
                 dal_data.SubmitChanges();
                 return true;
             }
@@ -269,6 +269,59 @@ namespace DAL
             {
                 return false;
             }
+        }
+
+        public bool sua_pdhnsx1(PHIEUDATHANGNSX mh)
+        {
+            try
+            {
+                var aa = dal_data.PHIEUDATHANGNSXes.Where(t => t.MAPDHNSX == mh.MAPDHNSX.ToString()).FirstOrDefault();
+                //dal_data.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, aa);
+                String s = aa.ToString();
+                aa.HOANTAT = mh.HOANTAT;
+                dal_data.SubmitChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        // ///////////
+        public string Load_SoLuong(string mact)
+        {
+            var dl = (from s in dal_data.PHIEUDATHANGNSXes
+                      join ss in dal_data.CTPHIEUDATHANGNSXes on s.MAPDHNSX equals ss.MAPDHNSX
+                      where s.MAPDHNSX == mact
+                      select ss.SOLUONG);
+            dl.ToList<int?>();
+            int? sum = dl.Sum();
+            if (sum >= 0)
+            {
+                return sum.ToString();
+            }
+
+            return null;
+        }
+
+        public string Load_SoLuong1(string mact)
+        {
+            var dl = (from s in dal_data.CHITIETPHIEUNHAPHANGs
+                      join ss in dal_data.CTPHIEUDATHANGNSXes on s.MACTPHIEUDATHANG equals ss.MACTPHIEUDATHANG
+                      where s.MACTPHIEUDATHANG == mact
+                      select s.SOLUONGMH);
+            //var dl1 = (from s in dal_data.CTPHIEUDATHANGNSXes
+            //           join ss in dal_data.CHITIETPHIEUNHAPHANGs on s.MACTPHIEUDATHANG equals (ss.MACTPHIEUDATHANG)
+            //           where s.MAPDHNSX == dl.ToString()
+            //           select ss.SOLUONGMH);
+            dl.ToList<int?>();
+            int? sum = dl.Sum();
+            if (sum >= 0)
+            {
+                return sum.ToString();
+            }
+
+            return null;
         }
     }
 }

@@ -280,5 +280,43 @@ namespace DAL
             String s = lm.ToString();
             return lm.ToString();
         }
+
+        // ///////////
+        public string Load_SoLuong(string mact)
+        {
+            var dl = (from s in dal_data.HOADONBANs
+                      join ss in dal_data.CHITIETHOADONBANs on s.MAHDB equals ss.MAHDB
+                      where s.MAHDB == mact
+                      select ss.SOLUONGBAN);
+            dl.ToList<int?>();
+            int? sum = dl.Sum();
+            if (sum >= 0)
+            {
+                return sum.ToString();
+            }
+
+            return null;
+        }
+
+        public string Load_SoLuong1(string mact)
+        {
+            var dl = (from s in dal_data.CHITIETGIAOHANGs
+                      join ss in dal_data.CHITIETHOADONBANs on s.MACTHDB equals ss.MACTHDB
+                      where s.MACTHDB == mact
+                      select ss.MAHDB).FirstOrDefault();
+            var dl1 = (from s in dal_data.CHITIETHOADONBANs
+                       where s.MAHDB == dl.ToString()
+                       select s.SOLUONGBAN);
+            dl1.ToList<int?>();
+            int? sum = dl1.Sum();
+            if (sum >= 0)
+            {
+                return sum.ToString();
+            }
+
+            return null;
+        }
+
+
     }
 }

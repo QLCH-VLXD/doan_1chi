@@ -31,13 +31,13 @@
             this.datagird_KhachHang = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnSua_TTKH = new System.Windows.Forms.Button();
-            this.txtSDT = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtLoaiKH = new System.Windows.Forms.TextBox();
             this.btnXoa_TTKH = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_LamMoiKH = new System.Windows.Forms.Button();
+            this.txtSDT = new System.Windows.Forms.TextBox();
             this.btnThem_TTKH = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -66,9 +66,9 @@
             // 
             this.datagird_KhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.datagird_KhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagird_KhachHang.Location = new System.Drawing.Point(19, 37);
+            this.datagird_KhachHang.Location = new System.Drawing.Point(18, 24);
             this.datagird_KhachHang.Name = "datagird_KhachHang";
-            this.datagird_KhachHang.Size = new System.Drawing.Size(766, 224);
+            this.datagird_KhachHang.Size = new System.Drawing.Size(766, 175);
             this.datagird_KhachHang.TabIndex = 0;
             this.datagird_KhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagird_KhachHang_CellClick);
             // 
@@ -76,9 +76,9 @@
             // 
             this.groupBox3.Controls.Add(this.datagird_KhachHang);
             this.groupBox3.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(37, 270);
+            this.groupBox3.Location = new System.Drawing.Point(37, 251);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(804, 476);
+            this.groupBox3.Size = new System.Drawing.Size(804, 219);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Danh sách khách hàng";
@@ -92,14 +92,6 @@
             this.btnSua_TTKH.Text = "Sửa";
             this.btnSua_TTKH.UseVisualStyleBackColor = true;
             this.btnSua_TTKH.Click += new System.EventHandler(this.btnSua_TTKH_Click);
-            // 
-            // txtSDT
-            // 
-            this.txtSDT.Location = new System.Drawing.Point(521, 36);
-            this.txtSDT.Multiline = true;
-            this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(240, 27);
-            this.txtSDT.TabIndex = 24;
             // 
             // label3
             // 
@@ -155,7 +147,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtTenKH);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(37, 24);
+            this.groupBox2.Location = new System.Drawing.Point(37, 13);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(804, 232);
             this.groupBox2.TabIndex = 5;
@@ -171,6 +163,16 @@
             this.btn_LamMoiKH.Text = "Làm mới";
             this.btn_LamMoiKH.UseVisualStyleBackColor = true;
             this.btn_LamMoiKH.Click += new System.EventHandler(this.btn_LamMoiKH_Click);
+            // 
+            // txtSDT
+            // 
+            this.txtSDT.Location = new System.Drawing.Point(521, 36);
+            this.txtSDT.MaxLength = 11;
+            this.txtSDT.Multiline = true;
+            this.txtSDT.Name = "txtSDT";
+            this.txtSDT.Size = new System.Drawing.Size(240, 27);
+            this.txtSDT.TabIndex = 24;
+            this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
             // 
             // btnThem_TTKH
             // 
@@ -259,6 +261,7 @@
             this.txtTenKH.Name = "txtTenKH";
             this.txtTenKH.Size = new System.Drawing.Size(240, 27);
             this.txtTenKH.TabIndex = 13;
+            this.txtTenKH.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTenKH_KeyPress);
             // 
             // txtMaLoaiKH
             // 
@@ -275,7 +278,7 @@
             this.dataGridView_LoaiKH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_LoaiKH.Location = new System.Drawing.Point(30, 233);
             this.dataGridView_LoaiKH.Name = "dataGridView_LoaiKH";
-            this.dataGridView_LoaiKH.Size = new System.Drawing.Size(448, 183);
+            this.dataGridView_LoaiKH.Size = new System.Drawing.Size(448, 204);
             this.dataGridView_LoaiKH.TabIndex = 31;
             this.dataGridView_LoaiKH.SelectionChanged += new System.EventHandler(this.dataGridView_LoaiKH_SelectionChanged);
             // 
@@ -311,9 +314,9 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtLoaiKH);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(847, 24);
+            this.groupBox1.Location = new System.Drawing.Point(847, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(505, 478);
+            this.groupBox1.Size = new System.Drawing.Size(505, 457);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Loại khách hàng";
@@ -364,7 +367,6 @@
         private System.Windows.Forms.DataGridView datagird_KhachHang;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnSua_TTKH;
-        private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtLoaiKH;
@@ -388,5 +390,6 @@
         private System.Windows.Forms.Button btnThem_LoaiKH;
         private System.Windows.Forms.Button btn_LamMoiKH;
         private System.Windows.Forms.Button btn_LamMoiLKH;
+        private System.Windows.Forms.TextBox txtSDT;
     }
 }

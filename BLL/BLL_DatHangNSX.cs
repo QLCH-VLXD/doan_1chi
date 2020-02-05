@@ -101,5 +101,18 @@ namespace BLL
         {
             return dll_DatHangNSX.sua_pdhnsx(hdb);
         }
+        public bool Sua_PDHNSX1(PHIEUDATHANGNSX hdb)
+        {
+            return dll_DatHangNSX.sua_pdhnsx1(hdb);
+        }
+        public string loasl(string ma)
+        {
+            return dll_DatHangNSX.Load_SoLuong(ma);
+        }
+
+        public string loasl1(string ma)
+        {
+            return dll_DatHangNSX.Load_SoLuong1(ma);
+        }
     }
 }

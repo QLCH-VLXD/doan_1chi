@@ -22,7 +22,7 @@ namespace QuanLy_CH_VLXD
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = bll.Gomnhom_CTPDH();
+            
         }
     }
 }

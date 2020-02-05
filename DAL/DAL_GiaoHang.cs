@@ -64,6 +64,23 @@ namespace DAL
                 return dal_data.CHITIETHOADONBANs.Where(t => t.MACTHDB == mact).FirstOrDefault().SOLUONGBAN.ToString();
             return null;
         }
+        public string Load_SoLuong2(string mact)
+        {
+            //----------
+            //if (dal_data.CHITIETGIAOHANGs.Where(t => t.MACTHDB == mact).FirstOrDefault() != null)
+            //    return dal_data.CHITIETGIAOHANGs.Where(t => t.MACTHDB == mact).FirstOrDefault().SOLUONGMH.ToString();
+            //return null;
+            var dulieu = (from f in dal_data.CHITIETGIAOHANGs
+                          where f.MACTHDB == mact.ToString()
+                          select f.SOLUONGMH);
+            dulieu.ToList<int?>();
+            int? sum = dulieu.Sum();
+            if (sum >= 0)
+            {
+                return sum.ToString();
+            }
+            return null;
+        }
         public string Load_DonGia(string mamathang)
         {
             if (dal_data.CHITIETHOADONBANs.Where(t => t.MACTHDB == mamathang).FirstOrDefault() != null)
@@ -247,5 +264,51 @@ namespace DAL
             }
         }
 
+
+        // //////////////////////////////
+        public int laysoluong_ctdathang(String s)
+        {
+            var dulieu = (from f in dal_data.CHITIETHOADONBANs
+                          where f.MAHDB == s.ToString()
+                          select f.SOLUONGBAN);
+            dulieu.ToList<int?>();
+            int? sum = dulieu.Sum();
+            if (sum >= 0)
+            {
+                return Convert.ToInt32(sum.ToString());
+            }
+
+            return 0;
+        }
+
+        public int laysoluong_ctdathang1(String s)
+        {
+            var dulieu = (from f in dal_data.CHITIETHOADONBANs
+                          where f.MACTHDB == s.ToString()
+                          select f.SOLUONGBAN);
+            dulieu.ToList<int?>();
+            int? sum = dulieu.Sum();
+            if (sum >= 0)
+            {
+                return Convert.ToInt32(sum.ToString());
+            }
+
+            return 0;
+        }
+
+        public int laysoluong_ctdathang2(String s)
+        {
+            var dulieu = (from f in dal_data.CHITIETHOADONBANs
+                          where f.MACTHDB == s.ToString()
+                          select f.SOLUONGBAN);
+            dulieu.ToList<int?>();
+            int? sum = dulieu.Sum();
+            if (sum >= 0)
+            {
+                return Convert.ToInt32(sum.ToString());
+            }
+
+            return 0;
+        }
     }
 }

@@ -15,7 +15,11 @@ namespace DAL
             return dal_data.LOAIMATHANGs.Select(t => t).ToList<LOAIMATHANG>();
 
         }
+        public List<MATHANG> Loaddata_MatHang()
+        {
+            return dal_data.MATHANGs.Select(t => t).ToList<MATHANG>();
 
+        }
         //public List<MATHANG> Load_MatHang(string maloaimathang)
         //{
         //    return dal_data.MATHANGs.Where(t => t.MALOAIMATHANG == maloaimathang).ToList<MATHANG>();

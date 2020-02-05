@@ -16,10 +16,10 @@ namespace BLL
             return dal_DanhMucSanPham.Loaddata_LoaiMatHang();
         }
 
-        //public List<MATHANG> load_MatHang(String maLoaimathang)
-        //{
-        //    return dal_DanhMucSanPham.Load_MatHang(maLoaimathang);
-        //}
+        public List<MATHANG> load_MatHang()
+        {
+            return dal_DanhMucSanPham.Loaddata_MatHang();
+        }
 
         public String Load_tenloaiMH(string maloaimathang)
         {

@@ -456,34 +456,31 @@ AS
 GO
 -------------------------------------------------------------NHẬP LIỆU------------------------------------------------------------
 INSERT INTO  CHUCVU
-VALUES	('CV01',N'Giám đốc'),
-		('CV02',N'Trưởng phòng'),
-		('CV03',N'Nhân viên thu ngân'),
-		('CV04',N'Nhân viên bán hàng'),
-		('CV05',N'Nhân viên quản lí kho'),
-		('CV06',N'Nhân viên giao hàng')
+VALUES	('CV01',N'Quản lý'),
+		('CV02',N'Nhân viên')
 
 
 SET DATEFORMAT DMY
 INSERT INTO  NHANVIEN
 VALUES	('NV01',N'Trần Văn Minh','CV01','12/06/1976',N'Nam','123456789','0976123456','vanminh123@gmail.com',N'140 Lê Trọng Tấn','Đang làm','20/11/2010'),
 		('NV02',N'Vũ Hương Giang','CV02','01/01/1988',N'Nữ','987654321','0123456789','huonggiang@gmail.com',N'12 Lê Văn Sĩ','Đang làm','13/08/2013'),
-		('NV03',N'Đỗ Hoàng Mỹ','CV03','29/03/1996',N'Nữ','567843219','0324567912','hoangmy996@gmail.com',N'85 Cộng Hòa','Đang làm','17/04/2018'),
-		('NV04',N'Nguyễn Công Thành','CV06','06/06/1993',N'Nam','897364521','0745344922','abc123@gmail.com',N'347 Hoàng Văn Thụ','Đang làm','04/04/2019'),
-		('NV05',N'Đào Ánh Mai','CV04','06/01/1997',N'Nữ','567843319','0324567212','anhmai994@gmail.com',N'85 Lê Trọng Tấn','Đang làm','17/01/2017'),
-		('NV06',N'Nguyễn Ánh Nguyệt','CV05','23/05/1994',N'Nam','899364521','0745544922','xyz123@gmail.com',N'347 Hoàng Văn Thụ','Đang làm','23/08/2018')
+		('NV03',N'Đỗ Hoàng Mỹ','CV02','29/03/1996',N'Nữ','567843219','0324567912','hoangmy996@gmail.com',N'85 Cộng Hòa','Đang làm','17/04/2018'),
+		('NV04',N'Nguyễn Công Thành','CV02','06/06/1993',N'Nam','897364521','0745344922','abc123@gmail.com',N'347 Hoàng Văn Thụ','Đang làm','04/04/2019'),
+		('NV05',N'Đào Ánh Mai','CV02','06/01/1997',N'Nữ','567843319','0324567212','anhmai994@gmail.com',N'85 Lê Trọng Tấn','Đang làm','17/01/2017'),
+		('NV06',N'Nguyễn Ánh Nguyệt','CV02','23/05/1994',N'Nam','899364521','0745544922','xyz123@gmail.com',N'347 Hoàng Văn Thụ','Đang làm','23/08/2018')
 
 INSERT INTO  TAIKHOAN
-VALUES	('NV01','12345','True'),
-		('NV02','5454','True'),
-		('NV03','4543','True'),
-		('NV04','6767','false')
+VALUES	('NV01','123','True'),
+		('NV02','123','True'),
+		('NV03','123','True'),
+		('NV04','123','false')
 
 INSERT INTO  NGUOIDUNGNHOMNGUOIDUNG
 VALUES	('NV01','NND01',' ')
 
 INSERT INTO  NHOMNGUOIDUNG
-VALUES	('NND01','ADMIN',' ')
+VALUES	('NND01','ADMIN',' '),
+		('NND02','USER',' ')
 
 
 INSERT INTO  MANHINH
@@ -531,77 +528,77 @@ VALUES	('DVT01',N'Mét'),
 		('DVT04',N'Khối')
 
 INSERT INTO  MATHANG
-VALUES	('MH01',N'Gạch Men','LMH01','NSX01',N'DVT01','200',N'còn hàng','null'),
-		('MH02',N'Xi Măng LT','LMH02','NSX02',N'DVT01','300',N'còn hàng','null'),
-		('MH03',N'Tôn Fico','LMH03','NSX03',N'DVT01','450',N'còn hàng','null'),
-		('MH04',N'Ngói xanh','LMH04','NSX04',N'DVT01','0',N'hết hàng','null')
+VALUES	('MH01',N'Gạch Men','LMH01','NSX01',N'DVT01','200',N'còn hàng','null')
+--		('MH02',N'Xi Măng LT','LMH02','NSX02',N'DVT01','300',N'còn hàng','null'),
+--		('MH03',N'Tôn Fico','LMH03','NSX03',N'DVT01','450',N'còn hàng','null'),
+--		('MH04',N'Ngói xanh','LMH04','NSX04',N'DVT01','0',N'hết hàng','null')
 
 
 SET DATEFORMAT DMY
 INSERT INTO  CHITIETMATHANG
-VALUES	('CTMH01','MH01','PN01','22/03/2011','22/03/2020'),
-		('CTMH02','MH02','PN02','14/12/2011','12/06/2020'),
-		('CTMH03','MH03','PN03','05/03/2011','17/09/2020'),
-		('CTMH04','MH04','PN04','09/01/2011','27/04/2020')
+VALUES	('CTMH01','MH01','PN01','22/03/2011','22/03/2020')
+		--('CTMH02','MH02','PN02','14/12/2011','12/06/2020'),
+		--('CTMH03','MH03','PN03','05/03/2011','17/09/2020'),
+		--('CTMH04','MH04','PN04','09/01/2011','27/04/2020')
 
 
 SET DATEFORMAT DMY
 INSERT INTO  DONGIA
-VALUES	('DG01','MH01','200000','22/03/2011','22/03/2020'),
-		('DG02','MH02','500000','14/12/2011','12/06/2020'),
-		('DG03','MH03','350000','05/03/2011','17/09/2020'),
-		('DG04','MH04','100000','09/01/2011','27/04/2020')
+VALUES	('DG01','MH01','200000','22/03/2011','22/03/2020')
+		--('DG02','MH02','500000','14/12/2011','12/06/2020'),
+		--('DG03','MH03','350000','05/03/2011','17/09/2020'),
+		--('DG04','MH04','100000','09/01/2011','27/04/2020')
 
 
 SET DATEFORMAT DMY
 INSERT INTO  PHIEUDATHANGNSX
-VALUES	('PDHNSX01','NSX01','NV06','22/07/2019','40000000',N'còn hàng','20000000'),
-		('PDHNSX02','NSX02','NV06','23/05/2019','15000000',N'còn hàng','5000000'),
-		('PDHNSX03','NSX03','NV06','09/09/2019','20000000',N'còn hàng','15000000'),
-		('PDHNSX04','NSX04','NV06','25/08/2019','5000000',N'còn hàng','2500000')
+VALUES	('PDHNSX01','NSX01','NV06','22/07/2019','40000000',N'còn hàng','20000000')
+		--('PDHNSX02','NSX02','NV06','23/05/2019','15000000',N'còn hàng','5000000'),
+		--('PDHNSX03','NSX03','NV06','09/09/2019','20000000',N'còn hàng','15000000'),
+		--('PDHNSX04','NSX04','NV06','25/08/2019','5000000',N'còn hàng','2500000')
 
 INSERT INTO  CTPHIEUDATHANGNSX
-VALUES	('CTPDHNSX01','PDHNSX01','MH01','100','40000000','4000000000'),
-		('CTPDHNSX02','PDHNSX02','MH02','200','15000000','3000000000'),
-		('CTPDHNSX03','PDHNSX03','MH03','150','20000000','300000000'),
-		('CTPDHNSX04','PDHNSX04','MH04','300','5000000','1500000000')
+VALUES	('CTPDHNSX01','PDHNSX01','MH01','100','40000000','4000000000')
+		--('CTPDHNSX02','PDHNSX02','MH02','200','15000000','3000000000'),
+		--('CTPDHNSX03','PDHNSX03','MH03','150','20000000','300000000'),
+		--('CTPDHNSX04','PDHNSX04','MH04','300','5000000','1500000000')
 
 SET DATEFORMAT DMY
 INSERT INTO  PHIEUNHAPHANG
-VALUES	('PN01','NV05','NSX01','21/01/2020','200','3000000',N'Còn hàng'),
-		('PN02','NV05','NSX02','12/09/2020','300','45000000',N'Còn hàng'),
-		('PN03','NV05','NSX03','27/08/2020','150','2000000',N'Còn hàng'),
-		('PN04','NV05','NSX04','19/02/2020','450','10000000',N'Hết hàng')
+VALUES	('PN01','NV05','NSX01','21/01/2020','200','3000000',N'Còn hàng')
+		--('PN02','NV05','NSX02','12/09/2020','300','45000000',N'Còn hàng'),
+		--('PN03','NV05','NSX03','27/08/2020','150','2000000',N'Còn hàng'),
+		--('PN04','NV05','NSX04','19/02/2020','450','10000000',N'Hết hàng')
 
 INSERT INTO  CHITIETPHIEUNHAPHANG
-VALUES	('CTPN01','PN01','CTPDHNSX01','200','3000000'),
-		('CTPN02','PN02','CTPDHNSX02','300','45000000'),
-		('CTPN03','PN03','CTPDHNSX03','150','2000000'),
-		('CTPN04','PN04','CTPDHNSX04','450','10000000')
+VALUES	('CTPN01','PN01','CTPDHNSX01','200','3000000')
+		--('CTPN02','PN02','CTPDHNSX02','300','45000000'),
+		--('CTPN03','PN03','CTPDHNSX03','150','2000000'),
+		--('CTPN04','PN04','CTPDHNSX04','450','10000000')
 
 SET DATEFORMAT DMY
 INSERT INTO  HOADONBAN
-VALUES	('HD01','NV05','KH01','12/04/2019','300','3200000','null'),
-		('HD02','NV05','KH02','17/02/2019','400','57000000','null'),
-		('HD03','NV05','KH03','23/09/2019','130','22400000','null'),
-		('HD04','NV05','KH04','19/02/2019','170','1300000','null')
+VALUES	('HD01','NV05','KH01','12/04/2019','300','3200000','null')
+		--('HD02','NV05','KH02','17/02/2019','400','57000000','null'),
+		--('HD03','NV05','KH03','23/09/2019','130','22400000','null'),
+		--('HD04','NV05','KH04','19/02/2019','170','1300000','null')
 
 INSERT INTO  CHITIETHOADONBAN
-VALUES	('CTHDB01','HD01','MH01','2','3200000'),
-		('CTHDB02','HD02','MH02','3','57000000'),
-		('CTHDB03','HD03','MH03','1','22400000'),
-		('CTHDB04','HD04','MH04','5','1300000')
+VALUES	('CTHDB01','HD01','MH01','2','3200000')
+		--('CTHDB02','HD02','MH02','3','57000000'),
+		--('CTHDB03','HD03','MH03','1','22400000'),
+		--('CTHDB04','HD04','MH04','5','1300000')
 
 
 SET DATEFORMAT DMY
 INSERT INTO  GIAOHANG
-VALUES	('GH01','NV04','12/04/2019','300','3200000','đang giao'),
-		('GH02','NV04','17/02/2019','400','57000000','đang giao'),
-		('GH03','NV04','23/09/2019','130','22400000','đã giao'),
-		('GH04','NV04','19/02/2019','170','1300000','đang giao')
+VALUES	('GH01','NV04','12/04/2019','300','3200000','đang giao')
+		--('GH02','NV04','17/02/2019','400','57000000','đang giao'),
+		--('GH03','NV04','23/09/2019','130','22400000','đã giao'),
+		--('GH04','NV04','19/02/2019','170','1300000','đang giao')
 
 INSERT INTO  CHITIETGIAOHANG
-VALUES	('CTGH01','GH01','CTHDB01','300','3200000'),
-		('CTGH02','GH02','CTHDB02','400','57000000'),
-		('CTGH03','GH03','CTHDB03','130','22400000'),
-		('CTGH04','GH04','CTHDB04','170','1300000')
+VALUES	('CTGH01','GH01','CTHDB01','300','3200000')
+		--('CTGH02','GH02','CTHDB02','400','57000000'),
+		--('CTGH03','GH03','CTHDB03','130','22400000'),
+		--('CTGH04','GH04','CTHDB04','170','1300000')

@@ -35,12 +35,12 @@
             this.txtTenLoaiMH = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -115,6 +115,18 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MALOAIMATHANG";
+            this.Column1.HeaderText = "Mã loại mặt hàng";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TENLOAIMATHANG";
+            this.Column2.HeaderText = "Tên loại mặt hàng";
+            this.Column2.Name = "Column2";
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnSua);
@@ -162,18 +174,6 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "label1";
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MALOAIMATHANG";
-            this.Column1.HeaderText = "Mã loại mặt hàng";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "TENLOAIMATHANG";
-            this.Column2.HeaderText = "Tên loại mặt hàng";
-            this.Column2.Name = "Column2";
-            // 
             // frm_LoaiMatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,7 +182,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_LoaiMatHang";
-            this.Size = new System.Drawing.Size(1160, 622);
+            this.Size = new System.Drawing.Size(1485, 622);
             this.Load += new System.EventHandler(this.frm_LoaiMatHang_Load);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

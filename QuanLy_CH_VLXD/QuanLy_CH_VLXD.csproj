@@ -268,5 +268,41 @@
   <ItemGroup>
     <None Include="Resources\2.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eeeeeee.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\qqqqqqqqqqqqqqqq.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ttttttttttttttttttt.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wwwwwwwwwwwwwwww.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\42976.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Latest Tile Trends Spotted at Lowes - Juniper Home.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seaweed, Salt, Potatoes, &amp; More_ Seven Unusual Materials with Architectural Applications.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gallery of k59 home&amp; atelier _ k59 atelier  - 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\33.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\44.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

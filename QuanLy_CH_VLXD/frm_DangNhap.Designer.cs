@@ -104,6 +104,7 @@
             this.txtnameDN.Name = "txtnameDN";
             this.txtnameDN.Size = new System.Drawing.Size(236, 25);
             this.txtnameDN.TabIndex = 2;
+            this.txtnameDN.Text = "NV01";
             // 
             // label2
             // 

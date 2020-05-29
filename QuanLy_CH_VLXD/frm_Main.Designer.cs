@@ -424,7 +424,10 @@
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = global::QuanLy_CH_VLXD.Properties.Resources._1;
+            this.panel1.AutoSize = true;
+            this.panel1.BackgroundImage = global::QuanLy_CH_VLXD.Properties.Resources._42976;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 141);
             this.panel1.Name = "panel1";

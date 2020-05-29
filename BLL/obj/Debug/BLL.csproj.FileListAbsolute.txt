@@ -18,3 +18,12 @@ C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\BLL\obj\Debug\
 C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\BLL\obj\Debug\BLL.dll
 C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\BLL\obj\Debug\BLL.pdb
 C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\doan_1chi\BLL\bin\Debug\BLL.dll
+C:\Users\Admin\Documents\GitHub\doan_1chi\BLL\bin\Debug\BLL.pdb
+C:\Users\Admin\Documents\GitHub\doan_1chi\BLL\bin\Debug\DAL.dll
+C:\Users\Admin\Documents\GitHub\doan_1chi\BLL\bin\Debug\DAL.pdb
+C:\Users\Admin\Documents\GitHub\doan_1chi\BLL\bin\Debug\DAL.dll.config
+C:\Users\Admin\Documents\GitHub\doan_1chi\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\doan_1chi\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\Admin\Documents\GitHub\doan_1chi\BLL\obj\Debug\BLL.dll
+C:\Users\Admin\Documents\GitHub\doan_1chi\BLL\obj\Debug\BLL.pdb

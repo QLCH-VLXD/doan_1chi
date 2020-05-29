@@ -216,6 +216,20 @@ namespace QuanLy_CH_VLXD
             this.Hide();
         }
 
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frm_NhapLieu_PhanQuyen frm_NhapLieu_PhanQuyen = new frm_NhapLieu_PhanQuyen();
+            panel1.Controls.Clear();
+            panel1.Controls.Add(frm_NhapLieu_PhanQuyen);
+        }
+
+        private void DanhMucPhanQuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frm_DanhMucPhanQuyen frm_DanhMucPhanQuyen = new frm_DanhMucPhanQuyen();
+            panel1.Controls.Clear();
+            panel1.Controls.Add(frm_DanhMucPhanQuyen);
+        }
+
         // lấy dữ liệu 
         public string Lay_DL
         {

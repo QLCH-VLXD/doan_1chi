@@ -104,6 +104,12 @@
     <Compile Include="frm_DangNhap.Designer.cs">
       <DependentUpon>frm_DangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_DanhMucPhanQuyen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frm_DanhMucPhanQuyen.Designer.cs">
+      <DependentUpon>frm_DanhMucPhanQuyen.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_DanhMucSanPham.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -145,6 +151,12 @@
     </Compile>
     <Compile Include="frm_NhapHang.Designer.cs">
       <DependentUpon>frm_NhapHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_NhapLieu_PhanQuyen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frm_NhapLieu_PhanQuyen.Designer.cs">
+      <DependentUpon>frm_NhapLieu_PhanQuyen.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_ThongKe.cs">
       <SubType>UserControl</SubType>
@@ -191,6 +203,9 @@
     <EmbeddedResource Include="frm_DangNhap.resx">
       <DependentUpon>frm_DangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_DanhMucPhanQuyen.resx">
+      <DependentUpon>frm_DanhMucPhanQuyen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_DanhMucSanPham.resx">
       <DependentUpon>frm_DanhMucSanPham.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_NhapHang.resx">
       <DependentUpon>frm_NhapHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_NhapLieu_PhanQuyen.resx">
+      <DependentUpon>frm_NhapLieu_PhanQuyen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_ThongKe.resx">
       <DependentUpon>frm_ThongKe.cs</DependentUpon>

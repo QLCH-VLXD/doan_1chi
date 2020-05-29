@@ -21,7 +21,7 @@ namespace QuanLy_CH_VLXD
         private KetNoi() { }
 
 
-        public string ConnectionSTR = "Data Source=DESKTOP-CKJCBOM\\SQLEXPRESS;Initial Catalog=QL_CH_VATLIEUXAYDUNG;Integrated Security=True";
+        public string ConnectionSTR = "Data Source=ADMIN\\SQLEXPRESS;Initial Catalog=QL_CH_VATLIEUXAYDUNG;Integrated Security=True";
 
 
 

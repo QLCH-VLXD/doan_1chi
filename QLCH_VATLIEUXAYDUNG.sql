@@ -487,6 +487,7 @@ RETURNS TABLE
 AS
 	RETURN (SELECT MACTPHIEUDATHANG, SUM(SOLUONGMH) as"tongsl" FROM CHITIETPHIEUNHAPHANG GROUP BY MACTPHIEUDATHANG)
 GO
+
 -------------------------------------------------------------NHẬP LIỆU------------------------------------------------------------
 INSERT INTO  CHUCVU
 VALUES	('CV01',N'Quản lý'),
@@ -495,12 +496,12 @@ VALUES	('CV01',N'Quản lý'),
 
 SET DATEFORMAT DMY
 INSERT INTO  NHANVIEN
-VALUES	('NV01',N'Trần Văn Minh','CV01','12/06/1976',N'Nam','123456789','0976123456','vanminh123@gmail.com',N'140 Lê Trọng Tấn','Đang làm','20/11/2010'),
-		('NV02',N'Vũ Hương Giang','CV02','01/01/1988',N'Nữ','987654321','0123456789','huonggiang@gmail.com',N'12 Lê Văn Sĩ','Đang làm','13/08/2013'),
-		('NV03',N'Đỗ Hoàng Mỹ','CV02','29/03/1996',N'Nữ','567843219','0324567912','hoangmy996@gmail.com',N'85 Cộng Hòa','Đang làm','17/04/2018'),
-		('NV04',N'Nguyễn Công Thành','CV02','06/06/1993',N'Nam','897364521','0745344922','abc123@gmail.com',N'347 Hoàng Văn Thụ','Đang làm','04/04/2019'),
-		('NV05',N'Đào Ánh Mai','CV02','06/01/1997',N'Nữ','567843319','0324567212','anhmai994@gmail.com',N'85 Lê Trọng Tấn','Đang làm','17/01/2017'),
-		('NV06',N'Nguyễn Ánh Nguyệt','CV02','23/05/1994',N'Nam','899364521','0745544922','xyz123@gmail.com',N'347 Hoàng Văn Thụ','Đang làm','23/08/2018')
+VALUES	('NV01',N'Trần Văn Minh','CV01','12/06/1976',N'Nam','123456789','0976123456','vanminh123@gmail.com',N'140 Lê Trọng Tấn','Đang làm','20/11/2010',''),
+		('NV02',N'Vũ Hương Giang','CV02','01/01/1988',N'Nữ','987654321','0123456789','huonggiang@gmail.com',N'12 Lê Văn Sĩ','Đang làm','13/08/2013',''),
+		('NV03',N'Đỗ Hoàng Mỹ','CV02','29/03/1996',N'Nữ','567843219','0324567912','hoangmy996@gmail.com',N'85 Cộng Hòa','Đang làm','17/04/2018',''),
+		('NV04',N'Nguyễn Công Thành','CV02','06/06/1993',N'Nam','897364521','0745344922','abc123@gmail.com',N'347 Hoàng Văn Thụ','Đang làm','04/04/2019',''),
+		('NV05',N'Đào Ánh Mai','CV02','06/01/1997',N'Nữ','567843319','0324567212','anhmai994@gmail.com',N'85 Lê Trọng Tấn','Đang làm','17/01/2017',''),
+		('NV06',N'Nguyễn Ánh Nguyệt','CV02','23/05/1994',N'Nam','899364521','0745544922','xyz123@gmail.com',N'347 Hoàng Văn Thụ','Đang làm','23/08/2018','')
 
 INSERT INTO  TAIKHOAN
 VALUES	('NV01','123','True'),
@@ -560,8 +561,9 @@ VALUES	('DVT01',N'Mét'),
 		('DVT03',N'kg'),
 		('DVT04',N'Khối')
 
+SET DATEFORMAT DMY
 INSERT INTO  MATHANG
-VALUES	('MH01',N'Gạch Men','LMH01','NSX01',N'DVT01','200',N'còn hàng','null')
+VALUES	('MH01',N'Gạch Men','LMH01','NSX01',N'DVT01','200',N'còn hàng','null','22/03/2011','22/03/2019')
 --		('MH02',N'Xi Măng LT','LMH02','NSX02',N'DVT01','300',N'còn hàng','null'),
 --		('MH03',N'Tôn Fico','LMH03','NSX03',N'DVT01','450',N'còn hàng','null'),
 --		('MH04',N'Ngói xanh','LMH04','NSX04',N'DVT01','0',N'hết hàng','null')
@@ -585,7 +587,7 @@ VALUES	('DG01','MH01','200000','22/03/2011','22/03/2020')
 
 SET DATEFORMAT DMY
 INSERT INTO  PHIEUDATHANGNSX
-VALUES	('PDHNSX01','NSX01','NV06','22/07/2019','40000000',N'còn hàng','20000000')
+VALUES	('PDHNSX01','NSX01','NV06','22/07/2019','40000000',N'còn hàng','20000000','')
 		--('PDHNSX02','NSX02','NV06','23/05/2019','15000000',N'còn hàng','5000000'),
 		--('PDHNSX03','NSX03','NV06','09/09/2019','20000000',N'còn hàng','15000000'),
 		--('PDHNSX04','NSX04','NV06','25/08/2019','5000000',N'còn hàng','2500000')

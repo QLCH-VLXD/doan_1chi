@@ -11,7 +11,9 @@ namespace QuanLy_CH_VLXD
     {
         public static FrmMain Frm_Main;
         public static frmDangNhap Frm_DangNhap;
-       
+        public static frm_NhapLieu_PhanQuyen Frm_NhapLieu_PhanQuyen;
+        public static frm_DonGia Frm_DonGia;
+
 
 
         /// <summary>

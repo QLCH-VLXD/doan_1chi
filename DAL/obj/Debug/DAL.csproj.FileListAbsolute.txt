@@ -14,6 +14,6 @@ C:\Users\DELL\Documents\GitHub\DOAN_1CHI\QuanLy_CH_VLXD\doan_1chi\DAL\obj\Debug\
 C:\Users\Admin\Documents\GitHub\doan_1chi\DAL\bin\Debug\DAL.dll.config
 C:\Users\Admin\Documents\GitHub\doan_1chi\DAL\bin\Debug\DAL.dll
 C:\Users\Admin\Documents\GitHub\doan_1chi\DAL\bin\Debug\DAL.pdb
-C:\Users\Admin\Documents\GitHub\doan_1chi\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
 C:\Users\Admin\Documents\GitHub\doan_1chi\DAL\obj\Debug\DAL.dll
 C:\Users\Admin\Documents\GitHub\doan_1chi\DAL\obj\Debug\DAL.pdb
+C:\Users\Admin\Documents\GitHub\doan_1chi\DAL\obj\Debug\DAL.csprojAssemblyReference.cache

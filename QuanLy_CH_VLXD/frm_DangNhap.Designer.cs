@@ -94,7 +94,7 @@
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(236, 25);
             this.txtMatKhau.TabIndex = 3;
-            this.txtMatKhau.Text = "12345";
+            this.txtMatKhau.Text = "123";
             // 
             // txtnameDN
             // 

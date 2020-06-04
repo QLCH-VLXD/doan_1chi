@@ -41,17 +41,9 @@
             this.hOADONBANTableAdapter = new QuanLy_CH_VLXD.DataSet1TableAdapters.HOADONBANTableAdapter();
             this.cHITIETHOADONBANTableAdapter = new QuanLy_CH_VLXD.DataSet1TableAdapters.CHITIETHOADONBANTableAdapter();
             this.mATHANGTableAdapter = new QuanLy_CH_VLXD.DataSet1TableAdapters.MATHANGTableAdapter();
-            this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
-            this.mATHANGDataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+            this.txt_MaGiaoHang = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.mATHANGDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,14 +81,16 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.pHIEUNHAPHANGBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cHITIETPHIEUNHAPHANGBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cHITIETHOADONBANBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOADONBANBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mATHANGBindingSource)).BeginInit();
-            this.xtraTabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mATHANGDataGridView1)).BeginInit();
             this.xtraTabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mATHANGDataGridView)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
@@ -188,87 +182,33 @@
             // 
             this.mATHANGTableAdapter.ClearBeforeFill = true;
             // 
-            // xtraTabPage5
-            // 
-            this.xtraTabPage5.Controls.Add(this.mATHANGDataGridView1);
-            this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(1364, 721);
-            this.xtraTabPage5.Text = "Thống kê danh mục sản phẩm";
-            // 
-            // mATHANGDataGridView1
-            // 
-            this.mATHANGDataGridView1.AutoGenerateColumns = false;
-            this.mATHANGDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.mATHANGDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.mATHANGDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn29,
-            this.dataGridViewTextBoxColumn31,
-            this.dataGridViewTextBoxColumn32,
-            this.dataGridViewTextBoxColumn33,
-            this.dataGridViewTextBoxColumn34,
-            this.dataGridViewTextBoxColumn35,
-            this.dataGridViewTextBoxColumn36,
-            this.dataGridViewTextBoxColumn37});
-            this.mATHANGDataGridView1.DataSource = this.mATHANGBindingSource;
-            this.mATHANGDataGridView1.Location = new System.Drawing.Point(0, 12);
-            this.mATHANGDataGridView1.Name = "mATHANGDataGridView1";
-            this.mATHANGDataGridView1.Size = new System.Drawing.Size(1358, 382);
-            this.mATHANGDataGridView1.TabIndex = 0;
-            // 
-            // dataGridViewTextBoxColumn29
-            // 
-            this.dataGridViewTextBoxColumn29.DataPropertyName = "MAMATHANG";
-            this.dataGridViewTextBoxColumn29.HeaderText = "MAMATHANG";
-            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
-            // 
-            // dataGridViewTextBoxColumn31
-            // 
-            this.dataGridViewTextBoxColumn31.DataPropertyName = "TENMATHANG";
-            this.dataGridViewTextBoxColumn31.HeaderText = "TENMATHANG";
-            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
-            // 
-            // dataGridViewTextBoxColumn32
-            // 
-            this.dataGridViewTextBoxColumn32.DataPropertyName = "MALOAIMATHANG";
-            this.dataGridViewTextBoxColumn32.HeaderText = "MALOAIMATHANG";
-            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
-            // 
-            // dataGridViewTextBoxColumn33
-            // 
-            this.dataGridViewTextBoxColumn33.DataPropertyName = "MANSX";
-            this.dataGridViewTextBoxColumn33.HeaderText = "MANSX";
-            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
-            // 
-            // dataGridViewTextBoxColumn34
-            // 
-            this.dataGridViewTextBoxColumn34.DataPropertyName = "MADVT";
-            this.dataGridViewTextBoxColumn34.HeaderText = "MADVT";
-            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
-            // 
-            // dataGridViewTextBoxColumn35
-            // 
-            this.dataGridViewTextBoxColumn35.DataPropertyName = "SOLUONG";
-            this.dataGridViewTextBoxColumn35.HeaderText = "SOLUONG";
-            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
-            // 
-            // dataGridViewTextBoxColumn36
-            // 
-            this.dataGridViewTextBoxColumn36.DataPropertyName = "TINHTRANG";
-            this.dataGridViewTextBoxColumn36.HeaderText = "TINHTRANG";
-            this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
-            // 
-            // dataGridViewTextBoxColumn37
-            // 
-            this.dataGridViewTextBoxColumn37.DataPropertyName = "GHICHU";
-            this.dataGridViewTextBoxColumn37.HeaderText = "GHICHU";
-            this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
-            // 
             // xtraTabPage3
             // 
+            this.xtraTabPage3.Controls.Add(this.txt_MaGiaoHang);
+            this.xtraTabPage3.Controls.Add(this.label1);
             this.xtraTabPage3.Controls.Add(this.mATHANGDataGridView);
             this.xtraTabPage3.Name = "xtraTabPage3";
             this.xtraTabPage3.Size = new System.Drawing.Size(1364, 721);
             this.xtraTabPage3.Text = "Thống kê mặt hàng sắp hết";
+            // 
+            // txt_MaGiaoHang
+            // 
+            this.txt_MaGiaoHang.Enabled = false;
+            this.txt_MaGiaoHang.Location = new System.Drawing.Point(242, 33);
+            this.txt_MaGiaoHang.Multiline = true;
+            this.txt_MaGiaoHang.Name = "txt_MaGiaoHang";
+            this.txt_MaGiaoHang.Size = new System.Drawing.Size(230, 27);
+            this.txt_MaGiaoHang.TabIndex = 52;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(171, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 19);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Tìm kiếm";
             // 
             // mATHANGDataGridView
             // 
@@ -284,9 +224,9 @@
             this.dataGridViewTextBoxColumn28,
             this.dataGridViewTextBoxColumn30});
             this.mATHANGDataGridView.DataSource = this.mATHANGBindingSource;
-            this.mATHANGDataGridView.Location = new System.Drawing.Point(0, 12);
+            this.mATHANGDataGridView.Location = new System.Drawing.Point(33, 80);
             this.mATHANGDataGridView.Name = "mATHANGDataGridView";
-            this.mATHANGDataGridView.Size = new System.Drawing.Size(1358, 384);
+            this.mATHANGDataGridView.Size = new System.Drawing.Size(936, 249);
             this.mATHANGDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn23
@@ -567,7 +507,34 @@
             this.xtraTabPage1,
             this.xtraTabPage2,
             this.xtraTabPage3,
-            this.xtraTabPage5});
+            this.xtraTabPage4,
+            this.xtraTabPage5,
+            this.xtraTabPage6,
+            this.xtraTabPage7});
+            // 
+            // xtraTabPage4
+            // 
+            this.xtraTabPage4.Name = "xtraTabPage4";
+            this.xtraTabPage4.Size = new System.Drawing.Size(1364, 721);
+            this.xtraTabPage4.Text = "Thống kê hàng tồn kho";
+            // 
+            // xtraTabPage5
+            // 
+            this.xtraTabPage5.Name = "xtraTabPage5";
+            this.xtraTabPage5.Size = new System.Drawing.Size(1364, 721);
+            this.xtraTabPage5.Text = "Thống kê giao hàng";
+            // 
+            // xtraTabPage6
+            // 
+            this.xtraTabPage6.Name = "xtraTabPage6";
+            this.xtraTabPage6.Size = new System.Drawing.Size(1364, 721);
+            this.xtraTabPage6.Text = "Thống kê doanh thu";
+            // 
+            // xtraTabPage7
+            // 
+            this.xtraTabPage7.Name = "xtraTabPage7";
+            this.xtraTabPage7.Size = new System.Drawing.Size(1364, 721);
+            this.xtraTabPage7.Text = "Thống kê danh mục mặt hàng ";
             // 
             // frm_ThongKe
             // 
@@ -583,9 +550,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cHITIETHOADONBANBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOADONBANBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mATHANGBindingSource)).EndInit();
-            this.xtraTabPage5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.mATHANGDataGridView1)).EndInit();
             this.xtraTabPage3.ResumeLayout(false);
+            this.xtraTabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mATHANGDataGridView)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cHITIETHOADONBANDataGridView)).EndInit();
@@ -612,16 +578,6 @@
         private DataSet1TableAdapters.CHITIETHOADONBANTableAdapter cHITIETHOADONBANTableAdapter;
         private System.Windows.Forms.BindingSource mATHANGBindingSource;
         private DataSet1TableAdapters.MATHANGTableAdapter mATHANGTableAdapter;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage5;
-        private System.Windows.Forms.DataGridView mATHANGDataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
         private System.Windows.Forms.DataGridView mATHANGDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
@@ -660,5 +616,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private System.Windows.Forms.Label label1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage4;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage5;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage6;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage7;
+        private System.Windows.Forms.TextBox txt_MaGiaoHang;
     }
 }

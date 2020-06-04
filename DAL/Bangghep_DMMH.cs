@@ -16,9 +16,14 @@ namespace DAL
         int? SOLUONG;
         decimal? GIA;
         DateTime? NGAYAPDUNG;
-        DateTime? NGAYKETTHUC;
+        //DateTime? NGAYKETTHUC;
         string TENDVT;
         string TENNSX;
+
+        int? HANMUCHETHANG;
+        DateTime? NGAYSX;
+        DateTime? NGAYHH;
+        string XUATXU;
         string GHICHU;
         string TINHTRANG;
 
@@ -29,9 +34,14 @@ namespace DAL
         public int? SOLUONG1 { get => SOLUONG; set => SOLUONG = value; }
         public decimal? GIA1 { get => GIA; set => GIA = value; }
         public DateTime? NGAYAPDUNG1 { get => NGAYAPDUNG; set => NGAYAPDUNG = value; }
-        public DateTime? NGAYKETTHUC1 { get => NGAYKETTHUC; set => NGAYKETTHUC = value; }
+        // public DateTime? NGAYKETTHUC1 { get => NGAYKETTHUC; set => NGAYKETTHUC = value; }
         public string TENDVT1 { get => TENDVT; set => TENDVT = value; }
         public string TENNSX1 { get => TENNSX; set => TENNSX = value; }
+
+        public int? HANMUCHETHANG1 { get => HANMUCHETHANG; set => HANMUCHETHANG = value; }
+        public DateTime? NGAYSX1 { get => NGAYSX; set => NGAYSX = value; }
+        public DateTime? NGAYHH1 { get => NGAYHH; set => NGAYHH = value; }
+        public string XUATXU1 { get => XUATXU; set => XUATXU = value; }
         public string GHICHU1 { get => GHICHU; set => GHICHU = value; }
         public string TINHTRANG1 { get => TINHTRANG; set => TINHTRANG = value; }
 

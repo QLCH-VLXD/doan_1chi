@@ -125,5 +125,11 @@ namespace BLL
             return dAL_NhapHang.laysoluong_ctdathang1(maphieudat);
         }
 
+        public int Laysoluong_CTnhaphang(string maphieudat)
+        {
+            return dAL_NhapHang.laysoluong_ctnhaphang(maphieudat);
+        }
+
+
     }
 }

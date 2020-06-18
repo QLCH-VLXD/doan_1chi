@@ -14,6 +14,8 @@ namespace DAL
         String NGAYNHAP;
         String SOLUONGMATHANG;
         String TONGTIENHANGNHAP;
+        //DateTime NGAYSX;
+        //DateTime NGAYHH;
 
         public string MAPN1 { get => MAPN; set => MAPN = value; }
         public string MANV1 { get => MANV; set => MANV = value; }
@@ -21,5 +23,7 @@ namespace DAL
         public string NGAYNHAP1 { get => NGAYNHAP; set => NGAYNHAP = value; }
         public string SOLUONGMATHANG1 { get => SOLUONGMATHANG; set => SOLUONGMATHANG = value; }
         public string TONGTIENHANGNHAP1 { get => TONGTIENHANGNHAP; set => TONGTIENHANGNHAP = value; }
+        //public DateTime NGAYSX1{ get => NGAYSX; set => NGAYSX = value; }
+        //public DateTime NGAYHH1 { get => NGAYHH; set => NGAYHH = value; }
     }
 }

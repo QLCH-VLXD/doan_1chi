@@ -51,10 +51,22 @@
     <Compile Include="BLL_GiaoHang.cs" />
     <Compile Include="BLL_LoaiMatHang.cs" />
     <Compile Include="BLL_NhapHang.cs" />
+    <Compile Include="BLL_ThongKe.cs" />
     <Compile Include="BLL_TTKhachHang.cs" />
     <Compile Include="BLL_TTNhanVien.cs" />
     <Compile Include="BLL_TTNSX.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

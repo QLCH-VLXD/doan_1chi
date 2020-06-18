@@ -296,6 +296,7 @@ namespace QuanLy_CH_VLXD
             txt_SoLuong.Clear();
             txt_SDT.Clear();
             txt_Tenkh.Clear();
+            f = 0;
         }
 
         private void btn_Xoa_Click(object sender, EventArgs e)

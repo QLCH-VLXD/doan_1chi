@@ -34,12 +34,8 @@
             this.radioButton_Con = new System.Windows.Forms.RadioButton();
             this.btn_Sửa = new System.Windows.Forms.Button();
             this.txt_TenMH = new System.Windows.Forms.TextBox();
-            this.dateEdit_ngayHetHan = new DevExpress.XtraEditors.DateEdit();
-            this.label15 = new System.Windows.Forms.Label();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
-            this.dateEdit_ngaySanXuat = new DevExpress.XtraEditors.DateEdit();
-            this.label7 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.txt_XuatXu = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,6 +60,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txt_TimKiemTenMH = new System.Windows.Forms.TextBox();
+            this.dateTimeChartRangeControlClient1 = new DevExpress.XtraEditors.DateTimeChartRangeControlClient();
+            this.lbl_Manv = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,20 +74,10 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NGAYHH1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txt_TimKiemTenMH = new System.Windows.Forms.TextBox();
-            this.dateTimeChartRangeControlClient1 = new DevExpress.XtraEditors.DateTimeChartRangeControlClient();
-            this.lbl_Manv = new System.Windows.Forms.Label();
             this.groupBox_TTCTSanPham.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_ngayHetHan.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_ngayHetHan.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_ngaySanXuat.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_ngaySanXuat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -102,12 +92,8 @@
             this.groupBox_TTCTSanPham.Controls.Add(this.radioButton_Con);
             this.groupBox_TTCTSanPham.Controls.Add(this.btn_Sửa);
             this.groupBox_TTCTSanPham.Controls.Add(this.txt_TenMH);
-            this.groupBox_TTCTSanPham.Controls.Add(this.dateEdit_ngayHetHan);
-            this.groupBox_TTCTSanPham.Controls.Add(this.label15);
             this.groupBox_TTCTSanPham.Controls.Add(this.btnXoa);
             this.groupBox_TTCTSanPham.Controls.Add(this.btnThem);
-            this.groupBox_TTCTSanPham.Controls.Add(this.dateEdit_ngaySanXuat);
-            this.groupBox_TTCTSanPham.Controls.Add(this.label7);
             this.groupBox_TTCTSanPham.Controls.Add(this.label14);
             this.groupBox_TTCTSanPham.Controls.Add(this.txt_XuatXu);
             this.groupBox_TTCTSanPham.Controls.Add(this.label1);
@@ -178,6 +164,7 @@
             this.btn_Sửa.TabIndex = 46;
             this.btn_Sửa.Text = "Sửa";
             this.btn_Sửa.UseVisualStyleBackColor = true;
+            this.btn_Sửa.Click += new System.EventHandler(this.btn_Sửa_Click);
             // 
             // txt_TenMH
             // 
@@ -186,29 +173,6 @@
             this.txt_TenMH.Name = "txt_TenMH";
             this.txt_TenMH.Size = new System.Drawing.Size(230, 27);
             this.txt_TenMH.TabIndex = 43;
-            // 
-            // dateEdit_ngayHetHan
-            // 
-            this.dateEdit_ngayHetHan.EditValue = null;
-            this.dateEdit_ngayHetHan.Location = new System.Drawing.Point(913, 79);
-            this.dateEdit_ngayHetHan.Name = "dateEdit_ngayHetHan";
-            this.dateEdit_ngayHetHan.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateEdit_ngayHetHan.Properties.Appearance.Options.UseFont = true;
-            this.dateEdit_ngayHetHan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit_ngayHetHan.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit_ngayHetHan.Size = new System.Drawing.Size(230, 26);
-            this.dateEdit_ngayHetHan.TabIndex = 42;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(812, 88);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(89, 19);
-            this.label15.TabIndex = 41;
-            this.label15.Text = "Ngày hết hạn";
             // 
             // btnXoa
             // 
@@ -229,29 +193,6 @@
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // dateEdit_ngaySanXuat
-            // 
-            this.dateEdit_ngaySanXuat.EditValue = null;
-            this.dateEdit_ngaySanXuat.Location = new System.Drawing.Point(913, 34);
-            this.dateEdit_ngaySanXuat.Name = "dateEdit_ngaySanXuat";
-            this.dateEdit_ngaySanXuat.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateEdit_ngaySanXuat.Properties.Appearance.Options.UseFont = true;
-            this.dateEdit_ngaySanXuat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit_ngaySanXuat.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit_ngaySanXuat.Size = new System.Drawing.Size(230, 26);
-            this.dateEdit_ngaySanXuat.TabIndex = 40;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(812, 42);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(95, 19);
-            this.label7.TabIndex = 39;
-            this.label7.Text = "Ngày sản xuất";
             // 
             // label14
             // 
@@ -483,8 +424,6 @@
             this.Column9,
             this.Column10,
             this.Column3,
-            this.Column8,
-            this.NGAYHH1,
             this.Column14,
             this.Column12,
             this.Column11});
@@ -493,6 +432,35 @@
             this.dataGridView1.Size = new System.Drawing.Size(1261, 234);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged_1);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(36, 34);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(143, 17);
+            this.label13.TabIndex = 9;
+            this.label13.Text = "Tìm kiếm tên mặt hàng";
+            // 
+            // txt_TimKiemTenMH
+            // 
+            this.txt_TimKiemTenMH.Location = new System.Drawing.Point(185, 24);
+            this.txt_TimKiemTenMH.Multiline = true;
+            this.txt_TimKiemTenMH.Name = "txt_TimKiemTenMH";
+            this.txt_TimKiemTenMH.Size = new System.Drawing.Size(282, 27);
+            this.txt_TimKiemTenMH.TabIndex = 8;
+            this.txt_TimKiemTenMH.Click += new System.EventHandler(this.txt_TimKiemTenMH_Click);
+            this.txt_TimKiemTenMH.TextChanged += new System.EventHandler(this.txt_TimKiemTenMH_TextChanged);
+            // 
+            // lbl_Manv
+            // 
+            this.lbl_Manv.AutoSize = true;
+            this.lbl_Manv.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Manv.Location = new System.Drawing.Point(4, 4);
+            this.lbl_Manv.Name = "lbl_Manv";
+            this.lbl_Manv.Size = new System.Drawing.Size(57, 19);
+            this.lbl_Manv.TabIndex = 5;
+            this.lbl_Manv.Text = "label14";
             // 
             // Column1
             // 
@@ -554,18 +522,6 @@
             this.Column3.HeaderText = "Hạn mức";
             this.Column3.Name = "Column3";
             // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "NGAYSX1";
-            this.Column8.HeaderText = "Ngày sản xuất";
-            this.Column8.Name = "Column8";
-            // 
-            // NGAYHH1
-            // 
-            this.NGAYHH1.DataPropertyName = "NGAYHH1";
-            this.NGAYHH1.HeaderText = "Ngày hết hạn";
-            this.NGAYHH1.Name = "NGAYHH1";
-            // 
             // Column14
             // 
             this.Column14.DataPropertyName = "XUATXU1";
@@ -584,35 +540,6 @@
             this.Column11.HeaderText = "Ghichú";
             this.Column11.Name = "Column11";
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(36, 34);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(143, 17);
-            this.label13.TabIndex = 9;
-            this.label13.Text = "Tìm kiếm tên mặt hàng";
-            // 
-            // txt_TimKiemTenMH
-            // 
-            this.txt_TimKiemTenMH.Location = new System.Drawing.Point(185, 24);
-            this.txt_TimKiemTenMH.Multiline = true;
-            this.txt_TimKiemTenMH.Name = "txt_TimKiemTenMH";
-            this.txt_TimKiemTenMH.Size = new System.Drawing.Size(282, 27);
-            this.txt_TimKiemTenMH.TabIndex = 8;
-            this.txt_TimKiemTenMH.Click += new System.EventHandler(this.txt_TimKiemTenMH_Click);
-            this.txt_TimKiemTenMH.TextChanged += new System.EventHandler(this.txt_TimKiemTenMH_TextChanged);
-            // 
-            // lbl_Manv
-            // 
-            this.lbl_Manv.AutoSize = true;
-            this.lbl_Manv.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Manv.Location = new System.Drawing.Point(4, 4);
-            this.lbl_Manv.Name = "lbl_Manv";
-            this.lbl_Manv.Size = new System.Drawing.Size(57, 19);
-            this.lbl_Manv.TabIndex = 5;
-            this.lbl_Manv.Text = "label14";
-            // 
             // frm_DanhMucSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -625,10 +552,6 @@
             this.Load += new System.EventHandler(this.frm_DanhMucSanPham_Load);
             this.groupBox_TTCTSanPham.ResumeLayout(false);
             this.groupBox_TTCTSanPham.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_ngayHetHan.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_ngayHetHan.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_ngaySanXuat.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_ngaySanXuat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -673,13 +596,11 @@
         private System.Windows.Forms.TextBox txt_hanMucHetHang;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txt_XuatXu;
-        private DevExpress.XtraEditors.DateEdit dateEdit_ngayHetHan;
-        private System.Windows.Forms.Label label15;
-        private DevExpress.XtraEditors.DateEdit dateEdit_ngaySanXuat;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_TenMH;
         private System.Windows.Forms.RadioButton radioButton_Het;
         private System.Windows.Forms.RadioButton radioButton_Con;
+        private System.Windows.Forms.Button btn_LamMoi;
+        private System.Windows.Forms.Button btn_Sửa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
@@ -690,12 +611,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NGAYHH1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.Button btn_LamMoi;
-        private System.Windows.Forms.Button btn_Sửa;
     }
 }

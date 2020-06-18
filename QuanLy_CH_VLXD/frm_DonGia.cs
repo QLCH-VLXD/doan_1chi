@@ -88,7 +88,7 @@ namespace QuanLy_CH_VLXD
                         txtMaDonGia.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
                         txtDonGia.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
                         dateEdit_NgayBD.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-                        dateEdit_NgayKT.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+                       // dateEdit_NgayKT.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
                         this.txtTenLoaiMH.Enabled = false;
                         this.txtMaMH.Enabled = false;
                         this.txtMaDonGia.Enabled = false;
@@ -119,7 +119,7 @@ namespace QuanLy_CH_VLXD
                 dg.MADONGIA = "DG" + bll_DonGia.Sinh_MaDonGia_BLL();
                 dg.MAMATHANG = "MH" + bll_DonGia.Sinh_MaMatHang_BLL();
                 dg.NGAYAPDUNG = DateTime.Parse(dateEdit_NgayBD.Text);
-                dg.NGAYKETTHUC = DateTime.Parse(dateEdit_NgayKT.Text);
+                //dg.NGAYKETTHUC = DateTime.Parse(dateEdit_NgayKT.Text);
                 dg.GIA = decimal.Parse(txtDonGia.Text);
                 bll_DonGia.Load_ThemDonGiadll(dg);
 
@@ -156,7 +156,7 @@ namespace QuanLy_CH_VLXD
                 //dg.MADONGIA = "DG" + bll_DonGia.Sinh_MaDonGia_BLL();
                 //dg.MAMATHANG = "MH" + bll_DonGia.Sinh_MaMatHang_BLL();
                 dg.NGAYAPDUNG = DateTime.Parse(dateEdit_NgayBD.Text);
-                dg.NGAYKETTHUC = DateTime.Parse(dateEdit_NgayKT.Text);
+                //dg.NGAYKETTHUC = DateTime.Parse(dateEdit_NgayKT.Text);
                 dg.GIA = decimal.Parse(txtDonGia.Text);
 
 
@@ -201,7 +201,7 @@ namespace QuanLy_CH_VLXD
                 //dg.MADONGIA = "DG" + bll_DonGia.Sinh_MaDonGia_BLL();
                 //dg.MAMATHANG = "MH" + bll_DonGia.Sinh_MaMatHang_BLL();
                 dg.NGAYAPDUNG = DateTime.Parse(dateEdit_NgayBD.Text);
-                dg.NGAYKETTHUC = DateTime.Parse(dateEdit_NgayKT.Text);
+               // dg.NGAYKETTHUC = DateTime.Parse(dateEdit_NgayKT.Text);
                 dg.GIA = decimal.Parse(txtDonGia.Text);
 
                 if (!bll_DonGia.Load_XoaDGdll(dg))

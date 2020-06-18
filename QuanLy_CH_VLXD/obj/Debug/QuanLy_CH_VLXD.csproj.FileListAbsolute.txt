@@ -521,3 +521,5 @@ C:\Users\Admin\Documents\GitHub\doan_1chi\QuanLy_CH_VLXD\obj\Debug\QuanLy_CH_VLX
 C:\Users\Admin\Documents\GitHub\doan_1chi\QuanLy_CH_VLXD\obj\Debug\QuanLy_CH_VLXD.frm_DanhMucPhanQuyen.resources
 C:\Users\Admin\Documents\GitHub\doan_1chi\QuanLy_CH_VLXD\obj\Debug\QuanLy_CH_VLXD.frm_NhapLieu_PhanQuyen.resources
 >>>>>>> Stashed changes
+C:\Users\DELL\Documents\GitHub\doan_1chi\QuanLy_CH_VLXD\obj\Debug\QuanLy_CH_VLXD.frm_DanhMucPhanQuyen.resources
+C:\Users\DELL\Documents\GitHub\doan_1chi\QuanLy_CH_VLXD\obj\Debug\QuanLy_CH_VLXD.frm_NhapLieu_PhanQuyen.resources

@@ -89,6 +89,12 @@ namespace BLL
             return dal_DonGia.suaDG(dg);
         }
 
+        public bool Load_SuaDG_DMMH(DONGIA dg)
+        {
+
+            return dal_DonGia.suaDG_DMMH(dg);
+        }
+        
         public bool Load_XoaMHdll(MATHANG mh)
         {
 
@@ -100,7 +106,11 @@ namespace BLL
 
             return dal_DonGia.xoaDG(dg);
         }
+        public bool Load_XoaDG_dmmh(DONGIA dg)
+        {
 
+            return dal_DonGia.xoaDG_dmmh(dg);
+        }
         public bool Load_XoaLMHdll(LOAIMATHANG lmh)
         {
 

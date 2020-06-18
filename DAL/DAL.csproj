@@ -48,6 +48,8 @@
     <Compile Include="BangGhep_HoaDonBan.cs" />
     <Compile Include="BangGhep_KHACHHANG.cs" />
     <Compile Include="Bangghep_NhapHang.cs" />
+    <Compile Include="BangGhep_ThongKe_SapHet.cs" />
+    <Compile Include="BangGhep_ThongKe_TonKho.cs" />
     <Compile Include="CHITIET_DATHANGNSX.cs" />
     <Compile Include="CHITIET_HOADON.cs" />
     <Compile Include="CT_GiaoHang.cs" />
@@ -59,6 +61,7 @@
     <Compile Include="DAL_GiaoHang.cs" />
     <Compile Include="DAL_LoaiMatHang.cs" />
     <Compile Include="DAL_NhapHang.cs" />
+    <Compile Include="DAL_ThongKe.cs" />
     <Compile Include="DAL_TTKhachHang.cs" />
     <Compile Include="DAL_TTNhanVien.cs" />
     <Compile Include="DAL_TTNSX.cs" />

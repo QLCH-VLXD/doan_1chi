@@ -72,6 +72,11 @@ namespace QuanLy_CH_VLXD
         {
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                 e.Handled = true;
+            if(e.KeyChar==8)
+            {
+                string[] g = text_socon.Text.ToString().Split('/');
+                text_socon.Text = g[1];
+            }    
         }
 
         private void cbo_maPNNSX_SelectedIndexChanged(object sender, EventArgs e)
@@ -91,7 +96,7 @@ namespace QuanLy_CH_VLXD
             {
                 txt_TenMH.Text = bLL_NhapHang.load_MatHang(cbo_chitietPDNSX.Text.ToString());
                 txt_TenLoaiMH.Text = bLL_NhapHang.load_loaiMatHang(cbo_chitietPDNSX.Text.ToString());
-               // txt_SoLuong.Text = bLL_NhapHang.load_SoLuong(cbo_chitietPDNSX.Text.ToString());
+                text_socon.Text = bLL_NhapHang.Laysoluong_CTnhaphang(cbo_chitietPDNSX.Text.ToString()) + "/" + bLL_NhapHang.load_SoLuong(cbo_chitietPDNSX.Text.ToString());
                 txt_DonViTinh.Text = bLL_NhapHang.Load_donvitinh(cbo_chitietPDNSX.Text.ToString());
                 txt_NSX.Text = bLL_NhapHang.load_NSX(cbo_chitietPDNSX.Text.ToString());
                 //txt_DonGiaNhap.Text = bLL_NhapHang.Load_dongia(cbo_chitietPDNSX.Text.ToString());
@@ -144,25 +149,12 @@ namespace QuanLy_CH_VLXD
                     ct.MACTPHIEUDATHANG = cbo_chitietPDNSX.Text.ToString();
                     ct.SOLUONGMH = Convert.ToInt32(txt_SoLuong.Text);
                     ct.THANHTIENCTPNH = Convert.ToDecimal(Convert.ToInt32(txt_SoLuong.Text) * Convert.ToDecimal(txt_DonGiaNhap.Text));
-
+                    ct.NGAYSX = Convert.ToDateTime(dateTimePicker_NgaySX.Text);
+                    ct.NGAYHH = Convert.ToDateTime(dateTimePicker_NgayHH.Text);
                     f += 1;
                     sum += Convert.ToDouble(Convert.ToInt32(txt_SoLuong.Text) * Convert.ToDouble(txt_DonGiaNhap.Text));
                     if (bLL_NhapHang.KTKC_CTPNH(ct) == true)
                     {
-                        // ///////////
-                        txt_SoLuong_TextChanged(sender, e);
-                        int sl = bLL_NhapHang.laysoluong_ctdathang(cbo_chitietPDNSX.SelectedValue.ToString());
-                        int slc = Convert.ToInt32(bLL_NhapHang.load_SoLuong(cbo_chitietPDNSX.Text.ToString()));
-                        if (Convert.ToInt32(txt_SoLuong.Text) <= (sl - slc))
-                        {
-                            text_socon.Text = txt_SoLuong.Text + "/" + sl.ToString();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Đã vượt mức đặt hàng");
-                            return;
-                        }
-
                         if (bLL_NhapHang.them_CTPNH(ct) == true)
                         {
                             mh.MAPN = dataGridView_nhaphang.CurrentRow.Cells[0].Value.ToString();
@@ -172,7 +164,6 @@ namespace QuanLy_CH_VLXD
 
                             if (bLL_NhapHang.Sua_PNH(mh) == true)
                             {
-
                                 dataGridView_nhaphang.DataSource = bLL_NhapHang.load_nhaphang();
                                 dataGridView_CTnhaphang.DataSource = bLL_NhapHang.load_CTnhaphang();
                                 //MessageBox.Show("Thành công"); 
@@ -185,35 +176,7 @@ namespace QuanLy_CH_VLXD
                                 MessageBox.Show("Xảy ra sự số");
 
                             }
-                            ///// ////
-                            //int sl1 = bLL_NhapHang.laysoluong_ctdathang(cbo_chitietPDNSX.SelectedValue.ToString());
-                            //int slc1 = Convert.ToInt32(bLL_DatHangNSX.loasl1(cbo_chitietPDNSX.Text.ToString()));
-                            //try
-                            //{
-                            //    PHIEUDATHANGNSX h = new PHIEUDATHANGNSX();
-                            //    h.MAPDHNSX = cbo_maPNNSX.Text.ToString();
-                            //    if (sl1 == slc1)
-                            //    {
-                            //        h.HOANTAT = true;
-                            //    }
-                            //    else
-                            //        h.HOANTAT = false;
-                            //    if (bLL_DatHangNSX.Sua_PDHNSX1(h)==true)
-                            //    {
-                            //        t = 1;
-                            //        MessageBox.Show("tc");
-                            //        cbo_maPNNSX.DataSource = bLL_NhapHang.load_maPNHNSX1();
-                            //        cbo_maPNNSX.DisplayMember = "MAPDHNSX";
-                            //        cbo_maPNNSX.ValueMember = "MAPDHNSX";
-                            //        txt_SoLuong.Clear();
-                            //    }
-                            //}
-                            //catch
-                            //{
-                            //    t = 0;
-                            //    return;
-                            //}
-
+                           
                             MessageBox.Show("Thành công");
                             t = 0;
                         }
@@ -237,6 +200,9 @@ namespace QuanLy_CH_VLXD
             {
                 MessageBox.Show("Vui lòng nhập đủ thông tin");
             }
+            text_socon.Text = bLL_NhapHang.Laysoluong_CTnhaphang(cbo_chitietPDNSX.Text.ToString()) + "/" + bLL_NhapHang.load_SoLuong(cbo_chitietPDNSX.Text.ToString());
+
+            ////////////////
         }
 
         private void btn_LamMoi_Click(object sender, EventArgs e)
@@ -251,25 +217,25 @@ namespace QuanLy_CH_VLXD
             txt_DonGiaNhap.Clear();
             txt_DonViTinh.Clear();
             txt_SoLuong.Clear();
+            f = 0;
         }
 
        
-
         private void txt_SoLuong_TextChanged(object sender, EventArgs e)
         {
+            
             try
             {
                 if (t == 0)
                 {
-                    if (bLL_NhapHang.laysoluong_ctdathang(cbo_chitietPDNSX.SelectedValue.ToString()) < Convert.ToInt32(txt_SoLuong.Text.ToString()))
+                    if (bLL_NhapHang.laysoluong_ctdathang(cbo_chitietPDNSX.Text.ToString()) < Convert.ToInt32(txt_SoLuong.Text.ToString()) && bLL_NhapHang.laysoluong_ctdathang(cbo_chitietPDNSX.Text.ToString())< bLL_NhapHang.Laysoluong_CTnhaphang(cbo_chitietPDNSX.Text.ToString()))
                     {
-
                         MessageBox.Show("Số lượng hàng nhập đã quá số lượng đặt");
                         return;
                     }
                     else
                     {
-                       
+
                     }
                 }
                 //for(int i=0;i<bLL_NhapHang.Gomnhom_CTPDH().Count;i++)

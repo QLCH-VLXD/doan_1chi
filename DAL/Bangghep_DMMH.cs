@@ -21,8 +21,6 @@ namespace DAL
         string TENNSX;
 
         int? HANMUCHETHANG;
-        DateTime? NGAYSX;
-        DateTime? NGAYHH;
         string XUATXU;
         string GHICHU;
         string TINHTRANG;
@@ -39,8 +37,6 @@ namespace DAL
         public string TENNSX1 { get => TENNSX; set => TENNSX = value; }
 
         public int? HANMUCHETHANG1 { get => HANMUCHETHANG; set => HANMUCHETHANG = value; }
-        public DateTime? NGAYSX1 { get => NGAYSX; set => NGAYSX = value; }
-        public DateTime? NGAYHH1 { get => NGAYHH; set => NGAYHH = value; }
         public string XUATXU1 { get => XUATXU; set => XUATXU = value; }
         public string GHICHU1 { get => GHICHU; set => GHICHU = value; }
         public string TINHTRANG1 { get => TINHTRANG; set => TINHTRANG = value; }

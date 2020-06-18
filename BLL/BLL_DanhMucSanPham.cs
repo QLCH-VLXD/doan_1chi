@@ -27,13 +27,37 @@ namespace BLL
         {
             return dal_DanhMucSanPham.Loaddata_NhaSanXuat();
         }
+        public List<DONGIA> load_dongia()
+        {
+            return dal_DanhMucSanPham.dongia();
+        }
         public List<Bangghep_DMMH> LoadDL_DSMATHANGdll()
         {
             return dal_DanhMucSanPham.LoadDL_DSMATHANG();
         }
 
+        public bool them_DMMH(MATHANG hdb)
+        {
+            return dal_DanhMucSanPham.them_DanhMucMH(hdb);
+        }
 
+        public bool Sua_DMMH(MATHANG hdb)
+        {
+            return dal_DanhMucSanPham.sua_DMMH(hdb);
+        }
+        public bool Xoa_DMMH(MATHANG hdb)
+        {
+            return dal_DanhMucSanPham.xoa_DMMH(hdb);
+        }
+        public bool KTKC(MATHANG hdb)
+        {
+            return dal_DanhMucSanPham.ktkc(hdb);
+        }
 
+        public string LAYMA(int gia)
+        {
+            return dal_DanhMucSanPham.layma(gia);
+        }
 
         //public List<MATHANG> load_MatHang()
         //{

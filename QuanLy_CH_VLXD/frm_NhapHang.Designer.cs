@@ -70,6 +70,10 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dateTimePicker_NgaySX = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dateTimePicker_NgayHH = new System.Windows.Forms.DateTimePicker();
             this.groupBox_TTCTSanPham.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_CTnhaphang)).BeginInit();
@@ -78,6 +82,10 @@
             // 
             // groupBox_TTCTSanPham
             // 
+            this.groupBox_TTCTSanPham.Controls.Add(this.dateTimePicker_NgayHH);
+            this.groupBox_TTCTSanPham.Controls.Add(this.label9);
+            this.groupBox_TTCTSanPham.Controls.Add(this.dateTimePicker_NgaySX);
+            this.groupBox_TTCTSanPham.Controls.Add(this.label8);
             this.groupBox_TTCTSanPham.Controls.Add(this.label16);
             this.groupBox_TTCTSanPham.Controls.Add(this.label4);
             this.groupBox_TTCTSanPham.Controls.Add(this.text_socon);
@@ -107,7 +115,7 @@
             this.groupBox_TTCTSanPham.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox_TTCTSanPham.Location = new System.Drawing.Point(24, 31);
             this.groupBox_TTCTSanPham.Name = "groupBox_TTCTSanPham";
-            this.groupBox_TTCTSanPham.Size = new System.Drawing.Size(1320, 217);
+            this.groupBox_TTCTSanPham.Size = new System.Drawing.Size(1320, 268);
             this.groupBox_TTCTSanPham.TabIndex = 1;
             this.groupBox_TTCTSanPham.TabStop = false;
             this.groupBox_TTCTSanPham.Text = "Thông tin mặt hàng";
@@ -367,7 +375,7 @@
             this.groupBox1.Controls.Add(this.dataGridView_CTnhaphang);
             this.groupBox1.Controls.Add(this.dataGridView_nhaphang);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(24, 254);
+            this.groupBox1.Location = new System.Drawing.Point(24, 305);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1320, 246);
             this.groupBox1.TabIndex = 2;
@@ -474,6 +482,38 @@
             this.Column6.HeaderText = "Tổng tiền ";
             this.Column6.Name = "Column6";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(221, 230);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(95, 19);
+            this.label8.TabIndex = 79;
+            this.label8.Text = "Ngày sản xuất";
+            // 
+            // dateTimePicker_NgaySX
+            // 
+            this.dateTimePicker_NgaySX.Location = new System.Drawing.Point(319, 224);
+            this.dateTimePicker_NgaySX.Name = "dateTimePicker_NgaySX";
+            this.dateTimePicker_NgaySX.Size = new System.Drawing.Size(230, 26);
+            this.dateTimePicker_NgaySX.TabIndex = 80;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(571, 230);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(89, 19);
+            this.label9.TabIndex = 81;
+            this.label9.Text = "Ngày hết hạn";
+            // 
+            // dateTimePicker_NgayHH
+            // 
+            this.dateTimePicker_NgayHH.Location = new System.Drawing.Point(669, 224);
+            this.dateTimePicker_NgayHH.Name = "dateTimePicker_NgayHH";
+            this.dateTimePicker_NgayHH.Size = new System.Drawing.Size(230, 26);
+            this.dateTimePicker_NgayHH.TabIndex = 82;
+            // 
             // frm_NhapHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -538,5 +578,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox text_socon;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_NgayHH;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_NgaySX;
+        private System.Windows.Forms.Label label8;
     }
 }

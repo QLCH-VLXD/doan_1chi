@@ -15,6 +15,7 @@ namespace QuanLy_CH_VLXD
     public partial class frm_DanhMucSanPham : UserControl
     {
         BLL_DanhMucSanPham bll_DanhMucSanPham = new BLL_DanhMucSanPham();
+        BLL_DonGia bLL_DonGia = new BLL_DonGia();
         int flag = 0;
 
         public frm_DanhMucSanPham()
@@ -31,7 +32,7 @@ namespace QuanLy_CH_VLXD
             cbo_TenLoaiMH.ValueMember = "MALOAIMATHANG";
             cbo_TenLoaiMH.DisplayMember = "TENLOAIMATHANG";
 
-            txt_MaMH.Text = "MH" + bll_DanhMucSanPham.Sinh_MaMatHang();
+            //txt_MaMH.Text = "MH" + bll_DanhMucSanPham.Sinh_MaMatHang();
 
             cbo_DonViTinh.DataSource = bll_DanhMucSanPham.load_donViTinh();
             cbo_DonViTinh.ValueMember = "MADVT";
@@ -49,11 +50,67 @@ namespace QuanLy_CH_VLXD
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-           
+            MATHANG mh = new MATHANG();
+            DONGIA dg = new DONGIA();
+            if (txt_MaMH.Text.Length > 0 && txt_TenMH.Text.Length > 0 && txt_SoLuong.Text.Length > 0 && txt_DonGia.Text.Length > 0 && txt_hanMucHetHang.Text.Length > 0 && txt_XuatXu.Text.Length > 0)
+            {
+                mh.MAMATHANG = txt_MaMH.Text;
+                mh.MALOAIMATHANG = cbo_TenLoaiMH.SelectedValue.ToString();
+                mh.TENMATHANG = txt_TenMH.Text;
+                mh.SOLUONG = Convert.ToInt32(txt_SoLuong.Text);
+                mh.MADVT = cbo_DonViTinh.SelectedValue.ToString();
+                mh.MANSX = cbo_NhaSX.SelectedValue.ToString();
+                mh.HANMUCHETHANG = Convert.ToInt32(txt_hanMucHetHang.Text);
+                if (radioButton_Con.Checked == true)
+                {
+                    mh.TINHTRANG = "còn hàng";
+                }
+                else
+                {
+                    mh.TINHTRANG = "hết hàng";
+                }
+                mh.XUATXU = txt_XuatXu.Text;
+                mh.GHICHU = txt_GhiChu.Text;
+                if (bll_DanhMucSanPham.KTKC(mh) == true)
+                {
+                    if (bll_DanhMucSanPham.them_DMMH(mh) == true)
+                    {
+                        MessageBox.Show("Thành công");
+                        dg.MADONGIA = "DG" + (bll_DanhMucSanPham.load_dongia().Count + 1).ToString();
+                        dg.GIA = Convert.ToDecimal(txt_DonGia.Text);
+                        dg.NGAYAPDUNG = Convert.ToDateTime(dateEdit1.Text);
+                        dg.MAMATHANG = txt_MaMH.Text;
+                        if (bLL_DonGia.Load_ThemDonGiadll(dg) == true)
+                        {
+                            dataGridView1.DataSource = bll_DanhMucSanPham.LoadDL_DSMATHANGdll();
+
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thất bại");
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Mặt hàng đã tồn tại");
+                }
+
+               
+            }
+            else
+                MessageBox.Show("Vui lòng nhập đủ thông tin");
+            
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
+           
         }
 
         private void loaddatagirdview()
@@ -61,8 +118,36 @@ namespace QuanLy_CH_VLXD
             bll_DanhMucSanPham = new BLL_DanhMucSanPham();
             //dataGridView1.DataSource = bll_DanhMucSanPham.LoadDL_DSMATHANGdll();
         }
+        
+        
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            MATHANG mh = new MATHANG();
+            DONGIA dg = new DONGIA();
+            if (MessageBox.Show("Bạn có muốn xóa?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
+            mh.MAMATHANG = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            
+
+            if (bll_DanhMucSanPham.Xoa_DMMH(mh) == true)
+            {
+                MessageBox.Show("Thành công");
+                dg.MAMATHANG = txt_MaMH.Text;
+                if (bLL_DonGia.Load_XoaDG_dmmh(dg) == true)
+                {
+                    dataGridView1.DataSource = bll_DanhMucSanPham.LoadDL_DSMATHANGdll();
+
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Thất bại");
+                // return;
+            }
         }
 
       
@@ -91,7 +176,7 @@ namespace QuanLy_CH_VLXD
             }
         }
 
-        List<Bangghep_DMMH> mh_bangghep = new List<Bangghep_DMMH>();
+       
 
        
         private void txt_SoLuong_KeyPress(object sender, KeyPressEventArgs e)
@@ -105,6 +190,8 @@ namespace QuanLy_CH_VLXD
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                 e.Handled = true;
         }
+
+        
         private void dataGridView1_SelectionChanged_1(object sender, EventArgs e)
         {
             
@@ -121,10 +208,10 @@ namespace QuanLy_CH_VLXD
                         cbo_DonViTinh.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
                         cbo_NhaSX.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
                         txt_hanMucHetHang.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
-                        dateEdit_ngaySanXuat.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
-                        dateEdit_ngayHetHan.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
-                        txt_XuatXu.Text = dataGridView1.CurrentRow.Cells[12].Value.ToString();
-                        if (dataGridView1.CurrentRow.Cells[14].Value.ToString() == "còn hàng")
+                        //dateEdit_ngaySanXuat.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
+                       // dateEdit_ngayHetHan.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
+                        txt_XuatXu.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
+                        if (dataGridView1.CurrentRow.Cells[12].Value.ToString() == "còn hàng")
                         {
                             radioButton_Con.Checked = true;
                             radioButton_Het.Checked = false;
@@ -134,13 +221,11 @@ namespace QuanLy_CH_VLXD
                             radioButton_Het.Checked = false;
                             radioButton_Het.Checked = true;
                         }
-                        txt_GhiChu.Text = dataGridView1.CurrentRow.Cells[13].Value.ToString();
+                        txt_GhiChu.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
                     }
                 }
            
         }
-
-       
         private void btn_LamMoi_Click(object sender, EventArgs e)
         {
             cbo_TenLoaiMH.Text="";
@@ -181,6 +266,7 @@ namespace QuanLy_CH_VLXD
 
         }
 
+        List<Bangghep_DMMH> mh_bangghep = new List<Bangghep_DMMH>();
         private void txt_TimKiemTenMH_TextChanged(object sender, EventArgs e)
         {
             //try
@@ -226,5 +312,51 @@ namespace QuanLy_CH_VLXD
             //}
     }
 
+        private void btn_Sửa_Click(object sender, EventArgs e)
+        {
+            MATHANG mh = new MATHANG();
+            DONGIA dg = new DONGIA();
+
+            mh.MAMATHANG = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            mh.MALOAIMATHANG = cbo_TenLoaiMH.SelectedValue.ToString();
+            mh.MADVT = cbo_DonViTinh.SelectedValue.ToString();
+            mh.MANSX = cbo_NhaSX.SelectedValue.ToString();
+            mh.TENMATHANG = txt_TenMH.Text;
+            mh.SOLUONG = Convert.ToInt32(txt_SoLuong.Text);
+            mh.HANMUCHETHANG = Convert.ToInt32(txt_hanMucHetHang.Text);
+            if (radioButton_Con.Checked == true)
+            {
+                mh.TINHTRANG = "còn hàng";
+            }
+            else
+            {
+                mh.TINHTRANG = "hết hàng";
+            }
+            
+            mh.XUATXU = txt_XuatXu.Text;
+            mh.GHICHU = txt_GhiChu.Text;
+
+            if (bll_DanhMucSanPham.Sua_DMMH(mh) == true)
+            {
+                MessageBox.Show("Thành công");
+                dg.GIA = Convert.ToDecimal( txt_DonGia.Text);
+                dg.NGAYAPDUNG = Convert.ToDateTime(dateEdit1.Text);
+                dg.MAMATHANG = txt_MaMH.Text;
+                if (bLL_DonGia.Load_SuaDG_DMMH(dg) == true)
+                {
+                    dataGridView1.DataSource = bll_DanhMucSanPham.LoadDL_DSMATHANGdll();
+
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Thất bại");
+                // return;
+            }
+        }
     }
 }

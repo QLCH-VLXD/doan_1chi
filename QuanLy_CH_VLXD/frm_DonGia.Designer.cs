@@ -33,8 +33,6 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.txtMaMH = new System.Windows.Forms.TextBox();
-            this.dateEdit_NgayKT = new DevExpress.XtraEditors.DateEdit();
-            this.label3 = new System.Windows.Forms.Label();
             this.dateEdit_NgayBD = new DevExpress.XtraEditors.DateEdit();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,8 +51,6 @@
             this.lbl_MaNv = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_NgayKT.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_NgayKT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_NgayBD.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_NgayBD.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -111,29 +107,6 @@
             this.txtMaMH.Size = new System.Drawing.Size(230, 27);
             this.txtMaMH.TabIndex = 83;
             // 
-            // dateEdit_NgayKT
-            // 
-            this.dateEdit_NgayKT.EditValue = null;
-            this.dateEdit_NgayKT.Location = new System.Drawing.Point(145, 356);
-            this.dateEdit_NgayKT.Name = "dateEdit_NgayKT";
-            this.dateEdit_NgayKT.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateEdit_NgayKT.Properties.Appearance.Options.UseFont = true;
-            this.dateEdit_NgayKT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit_NgayKT.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit_NgayKT.Size = new System.Drawing.Size(230, 26);
-            this.dateEdit_NgayKT.TabIndex = 82;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 363);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 19);
-            this.label3.TabIndex = 81;
-            this.label3.Text = "Ngày kết thúc";
-            // 
             // dateEdit_NgayBD
             // 
             this.dateEdit_NgayBD.EditValue = null;
@@ -151,8 +124,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtMaMH);
-            this.groupBox1.Controls.Add(this.dateEdit_NgayKT);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.dateEdit_NgayBD);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnSua);
@@ -313,8 +284,6 @@
             this.Load += new System.EventHandler(this.frm_DonGia_Load);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_NgayKT.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit_NgayKT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_NgayBD.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_NgayBD.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -329,8 +298,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox txtMaMH;
-        private DevExpress.XtraEditors.DateEdit dateEdit_NgayKT;
-        private System.Windows.Forms.Label label3;
         private DevExpress.XtraEditors.DateEdit dateEdit_NgayBD;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;

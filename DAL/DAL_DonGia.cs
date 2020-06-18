@@ -200,6 +200,28 @@ namespace DAL
             }
         }
 
+        public bool suaDG_DMMH(DONGIA dg)
+        {
+            try
+            {
+                DONGIA Dg = (from s in dal_data.DONGIAs
+                             join q in dal_data.MATHANGs on s.MAMATHANG equals (q.MAMATHANG)
+                             where s.MAMATHANG == dg.MAMATHANG 
+                             select s).FirstOrDefault();
+               
+                Dg.MAMATHANG = dg.MAMATHANG;
+                Dg.NGAYAPDUNG = dg.NGAYAPDUNG;
+                Dg.NGAYKETTHUC = dg.NGAYKETTHUC;
+                Dg.GIA = dg.GIA;
+                dal_data.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public bool xoaMH(MATHANG mh)
         {
             try
@@ -230,6 +252,22 @@ namespace DAL
             }
         }
 
+        public bool xoaDG_dmmh(DONGIA dg)
+        {
+            try
+            {
+                DONGIA Dg = (from s in dal_data.DONGIAs
+                          where s.MAMATHANG == dg.MAMATHANG
+                          select s).FirstOrDefault();
+                dal_data.DONGIAs.DeleteOnSubmit(Dg);
+                dal_data.SubmitChanges(); 
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         public bool XoaLMH(LOAIMATHANG lmh)
         {

@@ -43,7 +43,7 @@ namespace DAL
 
             var dulieu = (from s in dal_data.CTPHIEUDATHANGNSXes
                           from ss in dal_data.MATHANGs
-                          where s.MAMATHANG == ss.MAMATHANG 
+                          where s.MAMATHANG == ss.MAMATHANG && s.MACTPHIEUDATHANG==mamathang
                           select ss.TENMATHANG).FirstOrDefault();
             return dulieu.ToString();
         }
@@ -94,9 +94,9 @@ namespace DAL
         // ///////////////////////////
         public string Load_SoLuong(string mact)
         {
-            var dl = (from s in dal_data.CHITIETPHIEUNHAPHANGs 
+            var dl = (from s in dal_data.CTPHIEUDATHANGNSXes 
                       where s.MACTPHIEUDATHANG == mact
-                      select s.SOLUONGMH);
+                      select s.SOLUONG);
             dl.ToList<int?>();
             int? sum = dl.Sum();
             if(sum>=0)
@@ -164,9 +164,10 @@ namespace DAL
                                  s.MACTPN,
                                  s.MAPN,
                                  s.MACTPHIEUDATHANG,
-
                                  s.SOLUONGMH,
-                                 s.THANHTIENCTPNH
+                                 s.THANHTIENCTPNH,
+                                 s.NGAYSX,
+                                 s.NGAYHH
                              };
             var kq = CTnhaphang.ToList().ConvertAll(t => new CT_NhapHang()
             {
@@ -174,7 +175,11 @@ namespace DAL
                 MAPN1 = t.MAPN,
                 MACTPHIEUDATHANG1 = t.MACTPHIEUDATHANG,
                 SOLUONGMH1 = Convert.ToString(t.SOLUONGMH),
-                THANHTIENCTPNH1 = Convert.ToString(t.THANHTIENCTPNH)
+                THANHTIENCTPNH1 = Convert.ToString(t.THANHTIENCTPNH),
+                NGAYSX1 = Convert.ToDateTime( t.NGAYSX),
+                NGAYHH1 = Convert.ToDateTime(t.NGAYHH)
+
+
             });
             return kq.ToList<CT_NhapHang>();
         }
@@ -193,7 +198,9 @@ namespace DAL
                                  s.MACTPHIEUDATHANG,
 
                                  s.SOLUONGMH,
-                                 s.THANHTIENCTPNH
+                                 s.THANHTIENCTPNH,
+                                 s.NGAYSX,
+                                 s.NGAYHH
                              };
             var kq = CTnhaphang.ToList().ConvertAll(t => new CT_NhapHang()
             {
@@ -201,7 +208,9 @@ namespace DAL
                 MAPN1 = t.MAPN,
                 MACTPHIEUDATHANG1 = t.MACTPHIEUDATHANG,
                 SOLUONGMH1 = Convert.ToString(t.SOLUONGMH),
-                THANHTIENCTPNH1 = Convert.ToString(t.THANHTIENCTPNH)
+                THANHTIENCTPNH1 = Convert.ToString(t.THANHTIENCTPNH),
+                NGAYSX1 = Convert.ToDateTime(t.NGAYSX),
+                NGAYHH1 = Convert.ToDateTime(t.NGAYHH)
             });
             return kq.ToList<CT_NhapHang>();
         }
@@ -313,16 +322,24 @@ namespace DAL
         public int laysoluong_ctdathang(String s)
         {
             var dulieu = (from f in dal_data.CTPHIEUDATHANGNSXes
-                          where  f.MAPDHNSX == s.ToString()
-                          select f.SOLUONG);
+                          where  f.MACTPHIEUDATHANG == s.ToString()
+                          select f.SOLUONG).FirstOrDefault();
+            
+            return Convert.ToInt32( dulieu);
+        }
+
+        public int laysoluong_ctnhaphang(String s)
+        {
+            var dulieu = (from f in dal_data.CHITIETPHIEUNHAPHANGs
+                          where f.MACTPHIEUDATHANG == s.ToString()
+                          select f.SOLUONGMH);
+            if(dulieu==null)
+            {
+                return 0;
+            }    
             dulieu.ToList<int?>();
             int? sum = dulieu.Sum();
-            if (sum >= 0)
-            {
-                return Convert.ToInt32(sum.ToString());
-            }
-
-            return 0;
+            return Convert.ToInt32(sum);
         }
 
         public int laysoluong_ctdathang1(String s)

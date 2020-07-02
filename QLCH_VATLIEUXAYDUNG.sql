@@ -134,6 +134,8 @@ CREATE TABLE MATHANG
  ADD HANMUCHETHANG INT;
  ALTER TABLE MATHANG
  ADD XUATXU NVARCHAR(50);
+ ALTER TABLE MATHANG
+ ADD HINHMH IMAGE;
 
 CREATE TABLE CHITIETMATHANG
 (
@@ -283,6 +285,7 @@ CREATE TABLE TKHANGTONKHO
 	SOLUONGTONKHO INT,
 	GHICHU NVARCHAR(200),
 	PRIMARY KEY(MATKHANGTONKHO)
+
 );
 
 
@@ -588,11 +591,14 @@ VALUES	('DVT01',N'Mét'),
 
 SET DATEFORMAT DMY
 INSERT INTO  MATHANG
-VALUES	('MH01',N'Gạch Men','LMH01','NSX01',N'DVT01','200',N'còn hàng','null',5, N'Việt Nam')
---		('MH02',N'Xi Măng LT','LMH02','NSX02',N'DVT01','300',N'còn hàng','null'),
---		('MH03',N'Tôn Fico','LMH03','NSX03',N'DVT01','450',N'còn hàng','null'),
---		('MH04',N'Ngói xanh','LMH04','NSX04',N'DVT01','0',N'hết hàng','null')
-
+VALUES	('MH01',N'Tôn lạnh','LMH03','NSX01',N'DVT01','200',N'còn hàng','null',5, N'Việt Nam',null),
+		('MH02',N'Bê Tông FiCo','LMH05','NSX02',N'DVT01','300',N'còn hàng','null',6, N'Thái Lan',null),
+		('MH03',N'Tôn Fico','LMH03','NSX03',N'DVT01','450',N'còn hàng','null',6, N'Malaisia',null),
+   		('MH04',N'Ngói xanh','LMH04','NSX04',N'DVT01','0',N'hết hàng','null',7, N'Hàn Quốc',null),
+	    ('MH05',N'cát vàng','LMH03','NSX03',N'DVT01','555',N'còn hàng','null',6, N'Nhật Bản',null),
+   		('MH06',N'Đá xanh','LMH04','NSX04',N'DVT01','1000',N'còn hàng','null',7, N'Hàn Quốc',null),
+		('MH07',N'cát vàng','LMH03','NSX03',N'DVT01','555',N'còn hàng','null',6, N'Nhật Bản',null),
+   		('MH08',N'Đá xanh','LMH04','NSX04',N'DVT01','1000',N'còn hàng','null',7, N'Hàn Quốc',null)
 
 SET DATEFORMAT DMY
 INSERT INTO  CHITIETMATHANG
@@ -604,11 +610,14 @@ VALUES	('CTMH01','MH01','PN01','22/03/2011','22/03/2020')
 
 SET DATEFORMAT DMY
 INSERT INTO  DONGIA
-VALUES	('DG01','MH01','200000','22/03/2011','22/03/2020')
-		--('DG02','MH02','500000','14/12/2011','12/06/2020'),
-		--('DG03','MH03','350000','05/03/2011','17/09/2020'),
-		--('DG04','MH04','100000','09/01/2011','27/04/2020')
-
+VALUES	('DG01','MH01','200000','22/03/2011','22/03/2020'),
+		('DG02','MH02','500000','14/12/2011','12/06/2020'),
+		('DG03','MH03','350000','05/03/2011','17/09/2020'),
+		('DG04','MH04','100000','09/01/2011','27/04/2020'),
+		('DG05','MH05','350000','05/03/2011','17/09/2020'),
+		('DG06','MH06','100000','09/01/2011','27/04/2020'),
+		('DG07','MH07','350000','05/03/2011','17/09/2020'),
+		('DG08','MH08','100000','09/01/2011','27/04/2020')
 
 SET DATEFORMAT DMY
 INSERT INTO  PHIEUDATHANGNSX

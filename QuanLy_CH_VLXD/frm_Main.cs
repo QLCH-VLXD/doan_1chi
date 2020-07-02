@@ -211,9 +211,10 @@ namespace QuanLy_CH_VLXD
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmDangNhap frmDN = new frmDangNhap();
-            frmDN.Show();
-            this.Hide();
+                     
+            //this.Hide();
+            this.Close();
+            Program.Frm_DangNhap.Show(); 
         }
 
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -228,6 +229,20 @@ namespace QuanLy_CH_VLXD
             frm_DanhMucPhanQuyen frm_DanhMucPhanQuyen = new frm_DanhMucPhanQuyen();
             panel1.Controls.Clear();
             panel1.Controls.Add(frm_DanhMucPhanQuyen);
+        }
+
+        private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Program.Frm_DangNhap.Show();
+
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Đăng xuất", "Exit!!!!!!!!!!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
 
         // lấy dữ liệu 

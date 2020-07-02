@@ -94,6 +94,7 @@
             // ribbonControl1
             // 
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
+            this.ribbonControl1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
             this.barButtonItem_DoMatKhau,
@@ -124,7 +125,9 @@
             this.ribbonPage_TacVu,
             this.ribbonPage_DanhMuc,
             this.ribbonPage_TroGiup});
+            this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2019;
             this.ribbonControl1.Size = new System.Drawing.Size(1370, 141);
+            this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Above;
             // 
             // barButtonItem_DoMatKhau
             // 
@@ -505,6 +508,9 @@
             this.tableAdapterManager.PHIEUDATHANGNSXTableAdapter = null;
             this.tableAdapterManager.PHIEUNHAPHANGTableAdapter = null;
             this.tableAdapterManager.TAIKHOANTableAdapter = this.tAIKHOANTableAdapter;
+            this.tableAdapterManager.THONGKETableAdapter = null;
+            this.tableAdapterManager.TKHANGSAPHETTableAdapter = null;
+            this.tableAdapterManager.TKHANGTONKHOTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QuanLy_CH_VLXD.DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // mANHINHTableAdapter
@@ -550,10 +556,13 @@
             this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ribbonControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "FrmMain";
             this.Text = "frm_Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.Load += new System.EventHandler(this.frm_Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();

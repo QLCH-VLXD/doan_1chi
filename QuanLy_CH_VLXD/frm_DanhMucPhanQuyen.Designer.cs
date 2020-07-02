@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gridControl_NhomNguoiDung = new DevExpress.XtraGrid.GridControl();
+            this.nHOMNGUOIDUNGBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new QuanLy_CH_VLXD.DataSet1();
             this.gridView_NhomNguoiDung = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMANHOM = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENNHOM = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -48,6 +50,7 @@
             this.mAMANHINHTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.tENMANHINHTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.gridControl_ManHinh = new DevExpress.XtraGrid.GridControl();
+            this.mANHINHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView_ManHinh = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAMANHINH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENMANHINH = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -67,23 +70,22 @@
             this.colTENNHOM1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colGHICHU2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl_TaiKhoan = new DevExpress.XtraGrid.GridControl();
+            this.tAIKHOANBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView_TaiKhoan = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMATKHAU = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dataSet1 = new QuanLy_CH_VLXD.DataSet1();
-            this.nHOMNGUOIDUNGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nHOMNGUOIDUNGTableAdapter = new QuanLy_CH_VLXD.DataSet1TableAdapters.NHOMNGUOIDUNGTableAdapter();
             this.tableAdapterManager = new QuanLy_CH_VLXD.DataSet1TableAdapters.TableAdapterManager();
-            this.mANHINHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mANHINHTableAdapter = new QuanLy_CH_VLXD.DataSet1TableAdapters.MANHINHTableAdapter();
-            this.tAIKHOANBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nGUOIDUNGNHOMNGUOIDUNGTableAdapter = new QuanLy_CH_VLXD.DataSet1TableAdapters.NGUOIDUNGNHOMNGUOIDUNGTableAdapter();
+            this.pHANQUYENTableAdapter = new QuanLy_CH_VLXD.DataSet1TableAdapters.PHANQUYENTableAdapter();
             this.tAIKHOANTableAdapter = new QuanLy_CH_VLXD.DataSet1TableAdapters.TAIKHOANTableAdapter();
             this.pHANQUYENBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pHANQUYENTableAdapter = new QuanLy_CH_VLXD.DataSet1TableAdapters.PHANQUYENTableAdapter();
             this.nGUOIDUNGNHOMNGUOIDUNGBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nGUOIDUNGNHOMNGUOIDUNGTableAdapter = new QuanLy_CH_VLXD.DataSet1TableAdapters.NGUOIDUNGNHOMNGUOIDUNGTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_NhomNguoiDung)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nHOMNGUOIDUNGBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_NhomNguoiDung)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tENNHOMTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gHICHUTextEdit.Properties)).BeginInit();
@@ -91,6 +93,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mAMANHINHTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tENMANHINHTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_ManHinh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mANHINHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_ManHinh)).BeginInit();
             this.groupBox_NguoiDungNhomNguoiDun.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlManHinh)).BeginInit();
@@ -98,17 +101,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControlNhomNguoiDung)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNhomNguoiDung)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_TaiKhoan)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView_TaiKhoan)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nHOMNGUOIDUNGBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mANHINHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tAIKHOANBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView_TaiKhoan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pHANQUYENBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGUOIDUNGNHOMNGUOIDUNGBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBox_NguoiDungNhomNguoiDun);
             this.groupBox1.Controls.Add(this.gridControl_NhomNguoiDung);
             this.groupBox1.Controls.Add(this.mANHOMComboBox);
             this.groupBox1.Controls.Add(this.tENNHOMTextEdit);
@@ -137,6 +138,16 @@
             this.gridControl_NhomNguoiDung.TabIndex = 27;
             this.gridControl_NhomNguoiDung.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_NhomNguoiDung});
+            // 
+            // nHOMNGUOIDUNGBindingSource
+            // 
+            this.nHOMNGUOIDUNGBindingSource.DataMember = "NHOMNGUOIDUNG";
+            this.nHOMNGUOIDUNGBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView_NhomNguoiDung
             // 
@@ -302,6 +313,11 @@
             this.gridControl_ManHinh.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_ManHinh});
             // 
+            // mANHINHBindingSource
+            // 
+            this.mANHINHBindingSource.DataMember = "MANHINH";
+            this.mANHINHBindingSource.DataSource = this.dataSet1;
+            // 
             // gridView_ManHinh
             // 
             this.gridView_ManHinh.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -381,9 +397,9 @@
             this.groupBox_NguoiDungNhomNguoiDun.Controls.Add(this.gridControlNhomNguoiDung);
             this.groupBox_NguoiDungNhomNguoiDun.Controls.Add(this.gridControl_TaiKhoan);
             this.groupBox_NguoiDungNhomNguoiDun.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox_NguoiDungNhomNguoiDun.Location = new System.Drawing.Point(26, 336);
+            this.groupBox_NguoiDungNhomNguoiDun.Location = new System.Drawing.Point(0, 293);
             this.groupBox_NguoiDungNhomNguoiDun.Name = "groupBox_NguoiDungNhomNguoiDun";
-            this.groupBox_NguoiDungNhomNguoiDun.Size = new System.Drawing.Size(1336, 298);
+            this.groupBox_NguoiDungNhomNguoiDun.Size = new System.Drawing.Size(1336, 246);
             this.groupBox_NguoiDungNhomNguoiDun.TabIndex = 6;
             this.groupBox_NguoiDungNhomNguoiDun.TabStop = false;
             this.groupBox_NguoiDungNhomNguoiDun.Text = "Người dùng nhóm người dùng";
@@ -432,7 +448,7 @@
             this.gridControlNhomNguoiDung.Location = new System.Drawing.Point(13, 25);
             this.gridControlNhomNguoiDung.MainView = this.gridViewNhomNguoiDung;
             this.gridControlNhomNguoiDung.Name = "gridControlNhomNguoiDung";
-            this.gridControlNhomNguoiDung.Size = new System.Drawing.Size(400, 253);
+            this.gridControlNhomNguoiDung.Size = new System.Drawing.Size(400, 191);
             this.gridControlNhomNguoiDung.TabIndex = 25;
             this.gridControlNhomNguoiDung.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewNhomNguoiDung});
@@ -477,10 +493,15 @@
             this.gridControl_TaiKhoan.Location = new System.Drawing.Point(459, 25);
             this.gridControl_TaiKhoan.MainView = this.gridView_TaiKhoan;
             this.gridControl_TaiKhoan.Name = "gridControl_TaiKhoan";
-            this.gridControl_TaiKhoan.Size = new System.Drawing.Size(400, 253);
+            this.gridControl_TaiKhoan.Size = new System.Drawing.Size(400, 191);
             this.gridControl_TaiKhoan.TabIndex = 22;
             this.gridControl_TaiKhoan.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_TaiKhoan});
+            // 
+            // tAIKHOANBindingSource
+            // 
+            this.tAIKHOANBindingSource.DataMember = "TAIKHOAN";
+            this.tAIKHOANBindingSource.DataSource = this.dataSet1;
             // 
             // gridView_TaiKhoan
             // 
@@ -508,16 +529,6 @@
             this.colMATKHAU.Name = "colMATKHAU";
             this.colMATKHAU.Visible = true;
             this.colMATKHAU.VisibleIndex = 2;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // nHOMNGUOIDUNGBindingSource
-            // 
-            this.nHOMNGUOIDUNGBindingSource.DataMember = "NHOMNGUOIDUNG";
-            this.nHOMNGUOIDUNGBindingSource.DataSource = this.dataSet1;
             // 
             // nHOMNGUOIDUNGTableAdapter
             // 
@@ -552,19 +563,17 @@
             this.tableAdapterManager.TAIKHOANTableAdapter = this.tAIKHOANTableAdapter;
             this.tableAdapterManager.UpdateOrder = QuanLy_CH_VLXD.DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // mANHINHBindingSource
-            // 
-            this.mANHINHBindingSource.DataMember = "MANHINH";
-            this.mANHINHBindingSource.DataSource = this.dataSet1;
-            // 
             // mANHINHTableAdapter
             // 
             this.mANHINHTableAdapter.ClearBeforeFill = true;
             // 
-            // tAIKHOANBindingSource
+            // nGUOIDUNGNHOMNGUOIDUNGTableAdapter
             // 
-            this.tAIKHOANBindingSource.DataMember = "TAIKHOAN";
-            this.tAIKHOANBindingSource.DataSource = this.dataSet1;
+            this.nGUOIDUNGNHOMNGUOIDUNGTableAdapter.ClearBeforeFill = true;
+            // 
+            // pHANQUYENTableAdapter
+            // 
+            this.pHANQUYENTableAdapter.ClearBeforeFill = true;
             // 
             // tAIKHOANTableAdapter
             // 
@@ -575,33 +584,25 @@
             this.pHANQUYENBindingSource.DataMember = "PHANQUYEN";
             this.pHANQUYENBindingSource.DataSource = this.dataSet1;
             // 
-            // pHANQUYENTableAdapter
-            // 
-            this.pHANQUYENTableAdapter.ClearBeforeFill = true;
-            // 
             // nGUOIDUNGNHOMNGUOIDUNGBindingSource
             // 
             this.nGUOIDUNGNHOMNGUOIDUNGBindingSource.DataMember = "NGUOIDUNGNHOMNGUOIDUNG";
             this.nGUOIDUNGNHOMNGUOIDUNGBindingSource.DataSource = this.dataSet1;
             // 
-            // nGUOIDUNGNHOMNGUOIDUNGTableAdapter
-            // 
-            this.nGUOIDUNGNHOMNGUOIDUNGTableAdapter.ClearBeforeFill = true;
-            // 
             // frm_DanhMucPhanQuyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1362, 693);
-            this.Controls.Add(this.groupBox_NguoiDungNhomNguoiDun);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_DanhMucPhanQuyen";
-            this.Text = "frm_DanhMucPhanQuyen";
+            this.Size = new System.Drawing.Size(1362, 563);
             this.Load += new System.EventHandler(this.frm_DanhMucPhanQuyen_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_NhomNguoiDung)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nHOMNGUOIDUNGBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_NhomNguoiDung)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tENNHOMTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gHICHUTextEdit.Properties)).EndInit();
@@ -610,6 +611,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mAMANHINHTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tENMANHINHTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_ManHinh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mANHINHBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_ManHinh)).EndInit();
             this.groupBox_NguoiDungNhomNguoiDun.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlManHinh)).EndInit();
@@ -617,11 +619,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControlNhomNguoiDung)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNhomNguoiDung)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_TaiKhoan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView_TaiKhoan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nHOMNGUOIDUNGBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mANHINHBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tAIKHOANBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView_TaiKhoan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pHANQUYENBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nGUOIDUNGNHOMNGUOIDUNGBindingSource)).EndInit();
             this.ResumeLayout(false);

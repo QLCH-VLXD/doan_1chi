@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL;
 using BLL;
+using System.IO;
+using System.Net;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Drawing.Imaging;
 
 namespace QuanLy_CH_VLXD
 {
@@ -23,8 +27,8 @@ namespace QuanLy_CH_VLXD
             InitializeComponent();
         }
 
-       
-
+        bool isLoadData = false;
+        private List<Bangghep_DMMH> vl = null;
         private void frm_DanhMucSanPham_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = bll_DanhMucSanPham.load_loaiMatHang();
@@ -43,15 +47,90 @@ namespace QuanLy_CH_VLXD
             cbo_NhaSX.DisplayMember = "TENNSX";
             //flag = 1;
             dateEdit1.Text = DateTime.Today.Day.ToString();
+            vl = bll_DanhMucSanPham.LoadDL_DSMATHANGdll();
 
-            dataGridView1.DataSource = bll_DanhMucSanPham.LoadDL_DSMATHANGdll();
+            //List<test> tests = new List<test>();
+            //foreach(Bangghep_DMMH d in vl)
+            //{
+            //    tests.Add(new test
+            //    {
+            //        GHICHU = d.GHICHU1,
+            //        GIA = d.GIA1,
+            //        HANMUCHETHANG = d.HANMUCHETHANG1,
+            //        HINHMH = Base64ToImage(d.HINHMH1.ToArray()),
+            //        MALOAIMATHANG = d.MALOAIMATHANG1,
+            //        MAMATHANG = d.MAMATHANG1,
+            //        NGAYAPDUNG = d.NGAYAPDUNG1,
+            //        SOLUONG = d.SOLUONG1,
+            //        TENDVT = d.TENDVT1,
+            //        TENLOAIMATHANG = d.TENLOAIMATHANG1,
+            //        TENMATHANG = d.TENMATHANG1,
+            //        TENNSX = d.TENNSX1,
+            //        TINHTRANG = d.TINHTRANG1,
+            //        XUATXU = d.XUATXU1
+            //    });
+            //}
+            dataGridView1.DataSource = vl;
+            isLoadData = true;
+            Console.WriteLine(vl.FirstOrDefault().HINHMH1.ToArray());
+            pictureEdit1.Image = (Image)Base64ToImage(vl.FirstOrDefault().HINHMH1.ToArray());
         }
+
+
+
+
+
+        public static Bitmap Base64ToImage(byte[] byteArray)
+        {
+            ImageConverter imagec = new ImageConverter();
+            Bitmap bm = (Bitmap)imagec.ConvertFrom(byteArray);
+
+            if (bm != null && (bm.HorizontalResolution != (int)bm.HorizontalResolution ||
+                               bm.VerticalResolution != (int)bm.VerticalResolution))
+            {
+                // Correct a strange glitch that has been observed in the test program when converting 
+                //  from a PNG file image created by CopyImageToByteArray() - the dpi value "drifts" 
+                //  slightly away from the nominal integer value
+                bm.SetResolution((int)(bm.HorizontalResolution + 0.5f),
+                                 (int)(bm.VerticalResolution + 0.5f));
+            }
+
+            return bm;
+        }
+
+        //public Image Base64ToImage(byte[] base64String)
+        //{
+        //    try {
+        //        MemoryStream ms = new MemoryStream(base64String);
+        //        System.Drawing.Image returnImage = System.Drawing.Image.FromStream(ms);
+        //        return returnImage;
+        //    }
+        //    catch
+        //    {
+        //        return null;
+        //    }
+
+   
+
+
+        public byte[] ImageToBase64(Image image)
+        {
+            // CONVERT JPG TO A BYTE ARRAY
+
+            MemoryStream ms = new MemoryStream();
+            image.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
+            return ms.ToArray();
+
+
+        }
+
 
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             MATHANG mh = new MATHANG();
             DONGIA dg = new DONGIA();
+            //kt
             if (txt_MaMH.Text.Length > 0 && txt_TenMH.Text.Length > 0 && txt_SoLuong.Text.Length > 0 && txt_DonGia.Text.Length > 0 && txt_hanMucHetHang.Text.Length > 0 && txt_XuatXu.Text.Length > 0)
             {
                 mh.MAMATHANG = txt_MaMH.Text;
@@ -71,6 +150,9 @@ namespace QuanLy_CH_VLXD
                 }
                 mh.XUATXU = txt_XuatXu.Text;
                 mh.GHICHU = txt_GhiChu.Text;
+
+                mh.HINHMH = ImageToBase64(pictureEdit1.Image);
+
                 if (bll_DanhMucSanPham.KTKC(mh) == true)
                 {
                     if (bll_DanhMucSanPham.them_DMMH(mh) == true)
@@ -101,25 +183,27 @@ namespace QuanLy_CH_VLXD
                     MessageBox.Show("Mặt hàng đã tồn tại");
                 }
 
-               
+
             }
             else
                 MessageBox.Show("Vui lòng nhập đủ thông tin");
-            
+            loaddatagirdview();
+
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void loaddatagirdview()
         {
             bll_DanhMucSanPham = new BLL_DanhMucSanPham();
-            //dataGridView1.DataSource = bll_DanhMucSanPham.LoadDL_DSMATHANGdll();
+            vl = bll_DanhMucSanPham.LoadDL_DSMATHANGdll();
+            dataGridView1.DataSource = vl;
         }
-        
-        
+
+
         private void btnXoa_Click(object sender, EventArgs e)
         {
             MATHANG mh = new MATHANG();
@@ -127,7 +211,7 @@ namespace QuanLy_CH_VLXD
             if (MessageBox.Show("Bạn có muốn xóa?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
             mh.MAMATHANG = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            
+
 
             if (bll_DanhMucSanPham.Xoa_DMMH(mh) == true)
             {
@@ -150,7 +234,7 @@ namespace QuanLy_CH_VLXD
             }
         }
 
-      
+
 
         private void txt_SoLuong_Leave(object sender, EventArgs e)
         {
@@ -176,9 +260,9 @@ namespace QuanLy_CH_VLXD
             }
         }
 
-       
 
-       
+
+
         private void txt_SoLuong_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
@@ -191,44 +275,61 @@ namespace QuanLy_CH_VLXD
                 e.Handled = true;
         }
 
-        
+
         private void dataGridView1_SelectionChanged_1(object sender, EventArgs e)
         {
-            
-                if (dataGridView1.SelectedRows != null)
+
+            if (dataGridView1.CurrentRow.Index>=0 && isLoadData == true)//SelectedRows!= null
+            {
+                if (dataGridView1.CurrentRow.Cells[0].Value != null)
                 {
-                    if (dataGridView1.CurrentRow.Cells[0].Value != null)
+                    cbo_TenLoaiMH.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                    txt_MaMH.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                    txt_TenMH.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                    txt_SoLuong.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                    txt_DonGia.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                    dateEdit1.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+                    cbo_DonViTinh.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+                    cbo_NhaSX.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+                    txt_hanMucHetHang.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
+                    //dateEdit_ngaySanXuat.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
+                    // dateEdit_ngayHetHan.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
+                    txt_XuatXu.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
+                    if (dataGridView1.CurrentRow.Cells[12].Value.ToString() == "còn hàng")
                     {
-                        cbo_TenLoaiMH.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                        txt_MaMH.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                        txt_TenMH.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-                        txt_SoLuong.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-                        txt_DonGia.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                        dateEdit1.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-                        cbo_DonViTinh.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
-                        cbo_NhaSX.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
-                        txt_hanMucHetHang.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
-                        //dateEdit_ngaySanXuat.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
-                       // dateEdit_ngayHetHan.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
-                        txt_XuatXu.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
-                        if (dataGridView1.CurrentRow.Cells[12].Value.ToString() == "còn hàng")
-                        {
-                            radioButton_Con.Checked = true;
-                            radioButton_Het.Checked = false;
-                        }
-                        else
-                        {
-                            radioButton_Het.Checked = false;
-                            radioButton_Het.Checked = true;
-                        }
-                        txt_GhiChu.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
+                        radioButton_Con.Checked = true;
+                        radioButton_Het.Checked = false;
                     }
+                    else
+                    {
+                        radioButton_Het.Checked = false;
+                        radioButton_Het.Checked = true;
+                    }
+                    txt_GhiChu.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
+                    //byte[] a = ObjectToByteArray(vl[dataGridView1.CurrentRow.Index].HINHMH1.ToArray());
+                    pictureEdit1.Image = Base64ToImage(vl[dataGridView1.CurrentRow.Index].HINHMH1.ToArray());
+
                 }
-           
+            }
+
         }
+
+        //byte[] ObjectToByteArray(object obj)
+        //{
+        //    if (obj == null)
+        //        return null;
+        //    BinaryFormatter bf = new BinaryFormatter();
+        //    using (MemoryStream ms = new MemoryStream())
+        //    {
+        //        bf.Serialize(ms, obj);
+        //        return ms.ToArray();
+        //    }
+        //}
+
+
         private void btn_LamMoi_Click(object sender, EventArgs e)
         {
-            cbo_TenLoaiMH.Text="";
+            cbo_TenLoaiMH.Text = "";
             txt_MaMH.Text = "MH" + bll_DanhMucSanPham.Sinh_MaMatHang();
             txt_TenMH.Clear();
             txt_SoLuong.Clear();
@@ -241,6 +342,8 @@ namespace QuanLy_CH_VLXD
             radioButton_Het.Checked = false;
             txt_XuatXu.Clear();
             txt_GhiChu.Clear();
+            //pictureEdit1.Clear();
+
         }
 
         private void txt_hanMucHetHang_Leave(object sender, EventArgs e)
@@ -293,8 +396,6 @@ namespace QuanLy_CH_VLXD
             //                    mH_BangGhep.TENNSX1 = dataGridView1.Rows[i].Cells[8].Value.ToString();
             //                    mH_BangGhep.TINHTRANG1 = dataGridView1.Rows[i].Cells[14].Value.ToString();
             //                    mH_BangGhep.HANMUCHETHANG1 = int.Parse(dataGridView1.Rows[i].Cells[9].Value.ToString());
-            //                    mH_BangGhep.NGAYSX1 = DateTime.Parse(dataGridView1.Rows[i].Cells[10].Value.ToString());
-            //                    mH_BangGhep.NGAYHH1 = DateTime.Parse(dataGridView1.Rows[i].Cells[11].Value.ToString());
             //                    mH_BangGhep.XUATXU1 = dataGridView1.Rows[i].Cells[12].Value.ToString();
             //                    mh_bangghep.Add(mH_BangGhep);
             //                }
@@ -306,11 +407,20 @@ namespace QuanLy_CH_VLXD
             //        dataGridView1.DataSource = bll_DanhMucSanPham.LoadDL_DSMATHANGdll();
             //    }
             //}
-            //catch(Exception )
+            //catch (Exception)
             //{
 
             //}
-    }
+        }
+
+        public static byte[] CopyImageToByteArray(Image theImage)
+        {
+            using (MemoryStream memoryStream = new MemoryStream())
+            {
+                theImage.Save(memoryStream, ImageFormat.Png);
+                return memoryStream.ToArray();
+            }
+        }
 
         private void btn_Sửa_Click(object sender, EventArgs e)
         {
@@ -332,31 +442,65 @@ namespace QuanLy_CH_VLXD
             {
                 mh.TINHTRANG = "hết hàng";
             }
-            
+
             mh.XUATXU = txt_XuatXu.Text;
             mh.GHICHU = txt_GhiChu.Text;
+
+            mh.HINHMH = CopyImageToByteArray(pictureEdit1.Image);
+
 
             if (bll_DanhMucSanPham.Sua_DMMH(mh) == true)
             {
                 MessageBox.Show("Thành công");
-                dg.GIA = Convert.ToDecimal( txt_DonGia.Text);
+                dg.GIA = Convert.ToDecimal(txt_DonGia.Text);
                 dg.NGAYAPDUNG = Convert.ToDateTime(dateEdit1.Text);
                 dg.MAMATHANG = txt_MaMH.Text;
-                if (bLL_DonGia.Load_SuaDG_DMMH(dg) == true)
-                {
-                    dataGridView1.DataSource = bll_DanhMucSanPham.LoadDL_DSMATHANGdll();
-
-                }
-                else
-                {
+                if (!bLL_DonGia.Load_SuaDG_DMMH(dg))
                     return;
-                }
+
             }
             else
             {
                 MessageBox.Show("Thất bại");
                 // return;
             }
+            loaddatagirdview();
+        }
+
+        private void pictureEdit1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                xtraOpenFileDialog1.ShowDialog();
+                xtraOpenFileDialog1.Filter = "JPG FILE (*.jpg)|*.jpg|All files (*.*)|*.*";
+                string file = xtraOpenFileDialog1.FileName;
+                if (string.IsNullOrEmpty(file))
+                {
+                    return;
+                }
+                System.Drawing.Image image = System.Drawing.Image.FromFile(file);
+                pictureEdit1.Image = image;
+
+            }
+            catch
+            { }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (pictureEdit1.Image != null && pictureEdit1 != null)
+            {
+                pictureEdit1.Image.Dispose();
+                pictureEdit1.Image = null;
+            }
+        }
+
+
+
+
+        private void btn_Sửa_MouseUp(object sender, MouseEventArgs e)
+        {
+            dataGridView1.DataSource = bll_DanhMucSanPham.LoadDL_DSMATHANGdll();
         }
     }
 }

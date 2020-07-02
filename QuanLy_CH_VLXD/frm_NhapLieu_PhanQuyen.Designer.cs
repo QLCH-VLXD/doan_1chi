@@ -113,7 +113,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(21, 22);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(595, 354);
+            this.groupBox1.Size = new System.Drawing.Size(595, 317);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nhóm người dùng";
@@ -124,7 +124,7 @@
             this.gridControl_NhomNguoiDung.Location = new System.Drawing.Point(31, 131);
             this.gridControl_NhomNguoiDung.MainView = this.gridView_NhomNguoiDung;
             this.gridControl_NhomNguoiDung.Name = "gridControl_NhomNguoiDung";
-            this.gridControl_NhomNguoiDung.Size = new System.Drawing.Size(538, 200);
+            this.gridControl_NhomNguoiDung.Size = new System.Drawing.Size(538, 171);
             this.gridControl_NhomNguoiDung.TabIndex = 21;
             this.gridControl_NhomNguoiDung.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_NhomNguoiDung});
@@ -272,7 +272,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(659, 22);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(595, 354);
+            this.groupBox2.Size = new System.Drawing.Size(595, 317);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Màn Hình";
@@ -283,7 +283,7 @@
             this.gridControl_ManHinh.Location = new System.Drawing.Point(31, 102);
             this.gridControl_ManHinh.MainView = this.gridView_ManHinh;
             this.gridControl_ManHinh.Name = "gridControl_ManHinh";
-            this.gridControl_ManHinh.Size = new System.Drawing.Size(541, 200);
+            this.gridControl_ManHinh.Size = new System.Drawing.Size(541, 192);
             this.gridControl_ManHinh.TabIndex = 19;
             this.gridControl_ManHinh.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_ManHinh});
@@ -378,9 +378,9 @@
             this.groupBox_NguoiDungNhomNguoiDun.Controls.Add(this.gridControl_TaiKhoan);
             this.groupBox_NguoiDungNhomNguoiDun.Controls.Add(this.btn_Them_NDNND);
             this.groupBox_NguoiDungNhomNguoiDun.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox_NguoiDungNhomNguoiDun.Location = new System.Drawing.Point(21, 402);
+            this.groupBox_NguoiDungNhomNguoiDun.Location = new System.Drawing.Point(21, 345);
             this.groupBox_NguoiDungNhomNguoiDun.Name = "groupBox_NguoiDungNhomNguoiDun";
-            this.groupBox_NguoiDungNhomNguoiDun.Size = new System.Drawing.Size(1039, 333);
+            this.groupBox_NguoiDungNhomNguoiDun.Size = new System.Drawing.Size(1039, 314);
             this.groupBox_NguoiDungNhomNguoiDun.TabIndex = 3;
             this.groupBox_NguoiDungNhomNguoiDun.TabStop = false;
             this.groupBox_NguoiDungNhomNguoiDun.Text = "Người dùng nhóm người dùng";
@@ -396,6 +396,7 @@
             // 
             // nHOMNGUOIDUNGComboBox
             // 
+            this.nHOMNGUOIDUNGComboBox.DataSource = this.nHOMNGUOIDUNGBindingSource;
             this.nHOMNGUOIDUNGComboBox.DisplayMember = "TENNHOM";
             this.nHOMNGUOIDUNGComboBox.FormattingEnabled = true;
             this.nHOMNGUOIDUNGComboBox.Location = new System.Drawing.Point(180, 40);
@@ -411,7 +412,7 @@
             this.gridControl_NDNND.Location = new System.Drawing.Point(598, 104);
             this.gridControl_NDNND.MainView = this.gridView_NDNND;
             this.gridControl_NDNND.Name = "gridControl_NDNND";
-            this.gridControl_NDNND.Size = new System.Drawing.Size(400, 200);
+            this.gridControl_NDNND.Size = new System.Drawing.Size(400, 180);
             this.gridControl_NDNND.TabIndex = 23;
             this.gridControl_NDNND.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_NDNND});
@@ -460,7 +461,7 @@
             this.gridControl_TaiKhoan.Location = new System.Drawing.Point(31, 104);
             this.gridControl_TaiKhoan.MainView = this.gridView_TaiKhoan;
             this.gridControl_TaiKhoan.Name = "gridControl_TaiKhoan";
-            this.gridControl_TaiKhoan.Size = new System.Drawing.Size(400, 200);
+            this.gridControl_TaiKhoan.Size = new System.Drawing.Size(400, 180);
             this.gridControl_TaiKhoan.TabIndex = 22;
             this.gridControl_TaiKhoan.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_TaiKhoan});
@@ -562,13 +563,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1342, 749);
             this.Controls.Add(this.groupBox_NguoiDungNhomNguoiDun);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_NhapLieu_PhanQuyen";
-            this.Text = "frm_NhapLieu_PhanQuyen";
+            this.Size = new System.Drawing.Size(1342, 658);
             this.Load += new System.EventHandler(this.frm_NhapLieu_PhanQuyen_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

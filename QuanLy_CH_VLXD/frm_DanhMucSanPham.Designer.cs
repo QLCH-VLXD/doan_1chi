@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox_TTCTSanPham = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.btn_LamMoi = new System.Windows.Forms.Button();
             this.radioButton_Het = new System.Windows.Forms.RadioButton();
             this.radioButton_Con = new System.Windows.Forms.RadioButton();
@@ -64,6 +67,8 @@
             this.txt_TimKiemTenMH = new System.Windows.Forms.TextBox();
             this.dateTimeChartRangeControlClient1 = new DevExpress.XtraEditors.DateTimeChartRangeControlClient();
             this.lbl_Manv = new System.Windows.Forms.Label();
+            this.dataSet11 = new QuanLy_CH_VLXD.DataSet1();
+            this.xtraOpenFileDialog1 = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,16 +82,22 @@
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_TTCTSanPham.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeChartRangeControlClient1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox_TTCTSanPham
             // 
+            this.groupBox_TTCTSanPham.Controls.Add(this.pictureBox1);
+            this.groupBox_TTCTSanPham.Controls.Add(this.pictureEdit1);
             this.groupBox_TTCTSanPham.Controls.Add(this.btn_LamMoi);
             this.groupBox_TTCTSanPham.Controls.Add(this.radioButton_Het);
             this.groupBox_TTCTSanPham.Controls.Add(this.radioButton_Con);
@@ -123,6 +134,26 @@
             this.groupBox_TTCTSanPham.TabIndex = 3;
             this.groupBox_TTCTSanPham.TabStop = false;
             this.groupBox_TTCTSanPham.Text = " ";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::QuanLy_CH_VLXD.Properties.Resources.Santa_Claus_Sad_icon;
+            this.pictureBox1.Location = new System.Drawing.Point(1090, 14);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(33, 33);
+            this.pictureBox1.TabIndex = 139;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.Location = new System.Drawing.Point(935, 14);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.pictureEdit1.Size = new System.Drawing.Size(149, 152);
+            this.pictureEdit1.TabIndex = 133;
+            this.pictureEdit1.Click += new System.EventHandler(this.pictureEdit1_Click);
             // 
             // btn_LamMoi
             // 
@@ -165,6 +196,7 @@
             this.btn_Sửa.Text = "Sửa";
             this.btn_Sửa.UseVisualStyleBackColor = true;
             this.btn_Sửa.Click += new System.EventHandler(this.btn_Sửa_Click);
+            this.btn_Sửa.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_Sửa_MouseUp);
             // 
             // txt_TenMH
             // 
@@ -197,7 +229,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(812, 132);
+            this.label14.Location = new System.Drawing.Point(829, 180);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(58, 19);
             this.label14.TabIndex = 38;
@@ -205,7 +237,7 @@
             // 
             // txt_XuatXu
             // 
-            this.txt_XuatXu.Location = new System.Drawing.Point(913, 124);
+            this.txt_XuatXu.Location = new System.Drawing.Point(913, 172);
             this.txt_XuatXu.Multiline = true;
             this.txt_XuatXu.Name = "txt_XuatXu";
             this.txt_XuatXu.Size = new System.Drawing.Size(230, 27);
@@ -264,16 +296,16 @@
             // 
             // txt_GhiChu
             // 
-            this.txt_GhiChu.Location = new System.Drawing.Point(913, 172);
+            this.txt_GhiChu.Location = new System.Drawing.Point(913, 218);
             this.txt_GhiChu.Multiline = true;
             this.txt_GhiChu.Name = "txt_GhiChu";
-            this.txt_GhiChu.Size = new System.Drawing.Size(230, 73);
+            this.txt_GhiChu.Size = new System.Drawing.Size(230, 37);
             this.txt_GhiChu.TabIndex = 21;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(812, 180);
+            this.label11.Location = new System.Drawing.Point(829, 218);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(55, 19);
             this.label11.TabIndex = 20;
@@ -426,10 +458,11 @@
             this.Column3,
             this.Column14,
             this.Column12,
-            this.Column11});
-            this.dataGridView1.Location = new System.Drawing.Point(27, 67);
+            this.Column11,
+            this.Column8});
+            this.dataGridView1.Location = new System.Drawing.Point(35, 79);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1261, 234);
+            this.dataGridView1.Size = new System.Drawing.Size(1243, 234);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged_1);
             // 
@@ -458,9 +491,18 @@
             this.lbl_Manv.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Manv.Location = new System.Drawing.Point(4, 4);
             this.lbl_Manv.Name = "lbl_Manv";
-            this.lbl_Manv.Size = new System.Drawing.Size(57, 19);
+            this.lbl_Manv.Size = new System.Drawing.Size(153, 19);
             this.lbl_Manv.TabIndex = 5;
-            this.lbl_Manv.Text = "label14";
+            this.lbl_Manv.Text = "Danh Mục Mặt Hàng";
+            // 
+            // dataSet11
+            // 
+            this.dataSet11.DataSetName = "DataSet1";
+            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // xtraOpenFileDialog1
+            // 
+            this.xtraOpenFileDialog1.FileName = "xtraOpenFileDialog1";
             // 
             // Column1
             // 
@@ -540,6 +582,13 @@
             this.Column11.HeaderText = "Ghichú";
             this.Column11.Name = "Column11";
             // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "HINHMH1";
+            this.Column8.HeaderText = "Hình ảnh";
+            this.Column8.Name = "Column8";
+            this.Column8.Visible = false;
+            // 
             // frm_DanhMucSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -552,12 +601,15 @@
             this.Load += new System.EventHandler(this.frm_DanhMucSanPham_Load);
             this.groupBox_TTCTSanPham.ResumeLayout(false);
             this.groupBox_TTCTSanPham.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeChartRangeControlClient1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -601,6 +653,10 @@
         private System.Windows.Forms.RadioButton radioButton_Con;
         private System.Windows.Forms.Button btn_LamMoi;
         private System.Windows.Forms.Button btn_Sửa;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private DataSet1 dataSet11;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private DevExpress.XtraEditors.XtraOpenFileDialog xtraOpenFileDialog1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
@@ -614,5 +670,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
     }
 }

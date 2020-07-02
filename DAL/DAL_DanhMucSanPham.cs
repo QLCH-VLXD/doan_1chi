@@ -52,8 +52,8 @@ namespace DAL
                                  mh.HANMUCHETHANG,
                                  mh.XUATXU,
                                  mh.GHICHU,
-                                 mh.TINHTRANG
-
+                                 mh.TINHTRANG,
+                                 mh.HINHMH,
                              };
             var kq = DS_MatHang.ToList().ConvertAll(t => new Bangghep_DMMH()
             {
@@ -69,7 +69,8 @@ namespace DAL
                 HANMUCHETHANG1 = t.HANMUCHETHANG,
                 XUATXU1 = t.XUATXU,
                 GHICHU1 = t.GHICHU,
-                TINHTRANG1 = t.TINHTRANG
+                TINHTRANG1 = t.TINHTRANG,
+                HINHMH1=t.HINHMH,
             });
             return kq.ToList<Bangghep_DMMH>();
         }
@@ -132,6 +133,7 @@ namespace DAL
                 aa.TINHTRANG = mh.TINHTRANG;
                 aa.XUATXU = mh.XUATXU;
                 aa.GHICHU = mh.GHICHU;
+                aa.HINHMH = mh.HINHMH;
                 dal_data.SubmitChanges();
                 return true;
             }

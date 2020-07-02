@@ -152,7 +152,7 @@ namespace DAL
                 dal_data.SubmitChanges();
                 return true;
             }
-            catch
+            catch(Exception e)
             {
                 return false;
             }

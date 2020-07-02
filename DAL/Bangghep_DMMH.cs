@@ -24,6 +24,8 @@ namespace DAL
         string XUATXU;
         string GHICHU;
         string TINHTRANG;
+        System.Data.Linq.Binary HINHMH;
+
 
         public string MALOAIMATHANG1 { get => MALOAIMATHANG; set => MALOAIMATHANG = value; }
         public string TENLOAIMATHANG1 { get => TENLOAIMATHANG; set => TENLOAIMATHANG = value; }
@@ -40,6 +42,7 @@ namespace DAL
         public string XUATXU1 { get => XUATXU; set => XUATXU = value; }
         public string GHICHU1 { get => GHICHU; set => GHICHU = value; }
         public string TINHTRANG1 { get => TINHTRANG; set => TINHTRANG = value; }
+        public System.Data.Linq.Binary HINHMH1 { get => HINHMH; set => HINHMH = value; }
 
     }
 }

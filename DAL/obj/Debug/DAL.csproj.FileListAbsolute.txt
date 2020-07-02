@@ -16,7 +16,6 @@ C:\Users\Admin\Documents\GitHub\doan_1chi\DAL\bin\Debug\DAL.dll
 C:\Users\Admin\Documents\GitHub\doan_1chi\DAL\bin\Debug\DAL.pdb
 C:\Users\Admin\Documents\GitHub\doan_1chi\DAL\obj\Debug\DAL.dll
 C:\Users\Admin\Documents\GitHub\doan_1chi\DAL\obj\Debug\DAL.pdb
-C:\Users\Admin\Documents\GitHub\doan_1chi\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
 C:\Users\DELL\Documents\GitHub\doan_1chi\DAL\bin\Debug\DAL.dll.config
 C:\Users\DELL\Documents\GitHub\doan_1chi\DAL\bin\Debug\DAL.dll
 C:\Users\DELL\Documents\GitHub\doan_1chi\DAL\bin\Debug\DAL.pdb
@@ -24,3 +23,4 @@ C:\Users\DELL\Documents\GitHub\doan_1chi\DAL\obj\Debug\DAL.csprojAssemblyReferen
 C:\Users\DELL\Documents\GitHub\doan_1chi\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Documents\GitHub\doan_1chi\DAL\obj\Debug\DAL.dll
 C:\Users\DELL\Documents\GitHub\doan_1chi\DAL\obj\Debug\DAL.pdb
+C:\Users\Admin\Documents\GitHub\doan_1chi\DAL\obj\Debug\DAL.csprojAssemblyReference.cache

@@ -69,5 +69,15 @@ namespace QuanLy_CH_VLXD.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Santa_Claus_Sad_icon {
+            get {
+                object obj = ResourceManager.GetObject("Santa-Claus-Sad-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
